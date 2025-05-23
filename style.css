@@ -92,28 +92,6 @@ body {
 .cta-button:hover {
   background-color: #e64800;
 }
-.about-hero {
-  background-color: #222;
-  color: white;
-  padding: 80px 20px;
-  text-align: center;
-}
-.about-hero h1 {
-  font-size: 2.5rem;
-  margin: 0;
-}
-
-.about-content {
-  padding: 60px 20px;
-  max-width: 800px;
-  margin: 0 auto;
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: #ddd;
-}
-section {
-  margin-bottom: 60px;
-}
 
 @media (max-width: 600px) {
   .hero h1 {
@@ -175,34 +153,26 @@ section {
   color: #f4f4f4;
   text-align: center;
 }
+.about-hero {
+  background-color: #222;
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+}
 
-.music-section h2 {
+.about-hero h1 {
   font-size: 2.5rem;
-  margin-bottom: 40px;
+  margin: 0;
 }
 
-.album {
-  margin-bottom: 50px;
+.about-content {
+  padding: 40px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #333;
 }
 
-.album img {
-  width: 200px;
-  border-radius: 10px;
-  margin-bottom: 10px;
-}
 
-.album h3 {
-  margin-top: 10px;
-  font-size: 1.5rem;
-}
-
-.album a {
-  color: #ff5500;
-  margin: 0 10px;
-  text-decoration: none;
-}
-
-.album a:hover {
-  text-decoration: underline;
-}
 
