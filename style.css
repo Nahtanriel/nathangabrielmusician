@@ -34,3 +34,39 @@ body {
 .nav-links li a:hover {
   color: #fff;
 }
+.hero {
+  background: url('hero.jpg') no-repeat center center/cover;
+  padding: 380px 20px;
+  text-align: center;
+  color: #fff;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  margin-bottom: 30px;
+}
+
+.cta-button {
+  background-color: #ff5500;
+  color: white;
+  padding: 15px 30px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 30px;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #e64800;
+}
+
