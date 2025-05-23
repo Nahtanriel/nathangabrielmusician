@@ -35,8 +35,9 @@ body {
 .nav-links li a:hover {
   color: #fff;
 }
+
 .hero {
-  background: url('hero2.jpg') no-repeat center center/cover;
+  background: url('hero.jpg') no-repeat center center/cover;
   padding: 100px 20px;
   text-align: center;
   color: #fff;
@@ -45,6 +46,27 @@ body {
 .hero-content {
   max-width: 800px;
   margin: 0 auto;
+}
+
+.hero {
+  position: relative;
+  background: url('hero.jpg') no-repeat center center/cover;
+  padding: 100px 20px;
+  text-align: center;
+  color: #fff;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4); /* dark overlay */
+  z-index: -1;
 }
 
 .hero h1 {
@@ -92,3 +114,18 @@ body {
 section {
   margin-bottom: 60px;
 }
+
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .hero {
+    padding: 60px 15px;
+  }
+}
+
