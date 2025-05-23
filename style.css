@@ -1,8 +1,9 @@
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
   background-color: #111;
   color: #f4f4f4;
+  line-height: 1.6;
 }
 
 .navbar {
@@ -35,8 +36,8 @@ body {
   color: #fff;
 }
 .hero {
-  background: url('hero.jpg') no-repeat center center/cover;
-  padding: 380px 20px;
+  background: url('hero2.jpg') no-repeat center center/cover;
+  padding: 100px 20px;
   text-align: center;
   color: #fff;
 }
@@ -69,4 +70,25 @@ body {
 .cta-button:hover {
   background-color: #e64800;
 }
+.about-hero {
+  background-color: #222;
+  color: white;
+  padding: 80px 20px;
+  text-align: center;
+}
+.about-hero h1 {
+  font-size: 2.5rem;
+  margin: 0;
+}
 
+.about-content {
+  padding: 60px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #ddd;
+}
+section {
+  margin-bottom: 60px;
+}
