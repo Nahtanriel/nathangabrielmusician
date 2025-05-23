@@ -127,5 +127,82 @@ section {
   .hero {
     padding: 60px 15px;
   }
+.contact-hero {
+  background-color: #111;
+  color: #fff;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.contact-hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.contact-hero p {
+  font-size: 1.2rem;
+  color: #ccc;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.contact-form label {
+  display: block;
+  margin: 15px 0 5px;
+  font-weight: bold;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  background-color: #222;
+  color: white;
+  border: 1px solid #444;
+  border-radius: 5px;
+}
+
+.contact-form button {
+  margin-top: 20px;
+.music-section {
+  background-color: #111;
+  padding: 60px 20px;
+  color: #f4f4f4;
+  text-align: center;
+}
+
+.music-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+}
+
+.album {
+  margin-bottom: 50px;
+}
+
+.album img {
+  width: 200px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.album h3 {
+  margin-top: 10px;
+  font-size: 1.5rem;
+}
+
+.album a {
+  color: #ff5500;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.album a:hover {
+  text-decoration: underline;
 }
 
