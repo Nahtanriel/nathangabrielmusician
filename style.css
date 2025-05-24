@@ -39,10 +39,10 @@ body {
 
 .hero {
   position: relative;
-  background: url('hero.jpg') no-repeat center center/cover;
-  padding: 100px 20px;
+  background: url('hero.jpg') center/cover no-repeat;
+  padding: 120px 20px;
   text-align: center;
-  color: #fff;
+  color: white;
   z-index: 1;
   overflow: hidden;
 }
@@ -61,7 +61,11 @@ body {
 .hero-content {
   max-width: 800px;
   margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 40px;
+  border-radius: 12px;
 }
+
 
 .hero h1 {
   font-size: 3rem;
@@ -148,7 +152,7 @@ body {
 .music-section,
 .video-section {
   background-color: #111;
-  padding: 60px 20px;
+  padding: 30px 15px;
   color: #f4f4f4;
   text-align: center;
 }
@@ -368,6 +372,56 @@ body {
 .btn-secondary:hover {
   background-color: #eee;
 }
+
+h1, h2, h3, h4 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 2.8rem;
+}
+
+h2 {
+  font-size: 2.2rem;
+  color: #ff5500;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+p {
+  font-size: 1.1rem;
+  color: #ccc;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    background-color: #222;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    display: none;
+    text-align: right;
+    padding: 1rem;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+
 
 
 
