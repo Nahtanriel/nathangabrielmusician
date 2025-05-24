@@ -109,7 +109,7 @@ body {
   background-color: #111;
   color: #fff;
   text-align: center;
-  padding: 60px 20px;
+  padding: 15px 10px;
 }
 
 .contact-hero h1 {
@@ -254,7 +254,7 @@ body {
 }
 
 .about-image img {
-  max-width: 300px;
+  max-width: 600px;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
