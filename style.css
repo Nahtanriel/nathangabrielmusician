@@ -214,13 +214,17 @@ body, main, .page-content, .about-section {
 }
 
 .video-wrapper {
-  max-width: 800px;
-  margin: 0 auto;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem auto;
+  width: 100%;
 }
-
+.video-wrapper iframe {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
 .site-footer {
   background-color: #222;
   color: #ccc;
