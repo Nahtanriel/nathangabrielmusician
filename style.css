@@ -3,7 +3,7 @@ body {
   font-family: 'Poppins', sans-serif;
   background-color: #111;
   color: #f4f4f4;
-  line-height: 1.0;
+  line-height: 1.5;
   scroll-behavior: smooth;
 }
 
@@ -616,6 +616,7 @@ button,
 }
 color: var(--light-text);
 background-color: var(--primary-color);
+
 
 
 
