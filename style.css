@@ -580,6 +580,21 @@ img, iframe {
 .error-section .btn:hover {
   background-color: #cc7a00;
 }
+.mailto-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #ff6600;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.mailto-button:hover {
+  background-color: #e65c00;
+}
+
 
 
 
