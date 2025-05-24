@@ -452,6 +452,50 @@ body, main, .page-content, .about-section {
   text-decoration: underline;
 }
 
+.nav-links a:focus,
+.nav-links a:active {
+  outline: 2px solid orange; /* Matches your orange text color */
+  outline-offset: 2px; /* Adds a little space outside the outline */
+  background-color: transparent; /* Remove blue highlight background */
+  color: blue; /* Keep your orange text */
+  border-radius: 4px; /* Optional: soften edges */
+  text-decoration: none; /* Optional: remove underline */
+}
+
+.site-footer {
+  background-color: #222;
+  color: #eee;
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.9rem;
+  border-top: 1px solid #444;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.social-links a {
+  margin: 0 0.5rem;
+  display: inline-block;
+}
+
+.social-links img {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1); /* makes dark icons white-ish */
+  transition: transform 0.2s ease;
+}
+
+.social-links img:hover {
+  transform: scale(1.2);
+}
+
+
+
 
 
 
