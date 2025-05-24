@@ -3,16 +3,23 @@ body {
   font-family: 'Poppins', sans-serif;
   background-color: #111;
   color: #f4f4f4;
-  line-height: 1.6;
+  line-height: 1.0;
   scroll-behavior: smooth;
 }
 
 .navbar {
-  background-color: #222;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff; 
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+body, main, .page-content, .about-section {
+  padding-top: 60px; 
+}
 }
 
 .logo {
@@ -28,13 +35,22 @@ body {
 }
 
 .nav-links li a {
+  color: #333;
   text-decoration: none;
-  color: #ccc;
-  transition: color 0.3s ease;
+  padding: 8px 15px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .nav-links li a:hover {
+  background-color: #005f73; /* Or your brand color */
   color: #fff;
+  border-radius: 5px;
+}
+
+.nav-links li a.active {
+  background-color: #0a9396; /* Stronger highlight */
+  color: #fff;
+  font-weight: bold;
 }
 
 .hero {
@@ -415,6 +431,27 @@ body {
     max-width: 90%;
   }
 }
+
+.site-footer {
+  background-color: #222;
+  color: #ddd;
+  text-align: center;
+  padding: 20px 15px;
+  font-size: 0.9rem;
+  margin-top: 40px;
+  border-top: 1px solid #444;
+}
+
+.site-footer a {
+  color: #ffa500; /* or a color that fits your brand */
+  text-decoration: none;
+  margin: 0 8px;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
+
 
 
 
