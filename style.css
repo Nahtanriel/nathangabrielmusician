@@ -3,7 +3,7 @@ body {
   font-family: 'Poppins', sans-serif;
   background-color: #111;
   color: #f4f4f4;
-  line-height: 1.0;
+  line-height: 1.5;
   scroll-behavior: smooth;
 }
 
@@ -19,7 +19,6 @@ body {
 
 body, main, .page-content, .about-section {
   padding-top: 60px; 
-}
 }
 
 .logo {
@@ -54,34 +53,23 @@ body, main, .page-content, .about-section {
 }
 
 .hero {
-  position: relative;
-  background: url('hero.jpg') center/cover no-repeat;
-  padding: 120px 20px;
-  text-align: center;
-  color: white;
-  z-index: 1;
-  overflow: hidden;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
+  background-image: url('hero.jpg');
+  background-size: cover;      
+  background-position: center; 
+  background-repeat: no-repeat;
   width: 100%;
-  background: rgba(0, 0, 0, 0.4);
-  z-index: -1;
+  height: 65vh;               
+  background-color:  #005f73;    
+  text-align: center;
 }
 
 .hero-content {
-  max-width: 800px;
-  margin: 0 auto;
+  max-width: 3000px;
+  max-height: 2000px;
+  margin: auto;
   background-color: rgba(0, 0, 0, 0.5);
-  padding: 40px;
-  border-radius: 12px;
+  padding: 178px;
 }
-
 
 .hero h1 {
   font-size: 3rem;
@@ -326,7 +314,7 @@ body, main, .page-content, .about-section {
 
 .booking-wrapper iframe {
   width: 100%;
-  height: 700%;
+  height: 700px;
   border: none;
   border-radius: 10px;
   background-color: #1e1e1e;
@@ -339,31 +327,6 @@ body, main, .page-content, .about-section {
 .nav-links li a.active {
   color: #ff5500;
   font-weight: bold;
-}
-
-.hero {
-  background: url('hero.jpg') center/cover no-repeat;
-  padding: 120px 20px;
-  text-align: center;
-  color: white;
-}
-
-.hero-content {
-  max-width: 800px;
-  margin: 0 auto;
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 40px;
-  border-radius: 12px;
-}
-
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 20px;
-}
-
-.hero p {
-  font-size: 1.25rem;
-  margin-bottom: 30px;
 }
 
 .hero-buttons .btn-primary,
@@ -459,12 +422,12 @@ body, main, .page-content, .about-section {
 
 .nav-links a:focus,
 .nav-links a:active {
-  outline: 2px solid orange; /* Matches your orange text color */
-  outline-offset: 2px; /* Adds a little space outside the outline */
-  background-color: transparent; /* Remove blue highlight background */
-  color: blue; /* Keep your orange text */
-  border-radius: 4px; /* Optional: soften edges */
-  text-decoration: none; /* Optional: remove underline */
+  outline: 2px solid #ff5500; 
+  outline-offset: 2px; 
+  background-color: transparent; 
+  color: blue; 
+  border-radius: 4px; 
+  text-decoration: none; 
 }
 
 .site-footer {
@@ -644,6 +607,15 @@ body {
   font-size: 2rem;
   margin-bottom: 1rem;
 }
+button,
+.cta-button,
+.btn-primary,
+.btn-secondary {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+color: var(--light-text);
+background-color: var(--primary-color);
+
 
 
 
