@@ -172,6 +172,7 @@ body {
   max-width: 400px;
   margin: 20px auto;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+
 }
 
 .album img {
@@ -373,53 +374,23 @@ body {
   background-color: #eee;
 }
 
-h1, h2, h3, h4 {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700;
-  line-height: 1.2;
+.contact-form button,
+.booking-wrapper button {
+  background-color: #ff5500;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-h1 {
-  font-size: 2.8rem;
+.contact-form button:hover,
+.booking-wrapper button:hover {
+  background-color: #e64800;
 }
 
-h2 {
-  font-size: 2.2rem;
-  color: #ff5500;
-  margin-bottom: 20px;
-}
-
-h3 {
-  font-size: 1.5rem;
-}
-
-p {
-  font-size: 1.1rem;
-  color: #ccc;
-}
-
-@media (max-width: 768px) {
-  .nav-links {
-    flex-direction: column;
-    background-color: #222;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    width: 100%;
-    display: none;
-    text-align: right;
-    padding: 1rem;
-  }
-
-  .nav-links.open {
-    display: flex;
-  }
-
-  .navbar {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
 
 
 

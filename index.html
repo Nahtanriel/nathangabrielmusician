@@ -13,7 +13,6 @@
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
       <li><a href="booking.html">Booking</a></li>
     </ul>
   </nav>
@@ -57,27 +56,27 @@
 </section>
 
 <footer class="site-footer">
-  <h2>Contact Me</h2>
-  <form class="contact-form" action="mailto:nathangabrielmusician@gmail.com" method="post" enctype="text/plain">
-    <div class="form-row">
-      <div class="form-group">
-        <label for="first-name">First Name</label>
-        <input type="text" id="first-name" name="first-name" required>
-      </div>
-      <div class="form-group">
-        <label for="last-name">Last Name</label>
-        <input type="text" id="last-name" name="last-name" required>
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" required>
-    </div>
-<label for="message">Message:</label><br>
-  <textarea name="message" rows="5" required></textarea><br><br>
-    <button type="submit" class="btn-submit">Send</button>
+  <link rel="stylesheet" href="style.css" />
 
-  </form>
+  <section class="contact-hero">
+    <h1>Get in Touch</h1>
+    <p>If you would like to email me, please fill out form below!!</p>
+  </section>
+
+  <section class="contact-form">
+    <form action="https://formspree.io/f/mvganlql" method="POST">
+      <label for="name">Name:</label><br>
+  <input type="text" name="name" required><br><br>
+
+  <label for="email">Email:</label><br>
+  <input type="email" name="email" required><br><br>
+
+  <label for="message">Message:</label><br>
+  <textarea name="message" rows="5" required></textarea><br><br>
+
+  <button type="submit">Send</button>
+</form>
+
 </footer>
 
 </body>
