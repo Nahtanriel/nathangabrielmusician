@@ -638,6 +638,12 @@ body {
 body {
   overflow-x: hidden;
 }
+.section-heading {
+  text-align: center;
+  color: #ff5500;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
 
 
 
