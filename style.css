@@ -82,6 +82,10 @@ padding-top: 18px
   background-position: center center;
   background-repeat: no-repeat;
   background-color: rgba(0, 0, 0, 0.5);
+  background-attachment: scroll;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  will-change: transform;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -773,6 +777,12 @@ input, textarea, select {
   .btn {
     width: 100%; /* make buttons full width on small screens */
     text-align: center;
+  }
+  @media screen and (max-width: 768px) {
+  .hero {
+    background-attachment: scroll !important; /* override any inherited settings */
+    background-size: cover;
+    background-position: center center;
   }
  }
 
