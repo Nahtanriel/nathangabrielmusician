@@ -76,7 +76,6 @@ padding-top: 18px
   width: 100vw; 
   height: 100vh;
   margin: 0;
-  padding: 0;
   background-image: url('hero.jpg');
   background-size: cover;
   background-position: center center;
@@ -119,17 +118,24 @@ padding-top: 18px
   transform: translateY(30px);
   animation: fadeInUp 1s ease-out forwards;
   animation-delay: 0.3s;
-  margin-bottom: 13rem;}
+  margin-bottom: 13rem;
 }
 
 .hero-buttons {
   margin-top: 1.5rem;
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 1rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
   opacity: 0;
   transform: translateY(30px);
   animation: fadeInUp 0.8s ease-out forwards;
   animation-delay: 0.9s;
+  padding: 0 1rem;
+  box-sizing: border-box;
 }
 
 @keyframes fadeInUp {
@@ -160,13 +166,13 @@ padding-top: 18px
 .cta-button {
   background-color: #ff5500;
   color: white;
-  padding: 15px 30px;
+  padding: 12px 20px;
   text-decoration: none;
   font-weight: bold;
   border-radius: 30px;
   transition: background-color 0.3s ease;
+  white-space: nowrap; 
 }
-
 .cta-button:hover {
   background-color: #e64800;
 }
@@ -228,8 +234,7 @@ padding-top: 18px
  {
 }
 
-.music-section,
-.video-section {
+.music-section {
   background-color: #111;
   margin-bottom: 0;
   padding-bottom: 0px;
@@ -237,8 +242,7 @@ padding-top: 18px
   text-align: center;
 }
 
-.music-section h2,
-.video-section h2 {
+.music-section h2 {
   font-size: 2.0rem;
   margin-bottom: 0px;
   color: #ff5500;
@@ -418,10 +422,12 @@ padding-top: 18px
 
 .hero-buttons .btn-primary,
 .hero-buttons .btn-secondary {
+  width: 60%;  
   display: inline-block;
   margin: 0;
-  padding: 12px 24px;
-  border-radius: 6px;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  white-space: nowrap;
   text-decoration: none;
   font-weight: bold;
   transition: background-color 0.3s;
@@ -474,7 +480,7 @@ padding-top: 18px
 .nav-links a:focus,
 .nav-links a:active {
   outline: 2px solid #ff5500; 
-  outline-offset: 2px; 
+  outline-offset: px; 
   background-color: transparent; 
   color: blue; 
   border-radius: 4px; 
@@ -693,6 +699,11 @@ nav li {
     padding: 5px 8px;
   }
 
+@media (max-width: 600px) {
+    .hero {
+    padding: 0px 0px;
+  }
+
 .hamburger {
   display: none;
   flex-direction: column;
@@ -717,8 +728,8 @@ nav li {
   .nav-links {
     position: absolute;
     top: 30px;
-    right: 0;
-    width: 100%;
+    right: 0px;
+    left: 0px;
     flex-direction: column;
     background-color: #fff;
     padding: 20px;
