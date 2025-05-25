@@ -1,7 +1,11 @@
 <!DOCTYPE html>
-<main>
 <html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Media | Nathan Gabriel</title>
+  <link rel="icon" href="images/favicon.png" type="image/png" />
+  <link rel="stylesheet" href="style.css" />
 <!-- Open Graph Meta Tags -->
 <meta property="og:title" content="Nathan Gabriel | Albums, Videos & Media" />
 <meta property="og:description" content="Explore Nathan’s music, live performances, and media highlights." />
@@ -44,8 +48,10 @@
   <title>Media | Nathan Gabriel</title>
   <link rel="icon" href="images/favicon.png" type="image/png" />
   <link rel="stylesheet" href="style.css" />
+...
 </head>
 <body>
+  <main>
 
   <nav class="navbar">
   <div class="hamburger" id="hamburger">
@@ -61,34 +67,16 @@
     </ul>
   </nav>
 
-<h2 class="section-heading">Watch & Listen</h2>
+<h1 class="section-heading">Watch & Listen</h1>
   <section class="media-section">
     <p>Check out some of my latest videos and performances below.</p>
 
-        <style>
-.video-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 50px; 
-  padding: 20px;
-}
-
-.video-container iframe {
-  width: 100%;
-  max-width: 600px;
-  height: 337px; /* keeps 16:9 ratio with 600px width */
-  border: none;
-  border-radius: 12px; /* optional, for rounded corners */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2); /* optional, adds a nice shadow */
-}
-</style>
-
 <div class="video-container">
-<iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fnathangabrielmusician%2Fvideos%2F1363485050445040%2F&show_text=false&width=560&t=0" width="560" height="314" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
-
-<iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fnathangabrielmusician%2Fvideos%2F1072949849498563%2F&show_text=false&width=560&t=0" width="560" height="314" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+  <div class="video-wrapper">
+<iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fnathangabrielmusician%2Fvideos%2F1363485050445040%2F&show_text=false&width=560&t=0" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
 </div>
+  <div class="video-wrapper">
+<iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fnathangabrielmusician%2Fvideos%2F1072949849498563%2F&show_text=false&width=560&t=0"scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
 
       </div>
     </div>
@@ -100,7 +88,7 @@
     <div class="social-links">
       <a href="https://www.facebook.com/nathangabrielmusician" target="_blank" aria-label="Facebook">
         <img src="images/facebook-icon.svg" alt="Facebook">
-        <i class="fab fa-facebook" aria-hidden="true"></i>
+      
       </a>
       <a href="https://www.youtube.com/@nathangabrielmusician" target="_blank" aria-label="YouTube">
         <img src="images/youtube-icon.svg" alt="YouTube">
@@ -119,5 +107,6 @@
   </div>
 </footer>
 <script src="script.js"></script>
+ </main>
 </body>
 </html>
