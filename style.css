@@ -754,6 +754,9 @@ nav li {
   .fade-in-section {
     transition: none;
   }
+input, textarea, select {
+  font-size: 16px;
+}
  }
 
 
