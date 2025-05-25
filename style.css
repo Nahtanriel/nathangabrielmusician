@@ -559,7 +559,6 @@ body {
 
 img, iframe {
   max-width: 100%;
-  display: block;
 }
 .spotify-embed-wrapper {
   width: 100%;
