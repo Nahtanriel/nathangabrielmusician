@@ -642,6 +642,8 @@ nav li {
     font-size: 0.9rem;
     padding: 5px 8px;
   }
+/* Base nav styles already exist, this adds responsive functionality */
+
 .hamburger {
   display: none;
   flex-direction: column;
@@ -692,7 +694,8 @@ nav li {
 .hamburger.open span:nth-child(3) {
   transform: rotate(-45deg) translate(5px, -5px);
 }
-}
+ }
+
 
 
 
