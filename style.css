@@ -39,12 +39,12 @@ padding-top: 18px
 .nav-links {
   list-style: none;
   display: flex;
-  flex-wrap: wrap;              /* Allows wrapping on smaller screens */
-  justify-content: center;      /* Centers the links horizontally */
+  flex-wrap: wrap;              
+  justify-content: center;      
   align-items: center;
   padding: 0;
   margin: 0;
-  gap: 0.5rem;                  /* Tighter spacing for mobile */
+  gap: 0.5rem;                  
 }
 
 .nav-links li {
@@ -52,7 +52,7 @@ padding-top: 18px
 }
 
 .nav-links li a {
-  color: #333;
+  color: #111;
   text-decoration: none;
   padding: 6px 10px;
   font-size: 1rem;
@@ -60,14 +60,14 @@ padding-top: 18px
 }
 
 .nav-links li a:hover {
-  background-color: #005f73;
+  background-color: #111;
   color: #fff;
-  border-radius: 5px;
+  border-radius: 3px;
 }
 
 .nav-links li a.active {
-  background-color: #0a9396;
-  color: #fff;
+  background-color: #111;
+  color: #111;
   font-weight: bold;
 }
 .hero {
@@ -161,7 +161,7 @@ opacity: 0;
   background-color: #e64800;
 }
 
-@@media (max-width: 600px) {
+@media (max-width: 600px) {
   .about-text, .about-image {
     flex: 1 1 100%;
     max-width: 100%;
@@ -237,19 +237,12 @@ opacity: 0;
 
 .album {
   background-color: #1e1e1e;
-  border-radius: 15px;
-  padding: 20px;
-  width: 100%;
-  max-width: 400px;
-  margin: 20px auto;
+  border-radius: 100px;
+  padding: 0px;
+  width: 100vw;
+  max-width: 600px;
+  margin: initial
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-
-}
-
-.album img {
-  max-width: 100%;
-  border-radius: 10px;
-  margin-bottom: 15px;
 }
 
 .album h3 {
@@ -261,10 +254,6 @@ opacity: 0;
   color: #ff5500;
   margin: 0 5px;
   text-decoration: none;
-}
-
-.album a:hover {
-  text-decoration: underline;
 }
 
 .video-wrapper {
@@ -471,7 +460,7 @@ opacity: 0;
 .album-container {
   display: flex;
   justify-content: center;  
-  gap: 30px;                
+  gap: 0px;                
   flex-wrap: wrap;          
   padding: 20px 0;
 }
