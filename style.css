@@ -44,7 +44,7 @@ padding-top: 18px
   align-items: center;
   padding: 0;
   margin: 0;
-  gap: 0.5rem;                  
+  gap: 1.5rem;                  
 }
 
 .nav-links li {
@@ -71,7 +71,6 @@ padding-top: 18px
   font-weight: bold;
 }
 .hero {
-  aspect-ratio: 16 / 9; /* You can tweak this */
   position: relative;
   z-index: 1;
   width: 100vw; 
@@ -105,17 +104,25 @@ padding-top: 18px
 .hero-content {
   position: relative;
   z-index: 2;
-  padding: 1rem;
+  padding: 1rem 2rem;
   color: #fff;
   width: 100%;
   max-width: 1200px;
-  margin: 0 auto;
-opacity: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
   transform: translateY(30px);
   animation: fadeInUp 1s ease-out forwards;
   animation-delay: 0.3s;
 }
+
 .hero-buttons {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
   opacity: 0;
   transform: translateY(30px);
   animation: fadeInUp 0.8s ease-out forwards;
@@ -135,7 +142,7 @@ opacity: 0;
   top: 0; left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Adjust darkness here */
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 1;
 }
 
@@ -222,7 +229,7 @@ opacity: 0;
 .video-section {
   background-color: #111;
   margin-bottom: 0;
-  padding-bottom: 0;
+  padding-bottom: 0px;
   border-bottom: none;
   color: #f4f4f4;
   text-align: center;
@@ -237,7 +244,7 @@ opacity: 0;
 
 .album {
   background-color: #1e1e1e;
-  border-radius: 100px;
+  border-radius: 0px;
   padding: 0px;
   width: 100vw;
   max-width: 600px;
@@ -460,9 +467,9 @@ opacity: 0;
 .album-container {
   display: flex;
   justify-content: center;  
-  gap: 0px;                
+  gap: 20px;                
   flex-wrap: wrap;          
-  padding: 20px 0;
+  padding: 50px 0;
 }
 
 @media (max-width: 600px) {
@@ -676,10 +683,10 @@ nav ul {
 }
 
 nav li {
-  margin: 5px 0; /* reduce spacing between items */
+  margin: 5px 0; 
 }
 
-/* Stack items vertically on small screens */
+
 @media screen and (max-width: 768px) {
   nav a {
     font-size: 0.95rem;
@@ -697,7 +704,6 @@ nav li {
     font-size: 0.9rem;
     padding: 5px 8px;
   }
-/* Base nav styles already exist, this adds responsive functionality */
 
 .hamburger {
   display: none;
@@ -715,15 +721,14 @@ nav li {
   transition: all 0.3s ease;
 }
 
-/* Mobile Styles */
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   .hamburger {
     display: flex;
   }
 
   .nav-links {
     position: absolute;
-    top: 60px;
+    top: 30px;
     right: 0;
     width: 100%;
     flex-direction: column;
@@ -757,6 +762,18 @@ nav li {
 input, textarea, select {
   font-size: 16px;
 }
+@media (max-width: 600px) {
+  .hero-content {
+    padding: 0 1rem; /* reduce padding */
+  }
+.hero-buttons {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .btn {
+    width: 100%; /* make buttons full width on small screens */
+    text-align: center;
+  }
  }
 
 
