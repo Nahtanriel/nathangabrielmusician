@@ -90,7 +90,7 @@ function openModal() {
 function closeModal() {
   modal.style.display = "none";
   isModalOpen = false;
-  toggleBtn.textContent = "OPEN BOOKING FORM";
+  toggleBtn.textContent = "☰";
 
   // Optional: remove class to re-enable scroll on body
   document.body.classList.remove("modal-open");
