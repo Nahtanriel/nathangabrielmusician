@@ -480,9 +480,10 @@ transition: top 0.4s ease-in-out;
   transform: scale(1.2);
 }
 .media-section {
-  padding: 0px 0px;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
   text-align: center;
-  color: white;
 }
 
 .video-gallery {
