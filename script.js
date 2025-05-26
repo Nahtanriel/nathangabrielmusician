@@ -46,10 +46,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   }, displayDuration);
 });
-// Modal logic
+
 const modal = document.getElementById("bookingModal");
 const formContainer = document.getElementById("formContainer");
 const toggleBtn = document.getElementById("toggleBookingModal");
+const closeBtn = document.getElementById("closeModalBtn");
 
 const imageTriggers = [
   'images/acoustic-intimate.jpg',
@@ -58,9 +59,8 @@ const imageTriggers = [
 ];
 
 let isModalOpen = false;
-let formLoaded = false; // Track if form has already been added
+let formLoaded = false; 
 
-// Show modal and load form (if not already loaded)
 function openModal() {
   modal.style.display = "block";
   isModalOpen = true;
@@ -81,12 +81,12 @@ function openModal() {
   }
 }
 
-// Hide modal
+
 function closeModal() {
   modal.style.display = "none";
   isModalOpen = false;
   toggleBtn.textContent = "☰";
-  // formContainer.innerHTML = ""; // Keep form loaded if you prefer
+  // formContainer.innerHTML = ""; 
 }
 
 document.querySelectorAll(".service-card img").forEach(img => {
