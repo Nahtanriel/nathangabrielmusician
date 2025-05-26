@@ -71,7 +71,7 @@
 <section class="services-section">
 <div class="music-section h2">
   <h2>Service Options</h2>
-<p>Please Use Booking Form at Bottom of Page<p>
+<p>Please Select a Service by Clicking on It<p>
   <div class="services-container">
  
     <div class="service-card">
@@ -91,19 +91,13 @@
       <img src="images/busking-market.jpg" alt="Busking / Market (Unpowered)">
       <h3>Busking / Market (Unpowered)</h3>
       <p>Completely mobile and self-sufficient setup for street corners, markets, and pop-up events. A raw and authentic sound, no power required.</p>
+<button id="toggleBookingModal" class="toggle-btn">☰</button>
+<div id="bookingModal" class="modal">
+  <div class="modal-content">
+    <div id="formContainer"></div>
     </div>
   </div>
 </section>
-
-<div class="booking-form-container">
-  <iframe title="Booking Form"src="https://form.jotform.com/251430610711038"
-    width="100%"
-    height="900"
-    frameborder="0"
-    style="border:none;"
-    allowfullscreen
-  ></iframe>
-</div>
 
 <footer class="site-footer">
   <div class="footer-content">
@@ -129,6 +123,9 @@
       </a>   
     </div>
   </div>
-<script src="script.js"></script>
+
+  </div>
+</div>
+</div><script src="script.js"></script>
 </body>
 </html>

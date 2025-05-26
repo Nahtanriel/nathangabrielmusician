@@ -46,3 +46,69 @@ document.addEventListener('DOMContentLoaded', () => {
 
   }, displayDuration);
 });
+// Modal logic
+const modal = document.getElementById("bookingModal");
+const formContainer = document.getElementById("formContainer");
+const toggleBtn = document.getElementById("toggleBookingModal");
+
+const imageTriggers = [
+  'images/acoustic-intimate.jpg',
+  'images/large-sound.jpg',
+  'images/busking-market.jpg'
+];
+
+let isModalOpen = false;
+let formLoaded = false; // Track if form has already been added
+
+// Show modal and load form (if not already loaded)
+function openModal() {
+  modal.style.display = "block";
+  isModalOpen = true;
+  toggleBtn.textContent = "×";
+
+  if (!formLoaded) {
+    const iframe = document.createElement("iframe");
+    iframe.src = "https://form.jotform.com/251430610711038";
+    iframe.title = "Booking Form";
+    iframe.width = "100%";
+    iframe.height = "700";
+    iframe.style.border = "none";
+    iframe.allowFullscreen = true;
+
+    formContainer.innerHTML = "";
+    formContainer.appendChild(iframe);
+    formLoaded = true;
+  }
+}
+
+// Hide modal
+function closeModal() {
+  modal.style.display = "none";
+  isModalOpen = false;
+  toggleBtn.textContent = "☰";
+  // formContainer.innerHTML = ""; // Keep form loaded if you prefer
+}
+
+document.querySelectorAll(".service-card img").forEach(img => {
+  if (imageTriggers.includes(img.getAttribute("src"))) {
+    img.style.cursor = "pointer";
+    img.addEventListener("click", openModal);
+  }
+});
+
+// Toggle button click
+toggleBtn.addEventListener("click", () => {
+  if (isModalOpen) {
+    closeModal();
+  } else {
+    openModal();
+  }
+});
+
+// Close modal if user clicks outside content
+window.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    closeModal();
+  }
+});
+
