@@ -479,14 +479,14 @@ transition: top 0.4s ease-in-out;
 
 .video-card {
   background-color: #111;
-  border-radius: 5px;
+  border-radius: 0px;
   overflow: hidden;
 }
 
 .video-card iframe {
   width: 100%;
   aspect-ratio: 16 / 9;
-  border-radius: 12px;
+  border-radius: 0px;
   border: none;
 }
 
@@ -533,7 +533,7 @@ transition: top 0.4s ease-in-out;
   width: 100%;
   max-width: 350px;
   aspect-ratio: 9 / 16;
-  border-radius: 12px;
+  border-radius: 0px;
   border: none;
   display: block;
   margin: 0 auto; 
@@ -541,7 +541,7 @@ transition: top 0.4s ease-in-out;
 .responsive-iframe {
   position: relative;
   width: 100%;
-  padding-bottom: 56.25%; /* 16:9 ratio */
+  padding-bottom: 56.25%;
   height: 0;
   overflow: hidden;
 }
