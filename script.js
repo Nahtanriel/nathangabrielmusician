@@ -79,14 +79,21 @@ function openModal() {
     formContainer.appendChild(iframe);
     formLoaded = true;
   }
+  
+  // Scroll smoothly to the modal after opening
+  modal.scrollIntoView({ behavior: "smooth", block: "start" });
+  
+  // Optional: add a class to prevent background scroll when modal is open
+  document.body.classList.add("modal-open");
 }
-
 
 function closeModal() {
   modal.style.display = "none";
   isModalOpen = false;
-  toggleBtn.textContent = "☰";
-  // formContainer.innerHTML = ""; 
+  toggleBtn.textContent = "OPEN BOOKING FORM";
+
+  // Optional: remove class to re-enable scroll on body
+  document.body.classList.remove("modal-open");
 }
 
 document.querySelectorAll(".service-card img").forEach(img => {
