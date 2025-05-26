@@ -835,6 +835,18 @@ input, textarea, select {
   margin-top: 0.5rem;
   color: #555;
 {
+.booking-form-container {
+  max-width: 900px;
+  margin: 4rem auto;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+}
+.booking-form-container h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
 
 
 
