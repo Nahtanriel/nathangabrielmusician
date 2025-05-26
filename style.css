@@ -8,14 +8,6 @@ body {
   line-height: 1.5;
   scroll-behavior: smooth;
 }
-
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  overflow-x: hidden;
-}
-
 .navbar {
   position: fixed;
   top: 0;
@@ -24,10 +16,6 @@ html, body {
   z-index: 1000;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 transition: top 0.4s ease-in-out;
-}
-
-body, main, .page-content, .about-section {
-padding-top: 18px
 }
 
 .logo {
@@ -70,13 +58,7 @@ padding-top: 18px
   background-color: #111;
   color: #fff;
   border-radius: 3px;
-}
-
-.nav-links li a.active {
-  background-color: #111;
-  color: #111;
-  font-weight: bold;
-}
+ }
 
 .hero {
   position: relative;
@@ -89,7 +71,6 @@ padding-top: 18px
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
-  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   will-change: transform;
   display: flex;
@@ -176,12 +157,15 @@ padding-top: 18px
   text-decoration: none;
   font-weight: bold;
   border-radius: 30px;
-  transition: background-color 0.3s ease;
-  white-space: nowrap; 
+  transition: all 0.3s ease;
+  transform: scale(1);
 }
+
 .cta-button:hover {
   background-color: #e64800;
+  transform: scale(1.05);
 }
+
 
 @media (max-width: 600px) {
   .about-text, .about-image {
@@ -202,7 +186,6 @@ padding-top: 18px
   background-color: #111;
   color: #fff;
   text-align: center;
-  padding: 15px 10px;
 }
 
 .contact-hero h1 {
@@ -217,8 +200,8 @@ padding-top: 18px
 
 .contact-form {
   margin: 20px auto;
-  max-width: 600px;
-  text-align: centre;
+  max-width: 500px;
+  text-align: center;
 }
 
 .contact-form label {
@@ -226,7 +209,6 @@ padding-top: 18px
   margin: 0px 0 0px;
   font-weight: bold;
 }
-
 .contact-form input,
 .contact-form textarea {
   width: 100%;
@@ -235,11 +217,8 @@ padding-top: 18px
   margin-top: 5px;
   background: #333;
   border: 1px solid #666;
-  color: #fff;}
-
- {
+  color: #fff;
 }
-
 .music-section {
   background-color: #111;
   margin-bottom: 0;
@@ -260,12 +239,11 @@ padding-top: 18px
   padding: 0px;
   width: 100vw;
   max-width: 600px;
-  margin: initial
+  margin: initial;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .album h3 {
-  margin-top: px;
   color: #fff;
 }
 
@@ -309,8 +287,8 @@ padding-top: 18px
 .about-section {
   display: flex;
   flex-wrap: wrap;
-  padding: 60px 5px;
-  gap: 40px;
+  padding: 0px 10px;
+  gap: 20px;
   justify-content: center;
   align-items: center;
   background-color: #111;
@@ -333,18 +311,12 @@ padding-top: 18px
 
 .fade-image {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 0; left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  animation: fadeSlideshow 16s infinite;
   opacity: 0;
-  transition: opacity 1s ease-in-out;
-  z-index: 0;
-}
-.fade-image.active {
-  opacity: 1;
-  z-index: 1;
 }
 
 .fade-image:nth-child(1) { animation-delay: 0s; }
@@ -353,16 +325,14 @@ padding-top: 18px
 .fade-image:nth-child(4) { animation-delay: 12s; }
 
 @keyframes fadeSlideshow {
-  0%   { opacity: 0; }
-  5%   { opacity: 1; }
-  25%  { opacity: 1; }
-  30%  { opacity: 0; }
-  100% { opacity: 0; }
+  0%, 5%    { opacity: 0; }
+  10%, 25%  { opacity: 1; }
+  30%, 100% { opacity: 0; }
 }
 
 .about-text {
   width: 100%;
-  max-width: 768px;
+  max-width: 600px;
   color: #f4f4f4;
 }
 
@@ -382,7 +352,6 @@ padding-top: 18px
   background-color: #111;
   color: #fff;
   text-align: center;
-  padding: 60px 20px;
 }
 
 .booking-hero h1 {
@@ -393,16 +362,6 @@ padding-top: 18px
 .booking-hero p {
   font-size: 1.2rem;
   color: #ccc;
-}
-
-.booking-wrapper {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 20px;
-  background-color: #1e1e1e;
-  border-radius: 10px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-  text-align: center;
 }
 
 .booking-wrapper iframe {
@@ -470,19 +429,18 @@ padding-top: 18px
 }
 
 @media (max-width: 600px) {
-    .album-container {
-    flex-direction: ;
+  .album-container {
+    flex-direction: column;
     align-items: center;
   }
+
   .album {
     max-width: 100vw;
   }
 }
-
 .nav-links a:focus,
 .nav-links a:active {
-  outline: 2px solid #ff5500; 
-  outline-offset: px; 
+  outline: 2px solid #ff5500;  
   background-color: transparent; 
   color: blue; 
   border-radius: 4px; 
@@ -632,17 +590,10 @@ body, html {
   padding-left: 0;
   padding-right: 0;
   padding-top: 1rem;
-  padding-bottom: 1rem;}
-  .about-container {
-  flex-direction: column;
-  align-items: center;
+  padding-bottom: 1rem;
+ }
 }
-
-body {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   .video-wrapper {
     flex: 1 1 100%;
   }
@@ -681,8 +632,7 @@ nav li {
   margin: 5px 0; 
 }
 
-
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 600px) {
   nav a {
     font-size: 0.95rem;
     flex-direction: column;
@@ -723,7 +673,7 @@ nav li {
   transition: all 0.3s ease;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   .hamburger {
     display: flex;  
 }
@@ -798,72 +748,65 @@ input, textarea, select {
   height: 100%;
   border: none;
 }
-.service-gallery {
-  background-color: #111;
-  color: #f4f4f4;
-  text-align: center;
-  padding: 0rem 0rem;
-}
-
-.service-cards {
+.services-section {
   display: flex;
   flex-wrap: wrap;
+  padding: 0px 10px;
+  gap: 20px;
   justify-content: center;
+  align-items: center;
+  background-color: #111;
+}
+
+.services-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #ff5500;
+}
+
+.services-container {
+  display: flex;
+  flex-wrap: wrap;
   gap: 2rem;
-  padding: 2rem;
+  justify-content: center;
 }
 
 .service-card {
-  background-color: #222;
+  color: #f4f4f4;
+  background-color: #1e1e1e;
   border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: 300px;
   padding: 1rem;
-  max-width: 350px;
-  flex: 1 1 300px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   text-align: center;
+  transition: transform 0.3s ease;
 }
 
 .service-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
 }
 
 .service-card img {
   width: 100%;
-  height: 300px;               
+  height: 180px;
   object-fit: cover;
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
+  border-radius: 8px;
 }
 
 .service-card h3 {
-  color: #ff5500;
-  margin: 1rem 1rem 0.5rem;
-  font-size: 1.1rem;
-  min-height: 3rem; 
+  margin-top: 1rem;
+  font-size: 1.25rem;
 }
 
 .service-card p {
   font-size: 0.95rem;
-  line-height: 1.5;
-  margin: 0 1rem 1.5rem;
+  margin-top: 0.5rem;
+  color: #555;
+{
+.section {
+  padding: 60px 20px;
+ }
 }
-
-@media (max-width: 768px) {
-  .service-cards {
-    flex-direction: column;
-    align-items: center;
-  }
-}
-
-
-
-
-
-
-
-
-
 
 
 

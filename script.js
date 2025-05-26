@@ -26,17 +26,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const fadeDuration = 1000; // duration matches CSS transition time (1 second)
   const displayDuration = 4000; // how long each image shows before fade
 
-  // Initialize first image visible
+  
   images[currentIndex].classList.add('active');
 
   setInterval(() => {
     const nextIndex = (currentIndex + 1) % images.length;
-
-    // Start fade-in next image
+    
     images[nextIndex].classList.add('active');
 
-    // After fadeDuration, fade out the current image
-    setTimeout(() => {
+        setTimeout(() => {
       images[currentIndex].classList.remove('active');
       currentIndex = nextIndex;
     }, fadeDuration);
