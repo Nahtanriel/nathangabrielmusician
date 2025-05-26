@@ -120,11 +120,10 @@ transition: top 0.4s ease-in-out;
   opacity: 0;
   transform: translateY(30px);
   animation: fadeInUp 0.8s ease-out forwards;
-  animation-delay: 0.9s;
+  animation-delay: 1.9s;
   padding: 0 1rem;
   box-sizing: border-box;
 }
-
 @keyframes fadeInUp {
   to {
     opacity: 1;
@@ -149,24 +148,6 @@ transition: top 0.4s ease-in-out;
 .hero p {
   font-size: 1.2rem;
 }
-
-.cta-button {
-  background-color: #ff5500;
-  color: white;
-  padding: 12px 20px;
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 30px;
-  transition: all 0.3s ease;
-  transform: scale(1);
-}
-
-.cta-button:hover {
-  background-color: #e64800;
-  transform: scale(1.05);
-}
-
-
 @media (max-width: 600px) {
   .about-text, .about-image {
     flex: 1 1 100%;
@@ -401,15 +382,18 @@ transition: top 0.4s ease-in-out;
 
 .btn-primary:hover {
   background-color: #e04d00;
+  transform: scale(1.05);
 }
 
 .btn-secondary {
   background-color: white;
   color: #333;
+
 }
 
 .btn-secondary:hover {
   background-color: #eee;
+  transform: scale(1.05);
 }
 
   .contact-form button:hover {
@@ -628,12 +612,6 @@ body {
   color: #ff5500;
   font-size: 2rem;
   margin-bottom: 0;
-}
-button,
-.cta-button,
-.btn-primary,
-.btn-secondary {
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 color: var(--light-text);
 background-color: var(--primary-color);
