@@ -633,10 +633,11 @@ body, html {
   padding-right: 0;
   padding-top: 1rem;
   padding-bottom: 1rem;}
- .about-container {
-    flex-direction: column;
-    align-items: center;
+  .about-container {
+  flex-direction: column;
+  align-items: center;
 }
+
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -796,6 +797,63 @@ input, textarea, select {
   width: 100%;
   height: 100%;
   border: none;
+}
+.service-gallery {
+  background-color: #111;
+  color: #f4f4f4;
+  text-align: center;
+  padding: 0rem 0rem;
+}
+
+.service-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.service-card {
+  background-color: #222;
+  border-radius: 12px;
+  padding: 1rem;
+  max-width: 350px;
+  flex: 1 1 300px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.service-card img {
+  width: 100%;
+  height: 300px;               
+  object-fit: cover;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.service-card h3 {
+  color: #ff5500;
+  margin: 1rem 1rem 0.5rem;
+  font-size: 1.1rem;
+  min-height: 3rem; 
+}
+
+.service-card p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0 1rem 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .service-cards {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 

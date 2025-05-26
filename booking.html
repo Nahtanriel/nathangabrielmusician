@@ -1,58 +1,33 @@
 <!DOCTYPE html>
-<main>
 <html lang="en">
 <head>
-<!-- Open Graph Meta Tags -->
-<meta property="og:title" content="Book Nathan Gabriel | Live Music for Events & Venues" />
-<meta property="og:description" content="Book Nathan Gabriel for weddings, private parties, corporate gigs and more." />
-<meta property="og:image" content="https://nathangabrielmusician.com/assets/og-image.jpg" />
-<meta property="og:url" content="https://nathangabrielmusician.com/booking.html" />
-<meta property="og:type" content="website" />
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Nathan Gabriel",
-  "alternateName": "Nathan Gabriel Musician",
-  "url": "https://nathangabrielmusician.com",
-  "image": "https://nathangabrielmusician.com/images/nathan-portrait.jpg",
-  "sameAs": [
-    "https://www.instagram.com/nathangabrielmusician",
-    "https://www.youtube.com/@nathangabrielmusician",
-    "https://open.spotify.com/artist/77V1QJuaH9y5lc0aVS2Tfs?si=WDmQwQw8Tme20x4KUGTMkg"],
-  "jobTitle": "Musician, Singer-Songwriter, Producer",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Sunbury",
-    "addressRegion": "Victoria",
-    "addressCountry": "Australia"
-  },
-  "description": "Nathan Gabriel is a full-time musician based in Sunbury, Victoria. With two solo albums released and regular gigs across Melbourne, he blends acoustic warmth with digital clarity for heartfelt, powerful performances.",
-  "worksFor": {
-    "@type": "Organization",
-    "name": "Nathan Gabriel Music"
-  }
-}
-</script>
-
-
-<meta name="description" content="Book Nathan Gabriel for your event. Select your date, time, and performance type. Professional, heartfelt live music for weddings, functions, and venues across Victoria." />
-<meta name="keywords" content="Book Nathan Gabriel, live music booking, musician hire Sunbury, wedding music Melbourne, event musician, live acoustic performer" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Book Nathan Gabriel</title>
-  <link rel="stylesheet" href="style.css">
+
+  <!-- Meta tags for SEO -->
+  <meta name="description" content="Book Nathan Gabriel for weddings, parties, cafes, and events across Victoria." />
+  <meta name="keywords" content="Nathan Gabriel booking, acoustic music, live musician, weddings, Sunbury, Melbourne" />
+
+  <!-- Open Graph tags -->
+  <meta property="og:title" content="Book Nathan Gabriel | Live Music for Events & Venues" />
+  <meta property="og:description" content="Book Nathan Gabriel for weddings, private parties, and more." />
+  <meta property="og:image" content="https://nathangabrielmusician.com/assets/og-image.jpg" />
+  <meta property="og:url" content="https://nathangabrielmusician.com/booking.html" />
+  <meta property="og:type" content="website" />
+
+  <!-- Styles and Icons -->
+  <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="images/favicon.png" type="image/png" />
 </head>
+
 <body>
+  <!-- Navigation -->
   <nav class="navbar">
-  <div class="hamburger" id="hamburger">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-  <ul class="nav-links" id="nav-links">
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links" id="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="booking.html" class="active">Booking</a></li>
@@ -60,26 +35,51 @@
     </ul>
   </nav>
 
-<main class="page-content">
+  <!-- Hero -->
   <section class="booking-hero">
     <h2 class="section-heading">Hire Me for Your Next Event</h2>
-    <p>Please use the form below to request a booking. Prices are based on performance duration and include a service fee. Days already booked will not be available for selection.</p>
-  </section>
+    <p>Please use the form below to request a booking. Prices are based on performance duration and include a service fee.</p>
+<section class="service-gallery">
+  <h2 class="section-heading">Performance Types I Offer</h2>
+  <div class="service-cards">
 
- <div style="width:100%; max-width: 100%;">
-  <iframe
-    title="Booking Form"
-    src="https://form.jotform.com/251430610711038"
-    style="width: 1px; min-width: 100%; height: 800px; border: none;"
-    allowfullscreen
-    frameborder="0"
-    scrolling="yes">
-  </iframe>
-</div>
+    <div class="service-card">
+      <img src="images/acoustic-wedding.jpg" alt="Acoustic performance at a wedding" />
+      <h3>Acoustic Weddings & Intimate Settings</h3>
+      <p>Soulful acoustic sets perfect for wedding ceremonies, proposals, cafés, or small private events.</p>
+    </div>
 
+    <div class="service-card">
+      <img src="images/pub-performance.jpg" alt="Larger sound system at a pub or party" />
+      <h3>Full Sound for Parties & Events</h3>
+      <p>Amplified performances with a powerful setup suited for pubs, birthday parties, or festivals.</p>
+    </div>
+
+    <div class="service-card">
+      <img src="images/busking-market.jpg" alt="Nathan busking in an outdoor market" />
+      <h3>Busking & Unplugged Markets</h3>
+      <p>Battery-powered or unamped performances tailored for markets and outdoor community spaces.</p>
+    </div>
+
+  </div>
+</section>
 </main>
 </div>
 </main>
+<div class="contact-form">
+  <form action="https://formspree.io/f/mvganlql" method="POST">
+    <label for="name">Name:</label><br>
+    <input type="text" name="name" required><br><br>
+
+    <label for="email">Email:</label><br>
+    <input type="email" name="email" required><br><br>
+
+    <label for="message">Message:</label><br>
+    <textarea name="message" rows="5" required></textarea><br><br>
+
+    <button type="submit">Send</button>
+  </form>
+</div>
 <footer class="site-footer">
   <div class="footer-content">
     <p>© 2025 Nathan Gabriel. All rights reserved.</p>
@@ -99,12 +99,9 @@
       <a href="https://www.tiktok.com/@nathangabrielmusician" target="_blank" aria-label="TikTok">
         <img src="images/tiktok-icon.svg" alt="TikTok">
         <i class="fab fa-tiktok" aria-hidden="true"></i>
-
       </a>  
- 
     </div>
   </div>
-
 </footer>
 <script>
   window.addEventListener('DOMContentLoaded', () => {
@@ -113,5 +110,4 @@
 </script>
 <script src="script.js"></script>
 </body>
-<main>
 </html>
