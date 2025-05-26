@@ -59,9 +59,12 @@ const imageTriggers = [
 ];
 
 let isModalOpen = false;
-let formLoaded = false; 
+let formLoaded = false;
+let lastFocusedElement = null;  // To save where focus was before opening modal
 
 function openModal() {
+  lastFocusedElement = document.activeElement; // Save focus
+
   modal.style.display = "block";
   isModalOpen = true;
   toggleBtn.textContent = "×";
@@ -79,21 +82,79 @@ function openModal() {
     formContainer.appendChild(iframe);
     formLoaded = true;
   }
-  
-  // Scroll smoothly to the modal after opening
+
+ 
+  const currentScrollY = window.scrollY || window.pageYOffset;
+  window.scrollTo(0, currentScrollY - 1); // Scroll 1px up instantly
+
   modal.scrollIntoView({ behavior: "smooth", block: "start" });
-  
-  // Optional: add a class to prevent background scroll when modal is open
+
   document.body.classList.add("modal-open");
+
+  trapFocus(modal);
 }
+
 
 function closeModal() {
   modal.style.display = "none";
   isModalOpen = false;
   toggleBtn.textContent = "☰";
 
-  // Optional: remove class to re-enable scroll on body
   document.body.classList.remove("modal-open");
+
+
+  if (lastFocusedElement) {
+    lastFocusedElement.focus();
+  }
+}
+
+
+function getFocusableElements(container) {
+  return container.querySelectorAll(
+    'a[href], button:not([disabled]), textarea, input, select, iframe, [tabindex]:not([tabindex="-1"])'
+  );
+}
+
+
+function trapFocus(element) {
+  const focusableElements = getFocusableElements(element);
+  if (focusableElements.length === 0) {
+    element.setAttribute('tabindex', '-1');
+    element.focus();
+    return;
+  }
+
+  const firstFocusable = focusableElements[0];
+  const lastFocusable = focusableElements[focusableElements.length - 1];
+
+  firstFocusable.focus();
+
+  function handleKeyDown(e) {
+    if (e.key === "Tab") {
+      if (e.shiftKey) { // Shift + Tab
+        if (document.activeElement === firstFocusable) {
+          e.preventDefault();
+          lastFocusable.focus();
+        }
+      } else { // Tab
+        if (document.activeElement === lastFocusable) {
+          e.preventDefault();
+          firstFocusable.focus();
+        }
+      }
+    } else if (e.key === "Escape") {
+      closeModal();
+    }
+  }
+
+  element.addEventListener("keydown", handleKeyDown);
+
+  
+  function cleanup() {
+    element.removeEventListener("keydown", handleKeyDown);
+    element.removeEventListener("transitionend", cleanup);
+  }
+  element.addEventListener("transitionend", cleanup);
 }
 
 document.querySelectorAll(".service-card img").forEach(img => {
@@ -103,7 +164,7 @@ document.querySelectorAll(".service-card img").forEach(img => {
   }
 });
 
-// Toggle button click
+
 toggleBtn.addEventListener("click", () => {
   if (isModalOpen) {
     closeModal();
@@ -112,7 +173,7 @@ toggleBtn.addEventListener("click", () => {
   }
 });
 
-// Close modal if user clicks outside content
+
 window.addEventListener("click", (e) => {
   if (e.target === modal) {
     closeModal();
