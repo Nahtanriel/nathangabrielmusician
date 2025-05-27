@@ -53,9 +53,9 @@ const toggleBtn = document.getElementById("toggleBookingModal");
 const closeBtn = document.getElementById("closeModalBtn");
 
 const imageTriggers = [
-  'images/acoustic-intimate.jpg',
-  'images/large-sound.jpg',
-  'images/busking-market.jpg'
+  'images/acoustic.jpg',
+  'images/largesound.jpg',
+  'images/busking.jpg'
 ];
 
 let isModalOpen = false;
