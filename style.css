@@ -915,6 +915,21 @@ input, textarea, select {
 body.modal-open {
   overflow: hidden;
 }
+.music-icons {
+  display: flex;
+  gap: 12px; 
+  margin-top: 5px;
+}
+
+.music-icons .icon {
+  width: 10px;  
+  height: 10px;
+  transition: transform 0.3s ease;
+}
+
+.music-icons .icon:hover {
+  transform: scale(1.1);
+}
 
 
 
