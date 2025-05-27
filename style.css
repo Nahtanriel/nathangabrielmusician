@@ -456,7 +456,7 @@ transition: top 0.4s ease-in-out;
 .social-links img {
   width: 24px;
   height: 24px;
-  filter: brightness(0) invert(1); /* makes dark icons white-ish */
+  filter: brightness(0) invert(1);
   transition: transform 0.2s ease;
 }
 
@@ -651,7 +651,7 @@ background-color: var(--primary-color);
 nav ul {
   flex-direction: column;
   display: flex;
-  flex-wrap: wrap; /* allows items to move to the next line */
+  flex-wrap: wrap; 
   justify-content: center;
   padding: 0;
   margin: 0;
