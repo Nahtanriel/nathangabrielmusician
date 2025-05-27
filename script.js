@@ -1,3 +1,4 @@
+// Existing scroll/hamburger/menu/modal code remains unchanged
 let lastScrollTop = 0;
 const navbar = document.querySelector('.navbar');
 const hamburger = document.getElementById("hamburger");
@@ -7,16 +8,13 @@ window.addEventListener('scroll', () => {
   const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
   if (scrollTop > lastScrollTop) {
-    // Scrolling down
-    navbar.style.top = "-40px"; 
-    // Close hamburger menu if open
+    navbar.style.top = "-40px";
     if (hamburger.classList.contains("open") || navLinks.classList.contains("active")) {
       hamburger.classList.remove("open");
       navLinks.classList.remove("active");
     }
   } else {
-    // Scrolling up
-    navbar.style.top = "0"; // Show navbar
+    navbar.style.top = "0";
   }
 
   lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
@@ -30,20 +28,18 @@ hamburger.addEventListener("click", () => {
 document.addEventListener('DOMContentLoaded', () => {
   const images = document.querySelectorAll('.about-image-slider .fade-image');
   let currentIndex = 0;
-  const fadeDuration = 1000; // 1 second
-  const displayDuration = 4000; // 4 seconds
+  const fadeDuration = 1000;
+  const displayDuration = 4000;
 
   images[currentIndex].classList.add('active');
 
   setInterval(() => {
     const nextIndex = (currentIndex + 1) % images.length;
     images[nextIndex].classList.add('active');
-
     setTimeout(() => {
       images[currentIndex].classList.remove('active');
       currentIndex = nextIndex;
     }, fadeDuration);
-
   }, displayDuration);
 });
 
@@ -60,10 +56,10 @@ const imageTriggers = [
 
 let isModalOpen = false;
 let formLoaded = false;
-let lastFocusedElement = null;  // To save where focus was before opening modal
+let lastFocusedElement = null;
 
 function openModal() {
-  lastFocusedElement = document.activeElement; // Save focus
+  lastFocusedElement = document.activeElement;
 
   modal.style.display = "block";
   isModalOpen = true;
@@ -77,44 +73,39 @@ function openModal() {
     iframe.height = "700";
     iframe.style.border = "none";
     iframe.allowFullscreen = true;
+    iframe.id = "bookingIframe";
 
     formContainer.innerHTML = "";
     formContainer.appendChild(iframe);
     formLoaded = true;
+
+    // Once iframe is loaded, set up message passing
+    iframe.addEventListener("load", () => {
+      setupGigDurationCalculation();
+    });
   }
 
- 
   const currentScrollY = window.scrollY || window.pageYOffset;
-  window.scrollTo(0, currentScrollY - 1); // Scroll 1px up instantly
-
+  window.scrollTo(0, currentScrollY - 1);
   modal.scrollIntoView({ behavior: "smooth", block: "start" });
 
   document.body.classList.add("modal-open");
-
   trapFocus(modal);
 }
-
 
 function closeModal() {
   modal.style.display = "none";
   isModalOpen = false;
   toggleBtn.textContent = "☰";
-
   document.body.classList.remove("modal-open");
-
-
-  if (lastFocusedElement) {
-    lastFocusedElement.focus();
-  }
+  if (lastFocusedElement) lastFocusedElement.focus();
 }
-
 
 function getFocusableElements(container) {
   return container.querySelectorAll(
     'a[href], button:not([disabled]), textarea, input, select, iframe, [tabindex]:not([tabindex="-1"])'
   );
 }
-
 
 function trapFocus(element) {
   const focusableElements = getFocusableElements(element);
@@ -131,12 +122,12 @@ function trapFocus(element) {
 
   function handleKeyDown(e) {
     if (e.key === "Tab") {
-      if (e.shiftKey) { // Shift + Tab
+      if (e.shiftKey) {
         if (document.activeElement === firstFocusable) {
           e.preventDefault();
           lastFocusable.focus();
         }
-      } else { // Tab
+      } else {
         if (document.activeElement === lastFocusable) {
           e.preventDefault();
           firstFocusable.focus();
@@ -149,7 +140,6 @@ function trapFocus(element) {
 
   element.addEventListener("keydown", handleKeyDown);
 
-  
   function cleanup() {
     element.removeEventListener("keydown", handleKeyDown);
     element.removeEventListener("transitionend", cleanup);
@@ -164,7 +154,6 @@ document.querySelectorAll(".service-card img").forEach(img => {
   }
 });
 
-
 toggleBtn.addEventListener("click", () => {
   if (isModalOpen) {
     closeModal();
@@ -173,10 +162,61 @@ toggleBtn.addEventListener("click", () => {
   }
 });
 
-
 window.addEventListener("click", (e) => {
   if (e.target === modal) {
     closeModal();
   }
 });
 
+
+// 🔧 CUSTOM BOOKING CALCULATION LOGIC
+function setupGigDurationCalculation() {
+  const iframe = document.getElementById("bookingIframe");
+  const interval = setInterval(() => {
+    try {
+      const doc = iframe.contentDocument || iframe.contentWindow.document;
+
+      const timeInput = doc.querySelector("input[name*='eventStart']");
+      const setDropdown = doc.querySelector("select[name*='numberOfSets']");
+      const paragraph = doc.querySelector("#gigDurationMessage");
+
+      if (!timeInput || !setDropdown || !paragraph) return;
+
+      function calculate() {
+        if (!timeInput.value || !setDropdown.value) return;
+
+        const sets = parseInt(setDropdown.value);
+        const totalMinutes = sets * 45 + (sets - 1) * 15;
+
+        const [timeStr, modifier] = timeInput.value.split(" ");
+        let [hours, minutes] = timeStr.split(":").map(Number);
+        if (modifier === "PM" && hours !== 12) hours += 12;
+        if (modifier === "AM" && hours === 12) hours = 0;
+
+        const startDate = new Date();
+        startDate.setHours(hours, minutes);
+
+        const endDate = new Date(startDate.getTime() + totalMinutes * 60000);
+
+        let endHour = endDate.getHours();
+        let endMin = endDate.getMinutes();
+        const endAMPM = endHour >= 12 ? "PM" : "AM";
+        if (endHour > 12) endHour -= 12;
+        if (endHour === 0) endHour = 12;
+        if (endMin < 10) endMin = "0" + endMin;
+
+        const formattedStart = timeInput.value;
+        const formattedEnd = `${endHour}:${endMin} ${endAMPM}`;
+
+        paragraph.innerText = `Your gig will run from ${formattedStart} to ${formattedEnd}.`;
+      }
+
+      timeInput.addEventListener("change", calculate);
+      setDropdown.addEventListener("change", calculate);
+
+      clearInterval(interval); // stop trying once it's working
+    } catch (err) {
+      // Wait until iframe is fully available
+    }
+  }, 1000);
+}
