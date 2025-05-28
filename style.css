@@ -256,7 +256,6 @@ transition: top 0.4s ease-in-out;
   max-width: 400px;
   margin: initial;
   border-radius: 30px;
-  width: 100%;
  
 }
 
@@ -888,7 +887,7 @@ input, textarea, select {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3)
   max-width: 600px;
   width: 400px;
-  padding: 1rem;
+  padding: 0rem;
   text-align: center;
   transition: transform 0.3s ease;
   flex-direction: column;
