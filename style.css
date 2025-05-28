@@ -824,7 +824,7 @@ input, textarea, select {
     gap: 0.75rem;
   }
   .btn {
-    width: 100%; 
+    width: 50%; 
     text-align: center;
   }
 
