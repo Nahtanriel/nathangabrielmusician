@@ -844,9 +844,9 @@ input, textarea, select {
 .service-card {
   color: #f4f4f4;
   background-color: #1e1e1e;
-  border-radius: 40px;
+  border-radius: 0px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3)
-  width: 340px;
+  width: 300px;
   padding: 1rem;
   text-align: center;
   transition: transform 0.3s ease;
