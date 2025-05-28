@@ -249,6 +249,23 @@ transition: top 0.4s ease-in-out;
   margin-bottom: 30px;
   color: #ff5500;
 }
+.service-section {
+  background-color: #111;
+  margin-bottom: 0;
+  padding-bottom: 0px;
+  color: #f4f4f4;
+  text-align: center;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+
+}
+
+.service-section h2 {
+  font-size: 2.0rem;
+  margin-bottom: 30px;
+  color: #ff5500;
+}
+
 
 .album {
   background-color: #1e1e1e;
@@ -257,7 +274,6 @@ transition: top 0.4s ease-in-out;
   margin: initial;
   border-radius: 30px;
 
- 
 }
 
 .album h3 {
