@@ -220,6 +220,15 @@ transition: top 0.4s ease-in-out;
 .contact-form button:hover {
   background: #777;
 }
+@media (max-width: 600px) {
+  .contact-hero h1 {
+    font-size: 2rem;
+  }
+
+  .contact-hero p {
+    font-size: 1rem;
+  }
+}
 .music-section {
   background-color: #111;
   margin-bottom: 0;
