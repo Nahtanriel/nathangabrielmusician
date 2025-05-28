@@ -235,6 +235,7 @@ transition: top 0.4s ease-in-out;
   padding-bottom: 0px;
   color: #f4f4f4;
   text-align: center;
+
 }
 
 .music-section h2 {
@@ -246,8 +247,7 @@ transition: top 0.4s ease-in-out;
 .album {
   background-color: #1e1e1e;
   padding: 0px;
-  width: 100vw;
-  max-width: 600px;
+  max-width: auto;
   margin: initial;
 }
 
@@ -587,8 +587,7 @@ body {
 
 img, iframe {
   width: 100%;
-  max-width: 100%; 
-  height: auto; 
+  max-width: 600px;  
   border-radius: 0px;
   display: block; 
   margin: 0 auto; 
@@ -597,16 +596,14 @@ img, iframe {
 .spotify-embed-wrapper {
   width: 100%;
   max-width: 600px; 
-  height: auto; 
   border-radius: 0px;
   display: block; 
-  margin: 0 auto; 
+  margin: 0 auto;  
 }
 
 .spotify-embed-wrapper iframe {
   width: 100%;
-  max-width: 100%; 
-  height: 600px; 
+  height: 650px; 
   border-radius: 0px;
   display: block; 
   margin: 0 auto; 
@@ -832,7 +829,12 @@ input, textarea, select {
   gap: 20px;
   justify-content: center;
   align-items: center;
-  background-color: #111;                      
+  background-color: #111;
+ width: 100%;
+  max-width: 600px;  
+  border-radius: 0px;
+  display: block; 
+  margin: 0 auto;                       
 }
 
 .services-section h2 {
@@ -871,7 +873,7 @@ input, textarea, select {
   width: 100%;
   height: auto;
   object-fit: cover;
-  border-radius: 12px;
+  border-radius: 0px;
   margin-bottom: 1rem;
 }
 
