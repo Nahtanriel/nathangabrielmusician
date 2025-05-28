@@ -239,7 +239,7 @@ transition: top 0.4s ease-in-out;
   padding-bottom: 0px;
   color: #f4f4f4;
   text-align: center;
-  padding-top: 1rem;
+  padding-top: 0rem;
   padding-bottom: 0rem;
 
 }
@@ -256,6 +256,8 @@ transition: top 0.4s ease-in-out;
   max-width: 400px;
   margin: initial;
   border-radius: 30px;
+  width: 100%;
+ 
 }
 
 .album h3 {
@@ -449,6 +451,7 @@ transition: top 0.4s ease-in-out;
   .album-container {
     flex-direction: column;
     align-items: center;
+	gap: 20px;
   }
 
   .album {
