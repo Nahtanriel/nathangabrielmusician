@@ -238,19 +238,17 @@ transition: top 0.4s ease-in-out;
 }
 
 .music-section h2 {
-  font-size: 3.5rem;
+  font-size: 2.0rem;
   margin-bottom: 30px;
   color: #ff5500;
 }
 
 .album {
   background-color: #1e1e1e;
-  border-radius: 40px;
   padding: 0px;
   width: 100vw;
   max-width: 600px;
   margin: initial;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .album h3 {
@@ -434,10 +432,10 @@ transition: top 0.4s ease-in-out;
 
 .album-container {
   display: flex;
-  justify-content: center;  
   gap: 20px;                
   flex-wrap: wrap;          
   padding: 10px 0;
+  justify-content: center; /* center the row */
 }
 
 @media (max-width: 600px) {
@@ -447,7 +445,7 @@ transition: top 0.4s ease-in-out;
   }
 
   .album {
-    max-width: 100vw;
+    max-width: 600px;
   }
 }
 .nav-links a:focus,
@@ -588,20 +586,30 @@ body {
 }
 
 img, iframe {
-  max-width: 450px; 
-  margin: 0 auto;
+  width: 100%;
+  max-width: 100%; 
+  height: auto; 
+  border-radius: 0px;
+  display: block; 
+  margin: 0 auto; 
 }
+
 .spotify-embed-wrapper {
   width: 100%;
   max-width: 600px; 
-  margin: 0 auto;
+  height: auto; 
+  border-radius: 0px;
+  display: block; 
+  margin: 0 auto; 
 }
 
 .spotify-embed-wrapper iframe {
   width: 100%;
-  height: 380px; 
-  border: none;
-  display: block;
+  max-width: 100%; 
+  height: 600px; 
+  border-radius: 0px;
+  display: block; 
+  margin: 0 auto; 
 }
 .error-section {
   text-align: center;
@@ -617,6 +625,14 @@ img, iframe {
 .error-section p {
   font-size: 1.2rem;
   margin-bottom: 2rem;
+}
+
+img.icon {
+  width: 48px; 
+  height: auto;
+  margin: 0 10px; 
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .error-section .btn {
