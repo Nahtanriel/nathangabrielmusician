@@ -167,6 +167,7 @@ transition: top 0.4s ease-in-out;
   background-color: #111;
   color: #fff;
   text-align: center;
+  padding: 40px 20px;
 }
 
 .contact-hero h1 {
@@ -180,15 +181,19 @@ transition: top 0.4s ease-in-out;
 }
 
 .contact-form {
-  margin: 20px auto;
-  max-width: 600px;
+  margin: 40px auto;
+  max-width: 500px;
+  width: 90%; 
   text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .contact-form label {
   display: block;
-  margin: 0px 0 0px;
+  margin: 10px 0 5px;
   font-weight: bold;
+  text-align: left;
 }
 .contact-form input,
 .contact-form textarea {
@@ -199,6 +204,21 @@ transition: top 0.4s ease-in-out;
   background: #333;
   border: 1px solid #666;
   color: #fff;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+.contact-form button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: #555;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.contact-form button:hover {
+  background: #777;
 }
 .music-section {
   background-color: #111;
