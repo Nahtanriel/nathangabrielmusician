@@ -407,7 +407,7 @@ transition: top 0.4s ease-in-out;
 .btn-primary {
   background-color: #ff5500;
   color: white;
-  width: 15%;
+  width: 80%;
   display: inline-block;
   margin: 0;
   padding: 0.75rem 1.5rem;
@@ -433,7 +433,6 @@ transition: top 0.4s ease-in-out;
   background-color: #eee;
   transform: scale(1.05);
 }
-
   .contact-form button:hover {
   background-color: #e64800;
 }
