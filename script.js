@@ -51,7 +51,7 @@ const closeBtn = document.getElementById("closeModalBtn");
 const imageTriggers = [
   'images/acoustic.jpg',
   'images/largesound.jpg',
-  'images/busking.jpg'
+  'images/busking.jpg',
 ];
 
 let isModalOpen = false;
@@ -153,6 +153,13 @@ document.querySelectorAll(".service-card img").forEach(img => {
     img.addEventListener("click", openModal);
   }
 });
+document.querySelectorAll(".service-card h3").forEach(heading => {
+  const src = heading.getAttribute("data-src");
+  if (imageTriggers.includes(src)) {
+    heading.style.cursor = "pointer";
+    heading.addEventListener("click", openModal);
+  }
+});
 
 toggleBtn.addEventListener("click", () => {
   if (isModalOpen) {
@@ -169,7 +176,6 @@ window.addEventListener("click", (e) => {
 });
 
 
-// 🔧 CUSTOM BOOKING CALCULATION LOGIC
 function setupGigDurationCalculation() {
   const iframe = document.getElementById("bookingIframe");
   const interval = setInterval(() => {
