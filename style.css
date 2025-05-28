@@ -149,7 +149,7 @@ transition: top 0.4s ease-in-out;
   font-size: 1.2rem;
 }
 @media (max-width: 600px) {
-  .about-text, .about-image {
+   .about-text, .about-image {
     flex: 1 1 100%;
     max-width: 100%;
   }
@@ -407,6 +407,15 @@ transition: top 0.4s ease-in-out;
 .btn-primary {
   background-color: #ff5500;
   color: white;
+  width: 15%;
+  display: inline-block;
+  margin: 0;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  white-space: nowrap;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
 }
 
 .btn-primary:hover {
@@ -836,8 +845,8 @@ input, textarea, select {
 .service-card {
   color: #f4f4f4;
   background-color: #1e1e1e;
-  border-radius: 0px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 40px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3)
   width: 340px;
   padding: 1rem;
   text-align: center;
