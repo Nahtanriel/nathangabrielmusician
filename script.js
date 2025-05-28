@@ -153,6 +153,10 @@ document.querySelectorAll(".service-card img").forEach(img => {
     img.addEventListener("click", openModal);
   }
 });
+document.querySelectorAll(".service-trigger").forEach(btn => {
+  btn.addEventListener("click", openModal);
+});
+
 document.querySelectorAll(".service-card h3").forEach(heading => {
   const src = heading.getAttribute("data-src");
   if (imageTriggers.includes(src)) {
@@ -160,6 +164,7 @@ document.querySelectorAll(".service-card h3").forEach(heading => {
     heading.addEventListener("click", openModal);
   }
 });
+
 
 toggleBtn.addEventListener("click", () => {
   if (isModalOpen) {
