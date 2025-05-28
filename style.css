@@ -249,6 +249,7 @@ transition: top 0.4s ease-in-out;
   padding: 0px;
   max-width: auto;
   margin: initial;
+  border-radius: 30px;
 }
 
 .album h3 {
@@ -435,7 +436,8 @@ transition: top 0.4s ease-in-out;
   gap: 20px;                
   flex-wrap: wrap;          
   padding: 10px 0;
-  justify-content: center; /* center the row */
+  justify-content: center;
+
 }
 
 @media (max-width: 600px) {
@@ -588,7 +590,7 @@ body {
 img, iframe {
   width: 100%;
   max-width: 600px;  
-  border-radius: 0px;
+  border-radius: 30px;
   display: block; 
   margin: 0 auto; 
 }
@@ -854,7 +856,7 @@ input, textarea, select {
   display: flex;
   color: #f4f4f4;
   background-color: #1e1e1e;
-  border-radius: 0px;
+  border-radius: 30px;;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3)
   max-width: 600px;
   padding: 1rem;
@@ -873,7 +875,6 @@ input, textarea, select {
   width: 100%;
   height: auto;
   object-fit: cover;
-  border-radius: 0px;
   margin-bottom: 1rem;
 }
 
