@@ -588,8 +588,8 @@ body {
 }
 
 img, iframe {
-  max-width: auto;
-border-radius: 20px;
+  max-width: 450px; 
+  margin: 0 auto;
 }
 .spotify-embed-wrapper {
   width: 100%;
