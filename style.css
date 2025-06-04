@@ -551,12 +551,12 @@ color: #003366;
 .social-links a {
   margin: 0 0.5rem;
   display: inline-block;
+ 
 }
 
 .social-links img {
   width: 24px;
   height: 24px;
-  filter: brightness(0) invert(1);
   transition: transform 0.2s ease;
 }
 
