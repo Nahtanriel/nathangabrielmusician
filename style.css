@@ -3,7 +3,7 @@ body {
   padding: 0;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
-  background-color: #ADD8E6; 
+  background-color: #F5F5F5; 
   color: #000; 
   line-height: 1.5;
   scroll-behavior: smooth;
@@ -12,7 +12,7 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: #fff;
+  background-color: #FFFFFF;
   z-index: 1000;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 transition: top 0.4s ease-in-out;
@@ -47,7 +47,7 @@ transition: top 0.4s ease-in-out;
 }
 
 .nav-links li a {
-  color: #2C3E50;
+  color: #111;
   text-decoration: none;
   padding: 6px 10px;
   font-size: 1rem;
@@ -56,7 +56,7 @@ transition: top 0.4s ease-in-out;
 
 .nav-links li a:hover {
   background-color: #111;
-  color: #4682B4;
+  color: #D32F2F;
   border-radius: 3px;
  }
 
@@ -222,12 +222,12 @@ transition: top 0.4s ease-in-out;
   font-weight: bold;
   transition: background-color 0.3s;
   color: #FFFFFF;
-  background-color: #003366;
+  background-color: #D32F2F;
   height: 50px;
 }
 
 .contact-form button:hover {
-  background: #777;
+  background: #B71C1C;
 }
 @media (max-width: 600px) {
   .contact-hero h1 {
@@ -241,7 +241,7 @@ transition: top 0.4s ease-in-out;
 .music-section {
   margin-bottom: 0;
   padding-bottom: 0px;
-background-color: #ADD8E6;
+background-color: #F5F5F5;
   text-align: center;
   padding-top: 0rem;
   padding-bottom: 2rem;
@@ -251,24 +251,24 @@ background-color: #ADD8E6;
 .music-section h2 {
   font-size: 2.0rem;
   margin-bottom: 30px;
-  color: #2C3E50;
+  color: #D32F2F;
 
 }
 .service-section {
   margin-bottom: 0;
   padding-bottom: 0px;
-background-color: #ADD8E6;
+  background-color: #F5F5F5;
   text-align: center;
   padding-top: 1rem;
   padding-bottom: 2rem;
-color: #2C3E50;
+  color: #121212;
 
 }
 
 .service-section h2 {
-  font-size: 2.0rem;
+  font-size: 1.5rem;
   margin-bottom: 10px;
-  color: #2C3E50;
+  color: #D32F2F;
 }
 
 
@@ -295,7 +295,7 @@ background-color: #060B0D;
   max-width: 600px;
   margin: initial;
   border-radius: 30px;
-  background-color: #ADD8E6;
+  background-color: #F5F5F5;
 
 }
 
@@ -348,7 +348,7 @@ background-color: #060B0D;
   gap: 20px;
   justify-content: center;
   align-items: center;
-background-color: #ADD8E6;
+  background-color: #F5F5F5;
 }
 
 .about-image img {
@@ -390,12 +390,12 @@ background-color: #ADD8E6;
 .about-text {
   width: 100%;
   max-width: 600px;
-  color: #333333;
+  color: #121212;
 }
 
 .about-text h2 {
   font-size: 2rem;
-  color: #2C3E50;
+  color: #D32F2F;
   margin-top: 20px;
 }
 
@@ -449,18 +449,19 @@ background-color: #ADD8E6;
   font-weight: bold;
   transition: background-color 0.3s;
   color: #FFFFFF;
-  background-color: #003366;
+  background-color: #D32F2F;
 }
 
 .btn-primary {
   color: #003366;
   border-radius: 50px;
   height: 24px
+  background-color: #D32F2F;
 
 }
 
 .btn-primary:hover {
-  background-color: #4682B4;
+  background-color: #B71C1C;
   transform: scale(1.05);
 }
 
@@ -472,11 +473,11 @@ background-color: #ADD8E6;
 }
 
 .btn-secondary:hover {
-  background-color: #4682B4;
+  background-color: #B71C1C;
   transform: scale(1.05);
 }
   .contact-form button:hover {
-  background-color: #4682B4;
+  background-color: #B71C1C;
   transform: scale(1.05);
 }
 .service-button {
@@ -490,7 +491,7 @@ background-color: #ADD8E6;
   font-weight: bold;
   transition: background-color 0.3s;
   color: #FFFFFF;
-  background-color: #003366;
+  background-color: #D32F2F;
   height: 50px
   justify-content: center;
   align-items: center;
@@ -499,7 +500,7 @@ height: 50px
 }
 
 .service-button:hover {
-  background-color: #4682B4;
+  background-color: #B71C1C;
   transform: scale(1.05);
 }
 
@@ -534,7 +535,7 @@ height: 50px
 }
 
 .site-footer {
-  background-color: #ADD8E6; 
+  background-color: #F5F5F5; 
   color: #000; 
   text-align: center;
   margin-top: 0;
@@ -771,7 +772,7 @@ body {
 }
 .section-heading {
   text-align: center;
-  color: #2C3E50;
+  color: #D32F2F;
   font-size: 2rem;
   margin-bottom: 30px;
 }
@@ -924,12 +925,6 @@ input, textarea, select {
   margin: 0 auto;                       
 }
 
-.services-section h2 {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  color: #ff5500;
-}
-
 .services-container {
   display: flex;
   flex-wrap: wrap;
@@ -939,8 +934,8 @@ input, textarea, select {
 
 .service-card {
   display: flex;
-  color: #f4f4f4;
-background-color: #ADD8E6;
+  color: #F5F5F5;
+  background-color: #F5F5F5;
   border-radius: 30px;;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3)
   max-width: 600px;
