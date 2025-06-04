@@ -3,8 +3,8 @@ body {
   padding: 0;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
-  background-color: #111;
-  color: #f4f4f4;
+  background-color: #ADD8E6; 
+  color: #000; 
   line-height: 1.5;
   scroll-behavior: smooth;
 }
@@ -212,13 +212,18 @@ transition: top 0.4s ease-in-out;
   border-radius: 5px;
 }
 .contact-form button {
-  margin-top: 15px;
-  padding: 10px 20px;
-  background: #555;
-  border: none;
-  color: white;
-  cursor: pointer;
+  width: 60%;  
+  display: inline-block;
+  margin: 0;
+  padding: 0.75rem 1.5rem;
   border-radius: 5px;
+  white-space: nowrap;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  color: #FFFFFF;
+  background-color: #003366;
+  height: 50px;
 }
 
 .contact-form button:hover {
@@ -234,10 +239,9 @@ transition: top 0.4s ease-in-out;
   }
 }
 .music-section {
-  background-color: #111;
   margin-bottom: 0;
   padding-bottom: 0px;
-  color: #f4f4f4;
+background-color: #ADD8E6;
   text-align: center;
   padding-top: 0rem;
   padding-bottom: 2rem;
@@ -247,28 +251,28 @@ transition: top 0.4s ease-in-out;
 .music-section h2 {
   font-size: 2.0rem;
   margin-bottom: 30px;
-  color: #ff5500;
+  color: #2C3E50;
+
 }
 .service-section {
-  background-color: #111;
   margin-bottom: 0;
   padding-bottom: 0px;
-  color: #f4f4f4;
+background-color: #ADD8E6;
   text-align: center;
   padding-top: 1rem;
   padding-bottom: 2rem;
+color: #2C3E50;
 
 }
 
 .service-section h2 {
   font-size: 2.0rem;
   margin-bottom: 10px;
-  color: #ff5500;
+  color: #2C3E50;
 }
 
 
 .album {
-  background-color: #1e1e1e;
   padding: 0px;
   max-width: 600px;
   margin: initial;
@@ -324,7 +328,7 @@ transition: top 0.4s ease-in-out;
   gap: 20px;
   justify-content: center;
   align-items: center;
-  background-color: #111;
+background-color: #ADD8E6;
 }
 
 .about-image img {
@@ -366,12 +370,12 @@ transition: top 0.4s ease-in-out;
 .about-text {
   width: 100%;
   max-width: 600px;
-  color: #f4f4f4;
+  color: #333333;
 }
 
 .about-text h2 {
   font-size: 2rem;
-  color: #ff5500;
+  color: #2C3E50;
   margin-top: 20px;
 }
 
@@ -382,7 +386,6 @@ transition: top 0.4s ease-in-out;
 }
 
 .booking-hero {
-  background-color: #111;
   color: #fff;
   text-align: center;
 }
@@ -425,33 +428,36 @@ transition: top 0.4s ease-in-out;
   text-decoration: none;
   font-weight: bold;
   transition: background-color 0.3s;
+  color: #FFFFFF;
+  background-color: #003366;
 }
 
 .btn-primary {
-  background-color: #ff5500;
-  color: white;
+  color: #003366;
   border-radius: 50px;
   height: 24px
 
 }
 
 .btn-primary:hover {
-  background-color: #e04d00;
+  background-color: #4682B4;
   transform: scale(1.05);
 }
 
 .btn-secondary {
-  background-color: white;
-  color: #333;
+  color: #003366;
+  border-radius: 50px;
+  height: 24px
 
 }
 
 .btn-secondary:hover {
-  background-color: #eee;
+  background-color: #4682B4;
   transform: scale(1.05);
 }
   .contact-form button:hover {
-  background-color: #e64800;
+  background-color: #4682B4;
+  transform: scale(1.05);
 }
 .service-button {
   width: 100%;  
@@ -463,14 +469,15 @@ transition: top 0.4s ease-in-out;
   text-decoration: none;
   font-weight: bold;
   transition: background-color 0.3s;
-  background-color: #ff5500;
+  background-color: #4682B4;
+color: #003366;
   height: 50px
 
 
 }
 
 .service-button:hover {
-  background-color: #e04d00;
+  background-color: #4682B4;
   transform: scale(1.05);
 }
 
@@ -504,8 +511,8 @@ transition: top 0.4s ease-in-out;
 }
 
 .site-footer {
-  background-color: #111;
-  color: #eee;
+  background-color: #ADD8E6; 
+  color: #000; 
   text-align: center;
   margin-top: 0;
   padding-top: 0;
@@ -917,7 +924,7 @@ input, textarea, select {
 .service-card {
   display: flex;
   color: #f4f4f4;
-  background-color: #1e1e1e;
+background-color: #ADD8E6;
   border-radius: 30px;;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3)
   max-width: 600px;
@@ -954,7 +961,7 @@ input, textarea, select {
 .service-card p {
   font-size: 0.95rem;
   margin-top: 0.5rem;
-  color: #fff;
+  color: #333333;
 {
 .booking-form-container {
   max-width: 900px;
