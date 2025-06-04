@@ -596,7 +596,7 @@ color: #003366;
 .video-card iframe {
   width: 100%;
   aspect-ratio: 16 / 9;
-  border-radius: 0px;
+  border-radius: 20px;
   border: none;
 }
 
@@ -646,7 +646,7 @@ color: #003366;
   width: 100%;
   max-width: 350px;
   aspect-ratio: 9 / 16;
-  border-radius: 0px;
+  border-radius: 20px;
   border: none;
   display: block;
   margin: 0 auto; 
