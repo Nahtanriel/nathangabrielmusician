@@ -432,6 +432,7 @@ transition: top 0.4s ease-in-out;
   color: white;
   border-radius: 50px;
   height: 24px
+
 }
 
 .btn-primary:hover {
@@ -452,6 +453,27 @@ transition: top 0.4s ease-in-out;
   .contact-form button:hover {
   background-color: #e64800;
 }
+.service-button {
+  width: 100%;  
+  display: inline-block;
+  margin: 0;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  white-space: nowrap;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  background-color: #ff5500;
+  height: 50px
+
+
+}
+
+.service-button:hover {
+  background-color: #e04d00;
+  transform: scale(1.05);
+}
+
 
 .booking-wrapper button:hover {
   background-color: #e64800;
