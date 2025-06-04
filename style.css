@@ -216,7 +216,7 @@ transition: top 0.4s ease-in-out;
   display: inline-block;
   margin: 0;
   padding: 0.75rem 1.5rem;
-  border-radius: 5px;
+  border-radius: 20px;
   white-space: nowrap;
   text-decoration: none;
   font-weight: bold;
@@ -443,7 +443,7 @@ background-color: #ADD8E6;
   display: inline-block;
   margin: 0;
   padding: 0.75rem 1.5rem;
-  border-radius: 5px;
+  border-radius: 20px;
   white-space: nowrap;
   text-decoration: none;
   font-weight: bold;
@@ -480,19 +480,21 @@ background-color: #ADD8E6;
   transform: scale(1.05);
 }
 .service-button {
-  width: 100%;  
+  width: 30%;  
   display: inline-block;
   margin: 0;
   padding: 0.75rem 1.5rem;
-  border-radius: 5px;
+  border-radius: 20px;
   white-space: nowrap;
   text-decoration: none;
   font-weight: bold;
   transition: background-color 0.3s;
-  background-color: #4682B4;
-color: #003366;
+  color: #FFFFFF;
+  background-color: #003366;
   height: 50px
-
+  justify-content: center;
+  align-items: center;
+height: 60px
 
 }
 
@@ -735,7 +737,7 @@ img.icon {
   background-color: #ff6600;
   color: white;
   text-decoration: none;
-  border-radius: 5px;
+  border-radius: 20px;
   font-weight: bold;
   transition: background-color 0.3s ease;
 }
