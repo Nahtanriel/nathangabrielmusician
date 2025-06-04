@@ -675,7 +675,7 @@ body {
 img, iframe {
   width: 100%;
   max-width: 600px;  
-  border-radius: 0px;
+  border-radius: 20px;
   display: block; 
   margin: 0 auto; 
 }
