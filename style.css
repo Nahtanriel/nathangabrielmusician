@@ -923,9 +923,6 @@ input, textarea, select {
 .service-card h3 {
   margin-top: 1rem;
   font-size: 1.25rem;
-  cursor: pointer;
-  text-decoration: underline;
-  color: #ff5500; 
   transition: transform 0.2s;
 }
 .service-card h3:hover {
