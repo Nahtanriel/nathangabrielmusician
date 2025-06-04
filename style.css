@@ -899,7 +899,7 @@ input, textarea, select {
   border-radius: 30px;;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3)
   max-width: 600px;
-  width: 400px;
+  width: auto;
   padding: 0rem;
   text-align: center;
   transition: transform 0.3s ease;
