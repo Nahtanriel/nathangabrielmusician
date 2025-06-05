@@ -309,7 +309,8 @@ background-color: #060B0D;
 }
 .service-album {
   padding: 0px;
-  max-width: 100%;
+  width: 100%;
+  max-width: 600px;
   margin: initial;
   border-radius: 30px;
   background-color: #F5F5F5;
