@@ -25,24 +25,6 @@ hamburger.addEventListener("click", () => {
   navLinks.classList.toggle("active");
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-  const images = document.querySelectorAll('.about-image-slider .service-image-slider .fade-image');
-  let currentIndex = 0;
-  const fadeDuration = 1000;
-  const displayDuration = 4000;
-
-  images[currentIndex].classList.add('active');
-
-  setInterval(() => {
-    const nextIndex = (currentIndex + 1) % images.length;
-    images[nextIndex].classList.add('active');
-    setTimeout(() => {
-      images[currentIndex].classList.remove('active');
-      currentIndex = nextIndex;
-    }, fadeDuration);
-  }, displayDuration);
-});
-
 const modal = document.getElementById("bookingModal");
 const formContainer = document.getElementById("formContainer");
 const toggleBtn = document.getElementById("toggleBookingModal");
