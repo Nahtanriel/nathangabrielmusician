@@ -278,24 +278,6 @@ body {
 
 }
 
-.service-section h2 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-  color: #D32F2F;
-}
-
-
-.service-image img {
-  opacity: 0;
-
-}
-
-.service-image-slider {
-  position: relative;
-  aspect-ratio: 1 / 1;
-  overflow: hidden;
-}
-
 .fade-image {
   animation: fadeSlideshow 16s infinite;
   opacity: 0;
@@ -369,6 +351,12 @@ body {
 }
 
 .about-section {
+  padding: 0px 10px;
+  gap: 20px;
+  background-color: #F5F5F5;
+}
+
+.blog-section {
   padding: 0px 10px;
   gap: 20px;
   background-color: #F5F5F5;
@@ -974,18 +962,6 @@ input, textarea, select {
   font-size: 0.95rem;
   margin-top: 0.5rem;
   color: #333333;
-{
-.booking-form-container {
-  max-width: 900px;
-  margin: 4rem auto;
-  padding: 1rem;
-  background-color: #f9f9f9;
-  border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
-}
-.booking-form-container h2 {
-  text-align: center;
-  margin-bottom: 1.5rem;
 }
 .modal {
   z-index: 10000;
@@ -1071,10 +1047,16 @@ body.modal-open {
   transform: scale(1.1);
 }
 
+.blog-section {
+  padding: 0px 10px;
+  gap: 20px;
+  background-color: #F5F5F5;
+}
+
 .blog-container {
   max-width: 900px;
   margin: 100px auto;
-  padding: 0 20px;
+  padding: 0px 10px;
 }
 
 .blog-post {
