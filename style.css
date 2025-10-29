@@ -805,7 +805,7 @@ background: black;
 img, iframe {
   width: 100%;
   max-width: 600px;  
-  border-radius: 20px;
+  border-radius: 5px;
   display: block; 
   margin: 0 auto; 
 }
@@ -1156,8 +1156,6 @@ body.modal-open {
 
 .blog-post {
   margin-bottom: 30px;
-  border: 1px solid #333;
-  border-radius: 12px;
   background: rgba(255, 255, 255, 0.03);
   overflow: visible; 
   transition: box-shadow 0.3s ease;
@@ -1169,8 +1167,6 @@ body.modal-open {
 
 details {
   position: relative;
-  margin-bottom: 1.2em;
-  border-radius: 12px;
   background: rgba(10, 10, 10, 0.85);
   overflow: hidden;
   box-shadow: 0 2px 12px rgba(255, 0, 0, 0.15);
@@ -1257,8 +1253,6 @@ details[open] summary {
   line-height: 1.6;
   animation: fadeInSlide 0.4s ease forwards;
   background: rgba(10, 0, 0, 0.4);
-  border-top: 1px solid rgba(255, 0, 0, 0.1);
-  border-radius: 0 0 12px 12px;
 }
 
 .blog-image {
