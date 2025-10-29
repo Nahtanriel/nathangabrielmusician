@@ -8,7 +8,7 @@ As I moved my focus towards music and it fully absorbed my life, I still found t
 
 I then leaned into the Twitch Streaming space, and created a channel dedicated to playing games LIVE with people watching and commenting. I slowly grew to the point of having a max of 8 people watching \_(Hey, that's small, but imagine them in the room with you, doesn't feel so small now, its all perspective)\_
 
-I played through several games, and had them all uploaded to YouTube, which have since been deleted. Except for my - \[links](https://youtube.com/playlist?list=PLDPL1iNbQxVscClkSGwwbVaVD2IOWPu3J\&si=JKosR1X68A4u4FPg)
+I played through several games, and had them all uploaded to YouTube, which have since been deleted. Except for my - (https://youtube.com/playlist?list=PLDPL1iNbQxVscClkSGwwbVaVD2IOWPu3J\&si=JKosR1X68A4u4FPg)
 
 Elden Ring Playthrough YouTube.
 
