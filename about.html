@@ -166,6 +166,23 @@
     }
   });
 </script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const allDetails = document.querySelectorAll("details");
+
+    allDetails.forEach((details) => {
+      details.addEventListener("toggle", () => {
+        if (details.open) {
+          allDetails.forEach((other) => {
+            if (other !== details && other.open) {
+              other.open = false;
+            }
+          });
+        }
+      });
+    });
+  });
+</script>
 <script src="script.js"></script>
 </body>
 </html>
