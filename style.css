@@ -88,13 +88,14 @@ body {
 body.hero-active #main-content {
   opacity: 0;
   pointer-events: none;
-  transition: opacity 1s ease;
+  transition: opacity 1s ease; 
 }
 
-/* Reveal main content when hero has faded away */
+
 body.hero-hidden #main-content {
   opacity: 1;
   pointer-events: auto;
+  transition: opacity 1s ease; 
 }
 
 .hero.fade-out {
