@@ -56,22 +56,13 @@
 <meta name="author" content="Nahtanriel" />
 </div>
   </section>
-<header class="hero" id="home">
+<header class="hero">
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <h1 class="hero-title">Nahtanriel</h1>
-    </div>
   </div>
-</header> 
+</header>
 <section>
-
-</section>
-</div>
-
-  </div>
-</section>
-  </div>
-</section>
 
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="images/favicon.png" type="image/png" />
@@ -90,7 +81,7 @@
     <li><a href="blog.html">Blog</a></li>
   </ul>
 </nav>
-
+<main id="main-content">
   <section class="music-section">
   <div class="album-container">
 <div class="album">
@@ -206,6 +197,7 @@
 
   <button type="submit" class="btn btn-primary">Send Message</button>
 </div>
+</main>
 <footer class="site-footer">
   <div class="footer-content">
     <p>© 2025 Nahtanriel. All rights reserved.</p>
@@ -230,6 +222,18 @@
       </a>   
     </div>
   </div>
-<script src="script.js"></script>
+<script>
+  window.addEventListener('load', () => {
+    const hero = document.querySelector('.hero');
+    const mainContent = document.querySelector('#main-content');
+    setTimeout(() => {
+      hero.classList.add('fade-out');
+      setTimeout(() => {
+        hero.style.display = 'none';
+        mainContent.scrollIntoView({ behavior: 'smooth' });
+      }, 1000); // match CSS fade duration
+    }, 1500);
+  });
+</script><script src="script.js"></script>
 </body>
 </html>

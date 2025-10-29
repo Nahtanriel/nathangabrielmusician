@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="images/favicon.png" type="image/png" />
 </head>
+
 <body>
 
   <nav class="navbar">
@@ -28,22 +29,29 @@
     </ul>
   </nav>
 
-<main class="blog-section">
-  <h1 class="section-heading">Blog & Journal</h1>
 
-  <article class="blog-post">
-    <details open>
-      <summary>
-        <h2>Rebrand - A New Beginning</h2>
-        <p class="blog-date">October 2025</p>
-      </summary>
-      <div class="blog-content">
-        <img src="images/blog1.jpg" alt="Nahtanriel creation" class="blog-image">
-<div class="about-content" data-file="content/blog-1-rebrand.md"></div>
-    </details>
-  </article>
+  <header class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">Blog & Journal</h1>
+    </div>
+  </header>
 
-</main>
+<main id="main-content" class="blog-section">
+
+ <article class="blog-post">
+      <details open>
+        <summary>
+          <h2>Rebrand – A New Beginning</h2>
+          <p class="blog-date">October 2025</p>
+        </summary>
+        <div class="blog-content">
+          <img src="images/blog1.jpg" alt="Nahtanriel creation" class="blog-image" />
+          <div class="about-content" data-file="content/blog-1-rebrand.md"></div>
+        </div>
+      </details>
+    </article>
+  </main>
   <footer class="site-footer">
     <div class="footer-content">
       <p>© 2025 Nahtanriel. All rights reserved.</p>
@@ -56,24 +64,36 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
-<!-- Markdown loader -->
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll(".about-content[data-file]").forEach(async (section) => {
-      const file = section.getAttribute("data-file");
-      try {
-        const response = await fetch(file);
-        const text = await response.text();
-        section.innerHTML = marked.parse(text); // Convert Markdown → HTML
-      } catch (err) {
-        section.innerHTML = "<p>Content failed to load.</p>";
-        console.error("Error loading content:", file, err);
-      }
+    window.addEventListener('load', () => {
+      const hero = document.querySelector('.hero');
+      const mainContent = document.querySelector('#main-content');
+      setTimeout(() => {
+        hero.classList.add('fade-out');
+        setTimeout(() => {
+          hero.style.display = 'none';
+          mainContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 1000); // match CSS fade duration
+      }, 1500);
     });
-  });
-</script>
+  </script>
 
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll(".about-content[data-file]").forEach(async (section) => {
+        const file = section.getAttribute("data-file");
+        try {
+          const response = await fetch(file);
+          const text = await response.text();
+          section.innerHTML = marked.parse(text);
+        } catch (err) {
+          section.innerHTML = "<p>Content failed to load.</p>";
+          console.error("Error loading content:", file, err);
+        }
+      });
+    });
+  </script>
+  <script src="script.js"></script>
 </body>
 </html>

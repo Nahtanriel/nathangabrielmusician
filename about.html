@@ -28,17 +28,22 @@
     </ul>
   </nav>
 
-  <main class="about-section">
+  <header class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">About</h1>
+    </div>
+  </header>
+
+  <main id="main-content">
  <div class="about-image-slider"></div>
 
 <script>
-  // SETTINGS
-  const imageCount = 15; // change this to however many images you have
-  const imagePath = "images/intro"; // base path before the number
-  const imageExt = ".jpg"; // file extension (.jpg, .png, etc.)
-  const delayPerImage = 4; // seconds between image changes
+  const imageCount = 15; 
+  const imagePath = "images/intro"; 
+  const imageExt = ".jpg"; 
+  const delayPerImage = 4; 
 
-  // Generate images automatically
   const slider = document.querySelector('.about-image-slider');
   for (let i = 1; i <= imageCount; i++) {
     const img = document.createElement('img');
@@ -48,9 +53,8 @@
     slider.appendChild(img);
   }
 
-  // Apply animations dynamically
   const images = slider.querySelectorAll('.fade-image');
-  const totalDuration = images.length * delayPerImage; // total cycle time
+  const totalDuration = images.length * delayPerImage; 
 
   images.forEach((img, index) => {
     img.style.animation = `fadeSlideshow ${totalDuration}s infinite ease-in-out`;
@@ -58,7 +62,6 @@
   });
 </script>
        
-  <section class="about-categories">
     
   <details id="my-story1">
   <summary><h2>Introduction</h2></summary>
@@ -91,8 +94,10 @@
      </div>
     </details>
 
-  </section>
-</main>
+     </div>
+    </section>
+  </main>
+
 <footer class="site-footer">
   <div class="footer-content">
     <p>© 2025 Nahtanriel. All rights reserved.</p>
@@ -117,8 +122,19 @@
       </a>   
     </div>
   </div>
-<script src="script.js"></script>
-<!-- Markdown loader -->
+  <script>
+    window.addEventListener('load', () => {
+      const hero = document.querySelector('.hero');
+      const mainContent = document.querySelector('#main-content');
+      setTimeout(() => {
+        hero.classList.add('fade-out');
+        setTimeout(() => {
+          hero.style.display = 'none';
+          mainContent.scrollIntoView({ behavior: 'smooth' });
+        }, 1000);
+      }, 1500);
+    });
+  </script>
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script>
   document.addEventListener("DOMContentLoaded", () => {
@@ -137,7 +153,6 @@
 </script>
 
 <script>
-  // Automatically open and highlight a section if linked with a hash (e.g. #my-story2)
   window.addEventListener('DOMContentLoaded', () => {
     const hash = window.location.hash;
     if (hash) {
@@ -151,6 +166,6 @@
     }
   });
 </script>
-
+<script src="script.js"></script>
 </body>
 </html>
