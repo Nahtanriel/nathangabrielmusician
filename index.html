@@ -223,17 +223,26 @@
     </div>
   </div>
 <script>
-  window.addEventListener('load', () => {
-    const hero = document.querySelector('.hero');
-    const mainContent = document.querySelector('#main-content');
+window.addEventListener('load', () => {
+  const hero = document.querySelector('.hero');
+  const body = document.body;
+
+  // Set the initial state
+  body.classList.add('hero-active');
+
+  setTimeout(() => {
+    hero.classList.add('fade-out');
     setTimeout(() => {
-      hero.classList.add('fade-out');
-      setTimeout(() => {
-        hero.style.display = 'none';
-        mainContent.scrollIntoView({ behavior: 'smooth' });
-      }, 1000); // match CSS fade duration
-    }, 1500);
-  });
+      hero.style.display = 'none';
+      body.classList.remove('hero-active');
+      body.classList.add('hero-hidden');
+      const mainContent = document.querySelector('#main-content');
+      mainContent.scrollIntoView({ behavior: 'smooth' });
+    }, 1000); // match CSS fade duration
+  }, 1500);
+});
+</script>
+
 </script><script src="script.js"></script>
 </body>
 </html>

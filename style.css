@@ -62,7 +62,7 @@ body {
 
 .hero {
   margin: 0;
-background: black;
+  background: black;
   background-image: url('hero.png');
   background-size: cover;
   background-position: center;
@@ -83,6 +83,18 @@ background: black;
   height: 100svh; 
   z-index: 100;
   transition: opacity 1s ease;
+}
+
+body.hero-active #main-content {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s ease;
+}
+
+/* Reveal main content when hero has faded away */
+body.hero-hidden #main-content {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .hero.fade-out {
