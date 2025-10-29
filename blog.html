@@ -37,10 +37,9 @@
         <h2>Rebrand - A New Beginning</h2>
         <p class="blog-date">October 2025</p>
       </summary>
-  <div class="blog-content" data-file="content/blog  - 1 Rebrand.md"></div>
+      <div class="blog-content">
         <img src="images/blog1.jpg" alt="Nahtanriel creation" class="blog-image">
-        
-      </div>
+<div class="about-content" data-file="content/blog-1-rebrand.md"></div>
     </details>
   </article>
 
@@ -58,5 +57,23 @@
   </footer>
 
   <script src="script.js"></script>
+<!-- Markdown loader -->
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".about-content[data-file]").forEach(async (section) => {
+      const file = section.getAttribute("data-file");
+      try {
+        const response = await fetch(file);
+        const text = await response.text();
+        section.innerHTML = marked.parse(text); // Convert Markdown → HTML
+      } catch (err) {
+        section.innerHTML = "<p>Content failed to load.</p>";
+        console.error("Error loading content:", file, err);
+      }
+    });
+  });
+</script>
+
 </body>
 </html>
