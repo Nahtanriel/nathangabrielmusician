@@ -1045,14 +1045,11 @@ body.modal-open {
   border: 1px solid #333;
   border-radius: 10px;
   overflow: hidden;
-  background: #111;
-  color: #eee;
 }
 
-details {
-  padding: 15px;
-  cursor: pointer;
-  transition: all 0.3s ease;
+.highlight-section {
+  box-shadow: 0 0 10px 3px #00ffcc;
+  transition: box-shadow 0.5s ease;
 }
 
 summary {
@@ -1075,7 +1072,6 @@ summary h2 {
 summary p.blog-date {
   font-size: 0.9rem;
   color: #aaa;
-  margin: 0;
 }
 
 details[open] summary {
@@ -1084,7 +1080,7 @@ details[open] summary {
 }
 
 .blog-content {
-  margin-top: 10px;
+  margin-top: px;
 }
 
 .blog-image {
