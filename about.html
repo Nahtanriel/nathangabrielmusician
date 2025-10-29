@@ -29,40 +29,116 @@
   </nav>
 
   <main class="about-section">
-         <div class="about-image-slider">
-  <img src="images/event1.jpg" class="fade-image" alt="Acoustic performance">
-  <img src="images/event2.jpg" class="fade-image" alt="Large sound setup">
-  <img src="images/event3.jpg" class="fade-image" alt="Busking performance">
-  <img src="images/event4.jpg" class="fade-image" alt="Studio session">
+ <div class="about-image-slider"></div>
+
+<script>
+  // SETTINGS
+  const imageCount = 15; // change this to however many images you have
+  const imagePath = "images/intro"; // base path before the number
+  const imageExt = ".jpg"; // file extension (.jpg, .png, etc.)
+  const delayPerImage = 4; // seconds between image changes
+
+  // Generate images automatically
+  const slider = document.querySelector('.about-image-slider');
+  for (let i = 1; i <= imageCount; i++) {
+    const img = document.createElement('img');
+    img.src = `${imagePath}${i}${imageExt}`;
+    img.alt = `Intro ${i}`;
+    img.classList.add('fade-image');
+    slider.appendChild(img);
+  }
+
+  // Apply animations dynamically
+  const images = slider.querySelectorAll('.fade-image');
+  const totalDuration = images.length * delayPerImage; // total cycle time
+
+  images.forEach((img, index) => {
+    img.style.animation = `fadeSlideshow ${totalDuration}s infinite ease-in-out`;
+    img.style.animationDelay = `${index * delayPerImage}s`;
+  });
+</script>
+       
+
+<h2>Introduction</h2>
+<p>Hello, and welcome to my world. My name is Nathan Gabriel, now Nahtanriel. I am a Musician - Gamer - Creator. For many years I  played Tennis and got trophies, Aussie Football and got trophies, did gymnastics and got some ribbons, <i>(Whoa.)</i> learnt guitar, created original music compositions, played video games and developed a passion for how they were made, spent time learning 3ds Max and Zbrush, created videos and online contetn and....other stuff.  
+Over the years I have been pushed and pulled towards many things, and tried my best in each. Please join me on this journey of creation, and let us see where it goes. This is my story.  <i>(Add copyright dun dun sound, you know the one)</i>. </p> 
+
+
+<h2>Music</h2>
+<p>I started my musical journey listening to the likes of John Denver, Fleetwood Mac, George Michael, Riverdance and many more. Music was often relegated to the living room of my household, whilst my parents did the house errands, and I sat on the floor. <i>(Absolute lazy this guy. Child. I should leave that)</i>. But then came the Sony CD Walkwan. I filled my world with the sounds of Michael Jackson, Linkin Park, Metallica and many more again. That began a new soundscape journey. 
+I never imagined myself as a person within the bands that I listened to, never thinking that was my path. But without a doubt, it moved me like nothing else. It got me through incredibly tough times, and heightened the good ones.</p> 
+
+<p>When I watched my sister play the acoustic guitar. I was enamoured by the sound, and the emotion it could deliver. From simple chords to complex lead lines, I threw myself at it like I did with everything. As time progressed, I joined my music class within my High School. I gravitated towards the Electric Guitar, and was taken over by watching Kirk Hammett (Metallica) and Joe Satriani. <i>(Found on Limewire, sorry Larz)</i> I started to become better. But I never imagined it to be anything more than enjoyable for my own self. It was mine, and mine alone. <i>(My precious)</i>
+But it wasn't my guitar, thank you sis! So this continued into joining school music groups in High School, and playing a couple of performances. I then proceeded into getting a Cert II, but something happened. <b>Check Life Journey Section Below</b>.</p>
+
+
+Since that time, I have earned a Bachelor of Music Performance from NMIT, created two solo albums, busked on the streets of Sunbury, Melbourne, Victoria and performed at many events, festivals, Birthdays and establishments as Nathan Gabriel, the Sunbury Busker. I have been able to play my original music on the radio, perform alongside some incredible musicians that I grew up listening too, and earn a comfortable living playing music. TO BE CONTINUED </p>
+
 </div>
-             <h2>The Creation of Nahtanriel</h2>
-        <p>
-          This marks the beginning of a new creative era — <strong>Nahtanriel</strong>. After years of performing under my own name, I wanted to reshape my identity into something that better represents who I am now, without the restriction of having it be my personal name. It's a name that formed many years ago when playing video games. It is my first name backwards, with the last four letters of my last name combined <i>(Absolute genius level)</i>. I have, since March 3rd, 2016, created and performed music as Nathan Gabriel.
-</p> Since that time, I have created two solo albums, busked on the streets of Sunbury, Melbourne, Victoria and performed at many events, festivals, Birthdays and establishments. I have been able to play my original music on the radio, perform alongside some incredible musicians that I grew up listening too, and earn a comfortable living playing music.    
-</p>        
-As time went on, I started to realize that I turned my passion for guitar, into a routine job. You know, the kind whereas you do it, all you're thinking of is when will I be home. Now don't get me wrong, it has been a blast, I have learnt an incredible amount, seen some amazing things, and how many people can say that they were able to successfully live as a Full-Time musician for nearly 10 years straight? But as time went on it gnawed at my very being, made me depressed, even when the successes were sky high. It made me doubt who I was, and put me in a very dark place for several years. I tried doing Twitch Streaming, playing games and talking with others. That didn't fulfill me. I tried focusing on a third album, it wasn't feeling the same. I tried combining both and doing LIVE performances, then playing games. But as I tried all of this, whilst maintaining busking, learning my craft, playing gigs and trying to maintain my health issues, it has become too much.
-</p> I started my musical journey with the sole purpose of becoming the greatest electric guitar player to ever live. <i>(What, ego, and tall order?)</i>. Well, I never aim low. And through playing all day, every day, for nearly a year, I was able to bypass Cert II and Cert III, to begin my Bachelor Of Music Performance. Fast forward, I have been unaware that I have since put that aside, and traded it for a comfortable living, performing as an Acoustic Guitar player and singer. Now on paper, this seems like a reasonable trade, I literally am living what some people may call a dream. But over the years I have always felt like something was missing, something wasn't being fulfilled. That passion and joy of the Electric Guitar, disappeared.  
-</p> Now, on that health note, I have been dealing with a condition called Ankylosing Spondylitis. The dictionary definition <i>(a form of spinal arthritis, chiefly affecting young males, that eventually causes ankylosis of vertebral and sacroiliac joints.)</i> Long story short, it has been incredibly debilitating since a few years prior to the diagnosis on March 23rd 2017. It has affected all aspects of my life, and maintaining a sole - trading business and life has only compounded that issue. Now throughout my life (zooming out further?!) I have always felt a disconnect to the world, sometimes not being able to feel emotion during incredibly traumatic moments, or presenting far too much emotion during the opposite. I never felt connected to others around me, through family, tennis <i>(yeah I played tennis and became quite good)</i>, school, universtiy, work and beyond. I kept this bottled up and maintained a very confident, well put together individual <i>(just look at my school grades, except for the part about my constant disruptive nature)</i>.  
-</p> Though when looking at it all objectively, I couldn't maintain friendships outside of these domains, and I quickly found I was secluding myself to my own world. I always had a passionate mind towards anything that was right in front of me, but quickly lost interest in anything that wasn't. Then here comes the kicker. It was always a part of my family discussion, the term of ADHD <i>(Attention-Deficit/Hyperactivity Disorder, is a chronic neurodevelopmental disorder that affects attention, hyperactivity, and impulsivity, often continuing from childhood into adulthood)</i>. But when identifying whether or not I had it, it came with complicated, opposing answers, left with the understanding that I was perfectly fine. But as I grew up with this knowledge, it wasn't matching how I was seeing things from my own perspective. It didn't even match how the world was seeing me. I was often asked from early childhood, all the way towards adulthood, whether I had 'something'. And I would confidently (often agitatedly) reply, <i>"Certain family members of mine have it, but I was told I don't"</i>   
-</p> So cut to the end of 2024, when I finally engaged in the discussion from my own thoughts, with my psychologist. I was shown results that proved I had ADHD <i>(Nathan’s clinical presentation and assessment results are strongly consistent with the following diagnosis:314.01 (F90.2) Attention Deficit Hyperactivity Disorder; Combined Presentation , and it very much present as a child.</i> Oh, then I found out that I actually was diagnosed as a child, but that was hidden from me. WHAT. Cue Netflix series. So why is this all relevant? Well I started to grasp a lot about myself through a new lens, that felt like I had put on glasses that could actually fix my blurred vision. And I've been on ADHD medication for a month and things are <i>different</i>, go figure. So having always been quite introspective, and highly sensitive to other's opinions, and my own fearful ones, I created a job from nothing. I quite literally had $12 in my pocket at the end of my Bachelor Of Music Performance and first album, was kicked out of my home and had to reassess what was next. Cut to nearly 10 years later, through countless opposition, negative people with their own fearful projections, I have successfully built a role as a professional musician, that I can only see getting bigger and better. So, that's where we cut to this very day.
-</p> <strong>I don't want to do it anymore.</strong> Well, not like what I've been doing. I am now known as Nahtanriel, and I will be starting effectively from scratch. Now, I've built a following from my local town, knowing me as the Sunbury Busker. I have performed a lot, for a long time, under the banner of Nathan Gabriel. I have successfully maintained and grew my sole - trading music business. But now I want something new. What does that look like? Well, you'll have to stay tuned for that. But, look forward to hearing about a new video game I have been creating <i>(Like a whole game?! Yes)</i>, my third album, and new video material that is much broader than ever before for me. It's time for a larger version of myself, unrestricted by my innate people pleasing, highly influenced brain, and fearful mind. Here is to a new creative future. Please join me. Onwards and Upwards.         
+
+<h2>Video Games</h2>
+<p>I fell in love with video games at an early age. It was an escape, but also an expander. It showed me the culmination of many talented people, getting together and forming a world, full of sound, story and visual. I became obsessed with trying whatever I could get my hands on, and that was the PlayStation 1, PSP and the original Microsoft Xbox. <i>(I can still smell it, like a new car smell)</i>.  As the years went on this expanded, but I transitioned more to the PC. I throughout the later years of High School, began to learn quite a lot within the realm of technolagy. Learning how to code websites and create images using 2d or 3d software. <i>(Stick figure fight ftw)</i> And I got really fixated on making videos for projects for school, using programs such as Premier Pro. But this all culminated in the desire to see if I could actually make a game. I started to learn 3d modelling, using 3ds Max. I even read, roughly the entire 3ds Max handbook, I then utilised Zbrush, and Unreal Engine. My first projects were recreations of the house that I lived at, being able to run around, at scale, and move around the enviroment, open doors, interact with the toilet etc;. Then adding 3d models I had created, and using physics to be able to destroy them and watch them crumble. <i>(Havok lovers where you at?)</i> 
+</p>
+So I didn't quite make the game of my dreams, but it definitely gave me further love and understanding of the behind the scenes of game development. 
+As I moved my focus towards music and it fully absorbed my life, I still found time to keep learning Unreal Engine and further my skillset. I have since developed several small projects for myself, each with its own identity, but now I want to create something real.
+
+<p>I then leaned into the Twitch Streaming space, and created a channel dedicated to playing games LIVe with people watching and commenting. I slowly grew to the point of having a max of 8 people watching <i>(Hey, that's small, but imagine them in the room with you, doesn't feel so small now, its all perspective)</i>
+I played through several games, and had them all uploaded to YouTube, which have since been deleted. Except for my - <a href="https://youtube.com/playlist?list=PLDPL1iNbQxVscClkSGwwbVaVD2IOWPu3J&si=JKosR1X68A4u4FPg">
+Elden Ring Playthrough YouTube.
+</a> 
+Watch if you dare. Warning; It ends abruptly at the end. Woops. Sorry.
+But I'm open to that happening again, time will tell.</p>
+I consistantly fill my spare time playing video games, and its something that has kept me going through thick and thin.
+And now I actually want to make my own game. I think the concept is unique. TO BE CONTINUED.
+<p>
+</div>
+
+<h2>Life Journey</h2> 
+<p>So having always been quite introspective, and highly sensitive to other's opinions, and my own fearful ones, I created a job from nothing. I quite literally had $12 in my pocket at the end of my Bachelor of Music Performance and first album, was kicked out of my home and had to reassess what was next. Cut to nearly 10 years later, through countless opposition and positive reinforcement, negative and positive people with their own fearful and optimistic projections and my own internal battles and wins, I have successfully built a role as a professional musician, that I can only see getting bigger and better. So, that's where we cut to this very day. 
+I don't want to do it anymore. Well, not like what I've been doing. I am now known as Nahtanriel, and I will be starting effectively from scratch. Now, I've built a following from my local town, knowing me as the Sunbury Busker. I have performed a lot, for a long time, under the banner of Nathan Gabriel. I have successfully maintained and grew my sole - trading music business. But now I want something new. What does that look like? Well, you'll have to stay tuned for that. But look forward to hearing about a new video game I have been creating (Like a whole game?! Yes), my third album, and new video material that is much broader than ever before for me. It's time for a larger version of myself, unrestricted by my innate people pleasing, highly influenced brain, and safe mind. </p>
+
+But circumstances changed, I was forced to move to another town, moving away from my childhood friends, my fellow tennis group and the after-school music class that would have provided me with a Certificate III.  I then developed what I later found out was Ankylosing Spondylitis (Say that 5 times fast....and I appear. 😮)  
+So tennis was soon put to the side, and I started to question what I wanted in life. (Probably just wanted food, where me foodies at?) But in all seriousness, I really started to have an internal battle of what will be my future. Tennis was all I wanted, and I started to become a 3D modeler.  
+
+As all this was happening, I randomly was picking up the guitar, not mine, sorry sis, and it would bring me comfort during some incredibly traumatic and dark times. Having moved on from my childhood town/home and close circle of friends, developing a degenerative back condition and walking away from many years of Tennis progression, things needed to change.   
+So I had to come up with a plan. Cue quick montage.  
+Finish school, work and get some money, learn guitar well enough to get into a Bachelor of Music Performance and bypass Certificate III. So, within a year I played Electric Guitar every day, every waking minute and auditioned. I got in. Then for the next 4 and a bit years, I met some incredible musicians and teachers, that humbled me beyond belief, always showing me there was room for improvement. 
+ 
+ 
+<h2>Health</h2>
+Now, on that health note, I have been dealing with a condition called Ankylosing Spondylitis as previously mentioned. The dictionary definition (a form of spinal arthritis, chiefly affecting young males, that eventually causes ankylosis of vertebral and sacroiliac joints.) Long story short, it has been incredibly debilitating since a few years prior to the diagnosis on March 23rd, 2017. It has affected all aspects of my life, and maintaining a sole - trading business and life has only compounded that issue. Now throughout my life (zooming out further?!) I have always felt a disconnect to the world, sometimes not being able to feel emotion during incredibly traumatic moments or presenting far too much emotion during the opposite. I never felt connected to others around me, through family, tennis, school, university, work and beyond. I kept this bottled up and maintained a very confident, well put together individual (just look at my school grades, except for the part about my constant disruptive nature). \\\PICTURE\\\ 
+Though when looking at it all objectively, I couldn't maintain friendships outside of these domains, and I quickly found I was secluding myself to my own world. I always had a passionate mind towards anything that was right in front of me but quickly lost interest in anything that wasn't. Then here comes the kicker. It was always a part of my family discussion, the term of ADHD (Attention-Deficit/Hyperactivity Disorder, is a chronic neurodevelopmental disorder that affects attention, hyperactivity, and impulsivity, often continuing from childhood into adulthood). But when identifying whether or not I had it, it came with complicated, opposing answers, left with the understanding that I was perfectly fine. But as I grew up with this knowledge, it wasn't matching how I was seeing things from my own perspective. It didn't even match how the world was seeing me. I was often asked from early childhood, all the way towards adulthood, whether I had 'something'. And I would confidently (often agitatedly) reply, "Certain family members of mine have it, but I was told I don't" \\\PICTURE\\\ 
+So cut to the end of 2024, when I finally engaged in the discussion from my own thoughts, with my psychologist. I was shown results that proved I had ADHD (Nathan’s clinical presentation and assessment results are strongly consistent with the following diagnosis:314.01 (F90.2) Attention Deficit Hyperactivity Disorder; Combined Presentation, and it very much present as a child). Oh, then I found out that I actually was diagnosed as a child, but that was hidden from me. WHAT. Cue Netflix series. So why is this all relevant? Well, I started to grasp a lot about myself through a new lens, that felt like I had put on glasses that could fix my blurred vision. And I've been on ADHD medication as of 2025 and things are different, go figure. 
+
+          
 </div>
     </article>
-
     </main>
+</section>
+<footer class="site-footer">
+  <div class="footer-content">
+    <p>© 2025 Nahtanriel. All rights reserved.</p>
+    <div class="social-links">
+      <a href="https://www.facebook.com/nahtanriel" target="_blank" aria-label="Facebook">
+        <img src="images/facebook-icon.svg" alt="Facebook">
+        <i class="fab fa-facebook" aria-hidden="true"></i>
+      </a>
+      <a href="https://www.youtube.com/@nahtanriel" target="_blank" aria-label="YouTube">
+        <img src="images/youtube-icon.svg" alt="YouTube">
+        <i class="fab fa-youtube" aria-hidden="true"></i>
+      </a>
+      <a href="https://www.instagram.com/nahtanriel" target="_blank" aria-label="Instagram">
+        <img src="images/instagram-icon.svg" alt="Instagram">
+        <i class="fab fa-instagram" aria-hidden="true"></i>
+      </a>
+      <a href="https://www.tiktok.com/@nahtanriel" target="_blank" aria-label="TikTok">
+        <img src="images/tiktok-icon.svg" alt="TikTok">
+        <i class="fab fa-tiktok" aria-hidden="true"></i>
+</a>
 
-  <footer class="site-footer">
-    <div class="footer-content">
-      <p>© 2025 Nahtanriel. All rights reserved.</p>
-      <div class="social-links">
-        <a href="https://www.facebook.com/nahtanriel" target="_blank"><img src="images/facebook-icon.svg" alt="Facebook"></a>
-        <a href="https://www.youtube.com/@nahtanriel" target="_blank"><img src="images/youtube-icon.svg" alt="YouTube"></a>
-        <a href="https://www.instagram.com/nahtanriel" target="_blank"><img src="images/instagram-icon.svg" alt="Instagram"></a>
-        <a href="https://www.tiktok.com/@nahtanriel" target="_blank"><img src="images/tiktok-icon.svg" alt="TikTok"></a>
-      </div>
+      </a>   
     </div>
-  </footer>
-
-  <script src="script.js"></script>
+  </div>
+<script src="script.js"></script>
 </body>
 </html>
