@@ -183,7 +183,6 @@ document.querySelectorAll('.video-card').forEach(card => {
   });
 });
 
-// Close button
 document.querySelector('.close-lightbox').addEventListener('click', () => {
   const lightbox = document.getElementById('video-lightbox');
   const iframe = document.getElementById('lightbox-iframe');
@@ -191,7 +190,6 @@ document.querySelector('.close-lightbox').addEventListener('click', () => {
   iframe.src = ''; // stop video
 });
 
-// Close on background click
 document.getElementById('video-lightbox').addEventListener('click', (e) => {
   if (e.target.id === 'video-lightbox') {
     const iframe = document.getElementById('lightbox-iframe');

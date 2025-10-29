@@ -373,6 +373,7 @@ body {
   padding: 0px 10px;
   gap: 20px;
   background-color: #F5F5F5;
+  margin-top: 80px;
 }
 
 .about-image img {
@@ -404,7 +405,7 @@ body {
 
 @media (max-width: 768px) {
   .fade-image {
-    object-position: top center; /* show more top on phones */
+    object-position: top center; 
   }
 }
 
@@ -565,9 +566,9 @@ body {
   background-color: #111; 
   color: #fff; 
   text-align: center;
-  margin-top: 0;
-  padding-top: 0;
+  padding: 2rem 1rem
   font-size: 0.9rem;
+  margin-top: auto;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -588,7 +589,7 @@ body {
   width: 24px;
   height: 24px;
   transition: transform 0.2s ease;
-filter: brightness(0) invert(1);
+  filter: brightness(0) invert(1);
 }
 
 .social-links img:hover {
@@ -849,12 +850,15 @@ img.icon {
 }
 
 body, html {
-  max-width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 .container, .content, .section, main {
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
+  flex: 1;
  }
 }
 @media (max-width: 600px) {
@@ -864,7 +868,9 @@ body, html {
 }
 
 body {
-  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 .section-heading {
     font-family: 'Reem Kufi', sans-serif;
@@ -1144,66 +1150,110 @@ body.modal-open {
   box-shadow: 0 0 10px rgba(0, 255, 204, 0.2);
 }
 
+details {
+  position: relative;
+  margin-bottom: 1.2em;
+  border-radius: 12px;
+  background: rgba(10, 10, 10, 0.85);
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(255, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 0, 0, 0.15);
+}
+
+details:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 18px rgba(255, 0, 0, 0.25);
+}
+
 details summary {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1em 1.2em;
+  padding: 1.2em 1.4em;
   cursor: pointer;
   list-style: none;
-  background: rgba(255, 255, 255, 0.05);
   border-radius: 12px 12px 0 0;
-  transition: background 0.3s ease, border-bottom 0.3s ease;
+  transition: background 0.3s ease, color 0.3s ease;
+  margin-bottom: 1.2em;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
 }
 
 details summary:hover {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(40, 0, 0, 0.7);
+}
+
+summary:active {
+  background: rgba(60, 0, 0, 0.8);
+  transform: scale(0.99);
+}
+
+details::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, #ff0033, #ff4444);
+  transition: width 0.4s ease;
+}
+
+details[open]::before {
+  width: 100%;
 }
 
 .summary-title {
-  color: white;
+  color: #f5f5f5;
   font-size: 1.3rem;
   font-weight: 600;
   flex-grow: 1;
   margin-right: 15px;
   word-wrap: break-word;
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
 }
 
 .blog-date {
-  color: #aaa;
+  color: #888;
   font-size: 0.95rem;
   white-space: nowrap;
 }
 
-
-summary::-webkit-details-marker {
+summary::-webkit-details-marker,
+summary::marker {
   display: none;
 }
 
-
 summary::after {
-  content: '+';
-  font-size: 1.5rem;
-  font-weight: 500;
+  content: '▼';
+  font-size: 1rem;
+  font-weight: 600;
   margin-left: 10px;
-  color: #00ffcc;
+  color: #ff3333;
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
 details[open] summary::after {
   content: '–';
-  transform: rotate(180deg);
-  color: #ff00aa;
+  color: #ff5555;
+  transform: rotate(180deg) scale(1.1);
 }
 
 details[open] summary {
-  border-bottom: 1px solid #444;
+  border-bottom: 1px solid rgba(255, 0, 0, 0.2);
+  color: #ff3333;
 }
 
+.about-content,
 .blog-content {
-  padding: 1.2em;
+  padding: 1.2em 1.4em;
   color: #ddd;
   line-height: 1.6;
+  animation: fadeInSlide 0.4s ease forwards;
+  background: rgba(10, 0, 0, 0.4);
+  border-top: 1px solid rgba(255, 0, 0, 0.1);
+  border-radius: 0 0 12px 12px;
 }
 
 .blog-image {
@@ -1212,15 +1262,36 @@ details[open] summary {
   margin-bottom: 1em;
   object-fit: cover;
   max-height: 400px;
+  border: 1px solid rgba(255, 0, 0, 0.2);
 }
 
-/* MOBILE RESPONSIVE */
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (max-width: 600px) {
+  summary {
+    padding: 1em;
+  }
+
   .summary-title {
     font-size: 1.1rem;
   }
+
   summary::after {
     font-size: 1.3rem;
+  }
+
+  details {
+    border-radius: 10px;
+    box-shadow: 0 1px 8px rgba(255, 0, 0, 0.25);
   }
 }
 
