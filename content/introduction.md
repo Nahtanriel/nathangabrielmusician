@@ -10,12 +10,6 @@ compositions, played video games and developed a passion for how they
 
 were made, spent time learning 3ds Max and Zbrush, created videos and
 
-online content and....other stuff.
-
-Over the years I have been pushed and pulled towards many things and
-
-tried my best in each. Please join me on this journey of creation and
-
-let us see where it goes. This is my story. (*Add copyright dun dun*
+online content and....other stuff.Over the years I have been pushed and pulled towards many things and tried my best in each. Please join me on this journey of creation and let us see where it goes. This is my story. (*Add copyright dun dun*
 
 *sound, you know the one*).
