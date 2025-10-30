@@ -746,29 +746,36 @@ button:focus, .btn:focus {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.6);
+  background: none;
   border: none;
-  color: white;
-  font-size: 2rem;
+  color: #e63946; /* red accent */
+  font-size: 1.8rem;
   cursor: pointer;
-  padding: 0.5rem 1rem;
-  border-radius: 50%;
-  transition: background 0.3s ease, transform 0.2s ease;
   z-index: 5;
-  user-select: none;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.2s ease;
 }
 
 .scroll-btn:hover {
-  background: rgba(255, 255, 255, 0.2);
+  opacity: 1;
   transform: translateY(-50%) scale(1.1);
 }
 
+
 .scroll-btn.left {
-  left: 10px;
+  left: -1rem;
 }
 
 .scroll-btn.right {
-  right: 10px;
+  right: -1rem;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .scroll-btn {
+    opacity: 0.9;
+    pointer-events: auto;
+  }
 }
 
 .scroll-btn:focus {
@@ -793,22 +800,26 @@ button:focus, .btn:focus {
   width: 100%;
   height: auto;
   display: block;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  border-radius: 8px;
+}
+
+.video-card:hover img {
+  transform: scale(1.03);
+  filter: brightness(1.05);
 }
 
 .video-card:hover {
   transform: scale(1.05);
 }
 
+.video-scroll-wrapper:hover .scroll-btn {
+  opacity: 0.9;
+  pointer-events: auto;
+}
+
 .play-button {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: rgba(0, 0, 0, 0.5);
-  padding: 1rem 1.2rem;
-  border-radius: 50%;
-  color: #fff;
-  font-size: 1.5rem;
+display: none;
 }
 
 .video-card:hover .play-button {
