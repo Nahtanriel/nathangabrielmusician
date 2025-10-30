@@ -38,6 +38,7 @@ html, body {
   overflow-x: hidden;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
+
 }
 
 h1, h2, h3, h4 {
@@ -357,7 +358,6 @@ button:focus, .btn:focus {
   padding: 6rem 2rem;
   background-color: #0d0d0d; /* matches dark theme */
   color: #fff;
-  text-align: center;
 }
 
 .music-section h2 {
@@ -733,6 +733,7 @@ body.scrolled .scroll-indicator {
   opacity 1.5s cubic-bezier(0.22, 1, 0.36, 1),
   transform 1.5s cubic-bezier(0.22, 1, 0.36, 1),
   filter 1.2s ease;
+  text-align: center;
 }
 
 .section.visible {
@@ -748,7 +749,6 @@ body.scrolled .scroll-indicator {
 .section-inner {
   max-width: 900px;
   margin: 0 auto;
-  text-align: left;
 }
 
 .section.visible h2 {

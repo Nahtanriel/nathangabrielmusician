@@ -45,7 +45,6 @@
   <section id="music" class="section music-section">
     <div class="section-inner">
       <h2>Featured Music</h2>
-      <p>Stream or purchase my latest albums. Dive into the soundscapes of Nahtanriel.</p>
       <div class="album-grid">
         <!-- Album 1 -->
         <div class="album-card">
@@ -71,24 +70,19 @@
     </div>
   </section>
 
-  <section id="video" class="section video-section">
-    <div class="section-inner">
-      <h2>Latest Video</h2>
-      <p>Check out my newest creation on YouTube.</p>
-      <div class="video-container">
-        <iframe width="560" height="315" src="https://youtu.be/BGRISZjfs7U?si=Zmnm0rQJ9ufg10mC" 
-        title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen></iframe>
-      </div>
+<section id="video" class="section video-section">
+  <div class="section-inner">
+    <h2>Latest Video</h2>
+    <div id="video-container" class="video-container">
     </div>
-  </section>
+  </div>
+</section>
 
 <section id="blog-teaser" class="section blog-teaser-section">
   <div class="section-inner">
     <h2>Latest Thoughts</h2>
     <div id="latest-blog" class="latest-blog">
   <div id="latest-blog-preview" class="latest-blog-preview">
-    <p>Loading latest blog post...</p>
   </div>
 </div>
 </section>
@@ -112,6 +106,45 @@
   </div>
 
 </footer>
+
+<script>
+  async function loadLatestVideo() {
+    const apiKey = 'AIzaSyAXLHb2r3nmQt9VHA9x22dsk94BezHMla8'; 
+    const channelId = 'UCNcVkpXSVFf0gGh_c3T_G-g';
+    const apiUrl = `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet,id&order=date&maxResults=1`;
+
+    try {
+      const response = await fetch(apiUrl);
+      const data = await response.json();
+      console.log(data);
+
+      const videoItem = data.items.find(item => item.id.kind === "youtube#video");
+
+      if (videoItem) {
+        const videoId = videoItem.id.videoId;
+        const embedUrl = `https://www.youtube.com/embed/${videoId}`;
+        document.getElementById('video-container').innerHTML = `
+          <div class="video-wrapper">
+            <iframe width="560" height="315" 
+              src="${embedUrl}" 
+              title="${videoItem.snippet.title}" 
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen>
+            </iframe>
+          </div>
+        `;
+      } else {
+        document.getElementById('video-container').innerHTML = `<p>No videos found.</p>`;
+      }
+    } catch (error) {
+      console.error('Error fetching video:', error);
+      document.getElementById('video-container').innerHTML = `<p>Failed to load video.</p>`;
+    }
+  }
+
+  loadLatestVideo();
+</script>
 
 <script src="script.js"></script>
 </body>
