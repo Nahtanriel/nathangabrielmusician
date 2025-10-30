@@ -469,7 +469,6 @@ button:focus, .btn:focus {
   border-radius: 0.5rem;
 }
 
-/* --- Latest Blog Teaser (Index) --- */
 .latest-blog-preview {
   display: flex;
   justify-content: center;
@@ -529,6 +528,16 @@ button:focus, .btn:focus {
   margin-top: 10px;
 }
 
+.about-content {
+  text-align: left;
+  margin: 1rem auto 0;
+  line-height: 1.7;
+  max-width: 700px;
+}
+
+.about-content p {
+  text-align: center;
+}
 
 .blog-section {
   max-width: 900px;
