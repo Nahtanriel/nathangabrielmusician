@@ -3,110 +3,80 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blog | Nahtanriel</title>
-
-  <meta name="description" content="Explore the creative journey of Nahtanriel — musician, content creator, and game developer. Read blog posts about milestones, projects, and personal insights." />
-  <meta name="keywords" content="Nahtanriel, musician blog, music journey, indie artist journal, game dev blog" />
-  <meta name="author" content="Nahtanriel" />
-  
+  <title>Nahtanriel | Musician • Creator</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="icon" href="images/favicon.png" type="image/png" />
 </head>
-
 <body>
 
   <nav class="navbar">
-    <div class="hamburger" id="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
+    <div class="nav-inner">
+      <a href="index.html" class="logo">Nahtanriel</a>
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="media.html">Media</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="blog.html" class="active">Blog</a></li>
+      </ul>
     </div>
-    <ul class="nav-links" id="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="media.html">Media</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="blog.html" class="active">Blog</a></li>
-    </ul>
   </nav>
 
 
-  <header class="hero">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <h1 class="hero-title">Blog & Journal</h1>
+<header class="hero" data-slideshow="blog">
+  <div class="scroll-indicator">
+    <div class="scroll-mouse">
+      <div class="scroll-wheel"></div>
     </div>
-  </header>
+  </div>
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1 class="hero-title">Blog & Journal</h1>
+  </div>
+</header>
 
-<main id="main-content" class="blog-section">
+  <main id="main-content" class="blog-section">
 
- <article class="blog-post">
+    <article class="blog-post section fade-section">
       <details open>
         <summary>
           <h2>Rebrand – A New Beginning</h2>
           <p class="blog-date">October 2025</p>
         </summary>
         <div class="blog-content">
-          <img src="images/blog1.jpg" alt="Nahtanriel creation" class="blog-image" />
+          <img src="images/blog1rebrand.jpg" alt="Nahtanriel creation" class="blog-image" />
           <div class="about-content" data-file="content/blog-1-rebrand.md"></div>
         </div>
       </details>
     </article>
-  </main>
-  <footer class="site-footer">
-    <div class="footer-content">
-      <p>© 2025 Nahtanriel. All rights reserved.</p>
-      <div class="social-links">
-        <a href="https://www.facebook.com/nahtanriel" target="_blank"><img src="images/facebook-icon.svg" alt="Facebook"></a>
-        <a href="https://www.youtube.com/@nahtanriel" target="_blank"><img src="images/youtube-icon.svg" alt="YouTube"></a>
-        <a href="https://www.instagram.com/nahtanriel" target="_blank"><img src="images/instagram-icon.svg" alt="Instagram"></a>
-        <a href="https://www.tiktok.com/@nahtanriel" target="_blank"><img src="images/tiktok-icon.svg" alt="TikTok"></a>
-      </div>
+
+
+ </main>
+<footer class="site-footer">
+  <div class="footer-content">
+    <p>© 2025 Nahtanriel. All rights reserved.</p>
+
+    <div class="footer-socials">
+      <a href="https://www.youtube.com/@Nahtanriel" target="_blank" aria-label="YouTube">
+        <img src="images/SVG/youtube.svg" alt="YouTube">
+      </a>
+      <a href="https://www.instagram.com/nahtanriel" target="_blank" aria-label="Instagram">
+        <img src="images/SVG/instagram.svg" alt="Instagram">
+      </a>
+      <a href="https://www.facebook.com/Nahtanriel" target="_blank" aria-label="Facebook">
+        <img src="images/SVG/facebook.svg" alt="Facebook">
+      </a>
     </div>
-  </footer>
-
-<script>
-window.addEventListener('load', () => {
-  const hero = document.querySelector('.hero');
-  const body = document.body;
-  const mainContent = document.querySelector('#main-content');
-
-  body.classList.add('hero-active');
-
-  setTimeout(() => {
-    hero.classList.add('fade-out');
-
-    setTimeout(() => {
-      hero.style.display = 'none';
-
-      // Delay the fade-in slightly for smooth timing
-      setTimeout(() => {
-        body.classList.remove('hero-active');
-        body.classList.add('hero-hidden');
-        mainContent.scrollIntoView({ behavior: 'smooth' });
-      }, 200); // tweak this delay (0–300ms) to taste
-
-    }, 1000); // match hero fade duration
-  }, 1500);
-});
-</script>
+  </div>
+</footer>
 
 
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      document.querySelectorAll(".about-content[data-file]").forEach(async (section) => {
-        const file = section.getAttribute("data-file");
-        try {
-          const response = await fetch(file);
-          const text = await response.text();
-          section.innerHTML = marked.parse(text);
-        } catch (err) {
-          section.innerHTML = "<p>Content failed to load.</p>";
-          console.error("Error loading content:", file, err);
-        }
-      });
-    });
-  </script>
   <script src="script.js"></script>
 </body>
 </html>

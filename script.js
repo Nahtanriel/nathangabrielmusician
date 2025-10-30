@@ -1,163 +1,182 @@
-// Existing scroll/hamburger/menu/modal code remains unchanged
-let lastScrollTop = 0;
-const navbar = document.querySelector('.navbar');
-const hamburger = document.getElementById("hamburger");
-const navLinks = document.getElementById("nav-links");
-
+// ==============================
+// NAVBAR SCROLL + PARALLAX HERO
+// ==============================
 window.addEventListener('scroll', () => {
-  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  const navbar = document.querySelector('.navbar');
+  const heroBg = document.querySelector('.hero-bg');
+  const scrollPos = window.scrollY * 0.3;
 
-  if (scrollTop > lastScrollTop) {
-    navbar.style.top = "-40px";
-    if (hamburger.classList.contains("open") || navLinks.classList.contains("active")) {
-      hamburger.classList.remove("open");
-      navLinks.classList.remove("active");
-    }
+  // Navbar background change
+  if (window.scrollY > 50) {
+    navbar.classList.add('scrolled');
   } else {
-    navbar.style.top = "0";
+    navbar.classList.remove('scrolled');
   }
 
-  lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+  // Parallax hero effect (only if hero-bg exists)
+  if (heroBg) {
+    heroBg.style.transform = `translateY(${scrollPos}px)`;
+  }
+
+  // 🔹 Close mobile nav when scrolling
+  if (navLinks.classList.contains('active')) {
+    navLinks.classList.remove('active');
+    hamburger.classList.remove('active');
+  }
 });
 
-hamburger.addEventListener("click", () => {
-  hamburger.classList.toggle("open");
-  navLinks.classList.toggle("active");
-});
+// ==============================
+// MOBILE NAV TOGGLE
+// ==============================
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
 
-const modal = document.getElementById("bookingModal");
-const formContainer = document.getElementById("formContainer");
-const toggleBtn = document.getElementById("toggleBookingModal");
-const closeBtn = document.getElementById("closeModalBtn");
+if (hamburger && navLinks) {
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('active');
+  });
 
-const imageTriggers = [
-  'images/acoustic.jpg',
-  'images/largesound.jpg',
-  'images/busking.jpg',
-];
-
-let isModalOpen = false;
-let formLoaded = false;
-let lastFocusedElement = null;
-
-function openModal() {
-  lastFocusedElement = document.activeElement;
-
-  modal.style.display = "block";
-  isModalOpen = true;
-  toggleBtn.textContent = "×";
-
-  if (!formLoaded) {
-    const iframe = document.createElement("iframe");
-    iframe.src = "https://form.jotform.com/251430610711038";
-    iframe.title = "Booking Form";
-    iframe.width = "100%";
-    iframe.height = "700";
-    iframe.style.border = "none";
-    iframe.allowFullscreen = true;
-    iframe.id = "bookingIframe";
-
-    formContainer.innerHTML = "";
-    formContainer.appendChild(iframe);
-    formLoaded = true;
-
-    // Once iframe is loaded, set up message passing
-    iframe.addEventListener("load", () => {
-      setupGigDurationCalculation();
+  // Close mobile menu when a link is clicked
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      navLinks.classList.remove('active');
     });
-  }
-
-  const currentScrollY = window.scrollY || window.pageYOffset;
-  window.scrollTo(0, currentScrollY - 1);
-  modal.scrollIntoView({ behavior: "smooth", block: "start" });
-
-  document.body.classList.add("modal-open");
-  trapFocus(modal);
+  });
 }
 
-function closeModal() {
-  modal.style.display = "none";
-  isModalOpen = false;
-  toggleBtn.textContent = "BOOK NOW";
-  document.body.classList.remove("modal-open");
-  if (lastFocusedElement) lastFocusedElement.focus();
-}
+// ==============================
+// FADE-IN SECTIONS ON SCROLL
+// ==============================
+const sections = document.querySelectorAll('.section');
+const revealSections = () => {
+  const triggerBottom = window.innerHeight * 0.85;
 
-function getFocusableElements(container) {
-  return container.querySelectorAll(
-    'a[href], button:not([disabled]), textarea, input, select, iframe, [tabindex]:not([tabindex="-1"])'
-  );
-}
-
-function trapFocus(element) {
-  const focusableElements = getFocusableElements(element);
-  if (focusableElements.length === 0) {
-    element.setAttribute('tabindex', '-1');
-    element.focus();
-    return;
-  }
-
-  const firstFocusable = focusableElements[0];
-  const lastFocusable = focusableElements[focusableElements.length - 1];
-
-  firstFocusable.focus();
-
-  function handleKeyDown(e) {
-    if (e.key === "Tab") {
-      if (e.shiftKey) {
-        if (document.activeElement === firstFocusable) {
-          e.preventDefault();
-          lastFocusable.focus();
-        }
-      } else {
-        if (document.activeElement === lastFocusable) {
-          e.preventDefault();
-          firstFocusable.focus();
-        }
-      }
-    } else if (e.key === "Escape") {
-      closeModal();
+  sections.forEach(section => {
+    const sectionTop = section.getBoundingClientRect().top;
+    if (sectionTop < triggerBottom) {
+      section.classList.add('visible');
     }
+  });
+};
+window.addEventListener('scroll', revealSections);
+window.addEventListener('load', revealSections);
+
+// ==============================
+// UNIVERSAL HERO SLIDESHOW (About / Media / Blog)
+// ==============================
+document.addEventListener("DOMContentLoaded", () => {
+  const hero = document.querySelector(".hero[data-slideshow]");
+  if (!hero) return;
+
+  const folder = hero.getAttribute("data-slideshow");
+  const heroBg = hero.querySelector(".hero-bg");
+
+  const imageCounts = {
+    about: 16,
+    media: 10,
+    blog: 2,
+  };
+
+  const imageCount = imageCounts[folder] || 10;
+  const images = [];
+
+  for (let i = 1; i <= imageCount; i++) {
+    const img = document.createElement("img");
+    img.src = `images/${folder}/${folder}${i}.jpg`; // <- fixed path
+    img.alt = `${folder} ${i}`;
+    img.classList.add("slider-image");
+    heroBg.appendChild(img);
+    images.push(img);
   }
 
-  element.addEventListener("keydown", handleKeyDown);
+  let current = 0;
+  images[current].classList.add("active");
 
-  function cleanup() {
-    element.removeEventListener("keydown", handleKeyDown);
-    element.removeEventListener("transitionend", cleanup);
-  }
-  element.addEventListener("transitionend", cleanup);
-}
+  setInterval(() => {
+    images[current].classList.remove("active");
+    current = (current + 1) % imageCount;
+    images[current].classList.add("active");
+  }, 4000);
+});
 
-document.querySelectorAll(".service-card img").forEach(img => {
-  if (imageTriggers.includes(img.getAttribute("src"))) {
-    img.style.cursor = "pointer";
-    img.addEventListener("click", openModal);
+
+// ==============================
+// ABOUT PAGE: LOAD MARKDOWN SECTIONS
+// ==============================
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".about-content[data-file]").forEach(async (section) => {
+    const file = section.getAttribute("data-file");
+    try {
+      const response = await fetch(file);
+      const text = await response.text();
+      section.innerHTML = marked.parse(text);
+    } catch (err) {
+      section.innerHTML = "<p>Content failed to load.</p>";
+      console.error("Error loading content:", file, err);
+    }
+  });
+});
+
+// 🔻 Shared scroll indicator fade + smooth scroll
+document.addEventListener("DOMContentLoaded", () => {
+  const scrollIndicator = document.querySelector(".scroll-indicator");
+  const mainContent = document.querySelector("#main-content");
+
+  if (!scrollIndicator) return;
+
+  // Fade out indicator on scroll
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 100) {
+      document.body.classList.add("scrolled");
+    } else {
+      document.body.classList.remove("scrolled");
+    }
+  });
+
+  // Smooth scroll on click
+  scrollIndicator.addEventListener("click", () => {
+    if (mainContent) {
+      mainContent.scrollIntoView({ behavior: "smooth" });
+    }
+  });
+});
+
+document.addEventListener("DOMContentLoaded", async () => {
+  const previewContainer = document.getElementById("latest-blog-preview");
+  if (!previewContainer) return; // Only run on homepage
+
+  try {
+    const response = await fetch("blog.html");
+    const text = await response.text();
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(text, "text/html");
+
+    const firstPost = doc.querySelector(".blog-post");
+    if (firstPost) {
+      const title = firstPost.querySelector("h2")?.textContent || "Latest Post";
+      const date = firstPost.querySelector(".blog-date")?.textContent || "";
+      const img = firstPost.querySelector("img")?.getAttribute("src") || "";
+      const excerpt = firstPost.querySelector(".about-content")?.textContent.slice(0, 180) + "...";
+      
+      previewContainer.innerHTML = `
+        <article class="blog-preview fade-section">
+          <img src="${img}" alt="${title}" class="blog-preview-image">
+          <div class="blog-preview-text">
+            <h2>${title}</h2>
+            <p class="blog-date">${date}</p>
+            <p>${excerpt}</p>
+            <a href="blog.html" class="read-more">Read More →</a>
+          </div>
+        </article>
+      `;
+    }
+  } catch (error) {
+    console.error("Failed to load latest blog post:", error);
   }
 });
-document.querySelectorAll(".service-trigger").forEach(btn => {
-  btn.addEventListener("click", openModal);
-});
-
-document.querySelectorAll(".service-card h3").forEach(heading => {
-  const src = heading.getAttribute("data-src");
-  if (imageTriggers.includes(src)) {
-    heading.style.cursor = "pointer";
-    heading.addEventListener("click", openModal);
-  }
-});
 
 
-toggleBtn.addEventListener("click", () => {
-  if (isModalOpen) {
-    closeModal();
-  } else {
-    openModal();
-  }
-});
 
-window.addEventListener("click", (e) => {
-  if (e.target === modal) {
-    closeModal();
-  }
-});
+

@@ -6,28 +6,28 @@
   <!-- Homepage -->
   <url>
     <loc>https://nahtanriel.com/</loc>
-    <lastmod>2025-10-28</lastmod>
+    <lastmod>2025-10-30</lastmod>
     <priority>1.00</priority>
   </url>
 
   <!-- Media Page -->
   <url>
     <loc>https://nahtanriel.com/media.html</loc>
-    <lastmod>2025-10-28</lastmod>
+    <lastmod>2025-10-30</lastmod>
     <priority>0.85</priority>
   </url>
 
 <!-- About Page -->
   <url>
     <loc>https://nahtanriel.com/about.html</loc>
-    <lastmod>2025-10-28</lastmod>
+    <lastmod>2025-10-30</lastmod>
     <priority>0.80</priority>
   </url>
 
   <!-- Blog Page -->
   <url>
     <loc>https://nahtanriel.com/blog.html</loc>
-    <lastmod>2025-10-28</lastmod>
+    <lastmod>2025-10-30</lastmod>
     <priority>0.90</priority>
   </url>
 

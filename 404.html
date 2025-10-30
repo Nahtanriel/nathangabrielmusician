@@ -1,21 +1,29 @@
 <!DOCTYPE html>
-<main>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>404 - Page Not Found</title>
-  <link rel="icon" href="/favicon.png" type="image/png" />
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nahtanriel | Musician • Creator</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="images/favicon.png" type="image/png" />
 </head>
 <body>
+
+<!-- Navigation -->
   <nav class="navbar">
-    <div class="logo">Nahtanriel</div>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="booking.html">Booking</a></li>
-    </ul>
+    <div class="nav-inner">
+      <a href="index.html" class="logo">Nahtanriel</a>
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="media.html">Media</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
+    </div>
   </nav>
 
   <main class="page-content">
@@ -26,8 +34,26 @@
     </section>
   </main>
 
-  <footer>
-    <p>&copy; 2025 Nahtanriel. All rights reserved.</p>
-  </footer>
+<footer class="site-footer">
+  <div class="footer-content">
+    <p>© 2025 Nahtanriel. All rights reserved.</p>
+
+    <div class="footer-socials">
+      <a href="https://www.youtube.com/@Nahtanriel" target="_blank" aria-label="YouTube">
+        <img src="images/SVG/youtube.svg" alt="YouTube">
+      </a>
+      <a href="https://www.instagram.com/nahtanriel" target="_blank" aria-label="Instagram">
+        <img src="images/SVG/instagram.svg" alt="Instagram">
+      </a>
+      <a href="https://open.spotify.com/artist/Nahtanriel" target="_blank" aria-label="Spotify">
+        <img src="images/SVG/spotify.svg" alt="Spotify">
+      </a>
+      <a href="https://www.facebook.com/Nahtanriel" target="_blank" aria-label="Facebook">
+        <img src="images/SVG/facebook.svg" alt="Facebook">
+      </a>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>

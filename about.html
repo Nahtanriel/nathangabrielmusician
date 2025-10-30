@@ -3,199 +3,106 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blog | Nahtanriel</title>
-
-  <meta name="description" content="Explore the creative journey of Nahtanriel — musician, content creator, and game developer. Read blog posts about milestones, projects, and personal insights." />
-  <meta name="keywords" content="Nahtanriel, musician blog, music journey, indie artist journal, game dev blog" />
-  <meta name="author" content="Nahtanriel" />
-  
+  <title>Nahtanriel | Musician • Creator</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="icon" href="images/favicon.png" type="image/png" />
+
 </head>
 <body>
 
   <nav class="navbar">
-    <div class="hamburger" id="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
+    <div class="nav-inner">
+      <a href="index.html" class="logo">Nahtanriel</a>
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="Index.html">Home</a></li>
+        <li><a href="media.html">Media</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
     </div>
-    <ul class="nav-links" id="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="media.html">Media</a></li>
-      <li><a href="about.html" class="active">About</a></li>
-      <li><a href="blog.html">Blog</a></li>
-    </ul>
   </nav>
 
-  <header class="hero">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <h1 class="hero-title">About</h1>
+
+<header class="hero" data-slideshow="about">
+  <div class="scroll-indicator">
+    <div class="scroll-mouse">
+      <div class="scroll-wheel"></div>
     </div>
-  </header>
+  </div>
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1 class="hero-title">About Me</h1>
+  </div>
+</header>
+
+
+    <div class="scroll-indicator">
+      <span></span>
+    </div>
+  </section>
 
   <main id="main-content">
- <div class="about-image-slider"></div>
-
-<script>
-  const imageCount = 15; 
-  const imagePath = "images/intro"; 
-  const imageExt = ".jpg"; 
-  const delayPerImage = 4; 
-
-  const slider = document.querySelector('.about-image-slider');
-  for (let i = 1; i <= imageCount; i++) {
-    const img = document.createElement('img');
-    img.src = `${imagePath}${i}${imageExt}`;
-    img.alt = `Intro ${i}`;
-    img.classList.add('fade-image');
-    slider.appendChild(img);
-  }
-
-  const images = slider.querySelectorAll('.fade-image');
-  const totalDuration = images.length * delayPerImage; 
-
-  images.forEach((img, index) => {
-    img.style.animation = `fadeSlideshow ${totalDuration}s infinite ease-in-out`;
-    img.style.animationDelay = `${index * delayPerImage}s`;
-  });
-</script>
-       
-    
-  <details id="my-story1">
-  <summary><h2>Introduction</h2></summary>
-  <div class="about-content" data-file="content/introduction.md"></div>
-   </div>  
-</details>
-
-  <details id="my-story2">
-    <summary><h2>Music</h2></summary>
-  <div class="about-content" data-file="content/music.md"></div>
-    </div>
-  </details>
-
-  <details id="my-story3">
-    <summary><h2>Video Games</h2></summary>
-    <div class="about-content" data-file="content/videogames.md"></div>
-    </div>
-  </details>
-
-  <details id="my-story4">
-    <summary><h2>Life Journey</h2></summary>
-    <div class="about-content" data-file="content/life.md"></div>
-     </div>
-  </details>
-
-  <details id="my-story5">
-    <summary><h2>Health</h2></summary>
-   <div class="about-content" data-file="content/health.md"></div>
-        
-     </div>
-    </details>
-
-     </div>
+    <section class="section fade-section">
+      <details id="intro">
+        <summary><h2>Introduction</h2></summary>
+        <div class="about-content" data-file="content/introduction.md"></div>
+      </details>
     </section>
-  </main>
 
+    <section class="section fade-section">
+      <details id="music">
+        <summary><h2>Music</h2></summary>
+        <div class="about-content" data-file="content/music.md"></div>
+      </details>
+    </section>
+
+    <section class="section fade-section">
+      <details id="games">
+        <summary><h2>Video Games</h2></summary>
+        <div class="about-content" data-file="content/videogames.md"></div>
+      </details>
+    </section>
+
+    <section class="section fade-section">
+      <details id="life">
+        <summary><h2>Life Journey</h2></summary>
+        <div class="about-content" data-file="content/life.md"></div>
+      </details>
+    </section>
+
+    <section class="section fade-section">
+      <details id="health">
+        <summary><h2>Health</h2></summary>
+        <div class="about-content" data-file="content/health.md"></div>
+      </details>
+    </section>
+ 
+</main>
 <footer class="site-footer">
   <div class="footer-content">
     <p>© 2025 Nahtanriel. All rights reserved.</p>
-    <div class="social-links">
-      <a href="https://www.facebook.com/nahtanriel" target="_blank" aria-label="Facebook">
-        <img src="images/facebook-icon.svg" alt="Facebook">
-        <i class="fab fa-facebook" aria-hidden="true"></i>
-      </a>
-      <a href="https://www.youtube.com/@nahtanriel" target="_blank" aria-label="YouTube">
-        <img src="images/youtube-icon.svg" alt="YouTube">
-        <i class="fab fa-youtube" aria-hidden="true"></i>
+
+    <div class="footer-socials">
+      <a href="https://www.youtube.com/@Nahtanriel" target="_blank" aria-label="YouTube">
+        <img src="images/SVG/youtube.svg" alt="YouTube">
       </a>
       <a href="https://www.instagram.com/nahtanriel" target="_blank" aria-label="Instagram">
-        <img src="images/instagram-icon.svg" alt="Instagram">
-        <i class="fab fa-instagram" aria-hidden="true"></i>
+        <img src="images/SVG/instagram.svg" alt="Instagram">
       </a>
-      <a href="https://www.tiktok.com/@nahtanriel" target="_blank" aria-label="TikTok">
-        <img src="images/tiktok-icon.svg" alt="TikTok">
-        <i class="fab fa-tiktok" aria-hidden="true"></i>
-</a>
-
-      </a>   
+      <a href="https://www.facebook.com/Nahtanriel" target="_blank" aria-label="Facebook">
+        <img src="images/SVG/facebook.svg" alt="Facebook">
+      </a>
     </div>
   </div>
-<script>
-window.addEventListener('load', () => {
-  const hero = document.querySelector('.hero');
-  const body = document.body;
-  const mainContent = document.querySelector('#main-content');
+</footer>
 
-  body.classList.add('hero-active');
 
-  setTimeout(() => {
-    hero.classList.add('fade-out');
-
-    setTimeout(() => {
-      hero.style.display = 'none';
-
-      // Delay the fade-in slightly for smooth timing
-      setTimeout(() => {
-        body.classList.remove('hero-active');
-        body.classList.add('hero-hidden');
-        mainContent.scrollIntoView({ behavior: 'smooth' });
-      }, 200); // tweak this delay (0–300ms) to taste
-
-    }, 1000); // match hero fade duration
-  }, 1500);
-});
-</script>
-
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll(".about-content[data-file]").forEach(async (section) => {
-      const file = section.getAttribute("data-file");
-      try {
-        const response = await fetch(file);
-        const text = await response.text();
-        section.innerHTML = marked.parse(text); // Convert Markdown → HTML
-      } catch (err) {
-        section.innerHTML = "<p>Content failed to load.</p>";
-        console.error("Error loading content:", file, err);
-      }
-    });
-  });
-</script>
-
-<script>
-  window.addEventListener('DOMContentLoaded', () => {
-    const hash = window.location.hash;
-    if (hash) {
-      const section = document.querySelector(hash);
-      if (section && section.tagName.toLowerCase() === 'details') {
-        section.open = true;
-        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        section.classList.add('highlight-section');
-        setTimeout(() => section.classList.remove('highlight-section'), 2500);
-      }
-    }
-  });
-</script>
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const allDetails = document.querySelectorAll("details");
-
-    allDetails.forEach((details) => {
-      details.addEventListener("toggle", () => {
-        if (details.open) {
-          allDetails.forEach((other) => {
-            if (other !== details && other.open) {
-              other.open = false;
-            }
-          });
-        }
-      });
-    });
-  });
-</script>
-<script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
