@@ -181,3 +181,55 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+  // --- Video Lightbox Functionality ---
+  const lightbox = document.getElementById("video-lightbox");
+  const iframe = document.getElementById("lightbox-iframe");
+  const closeBtn = document.querySelector(".close-lightbox");
+
+  if (lightbox && iframe && closeBtn) {
+    // Open video
+    document.querySelectorAll(".video-card").forEach(card => {
+      card.addEventListener("click", () => {
+        const videoId = card.dataset.video;
+        iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+        lightbox.classList.add("active");
+        document.body.style.overflow = "hidden"; // Prevent background scroll
+      });
+    });
+
+    closeBtn.addEventListener("click", () => {
+      lightbox.classList.remove("active");
+      iframe.src = "";
+      document.body.style.overflow = "";
+    });
+
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) {
+        lightbox.classList.remove("active");
+        iframe.src = "";
+        document.body.style.overflow = "";
+      }
+    });
+  }
+
+  document.querySelectorAll(".video-scroll").forEach(scrollContainer => {
+    scrollContainer.addEventListener("wheel", (e) => {
+      if (e.deltaY === 0) return;
+      e.preventDefault();
+      scrollContainer.scrollLeft += e.deltaY * 0.6; // allows vertical wheel to scroll horizontally
+    });
+  });
+});
+
+document.querySelectorAll(".video-scroll-wrapper").forEach(wrapper => {
+  const scroll = wrapper.querySelector(".video-scroll");
+  const left = wrapper.querySelector(".scroll-btn.left");
+  const right = wrapper.querySelector(".scroll-btn.right");
+
+  left.addEventListener("click", () => (scroll.scrollLeft -= 350));
+  right.addEventListener("click", () => (scroll.scrollLeft += 350));
+});
+
+
+
