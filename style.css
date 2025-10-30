@@ -733,7 +733,6 @@ body.scrolled .scroll-indicator {
   opacity 1.5s cubic-bezier(0.22, 1, 0.36, 1),
   transform 1.5s cubic-bezier(0.22, 1, 0.36, 1),
   filter 1.2s ease;
-  text-align: center;
 }
 
 .section.visible {
@@ -755,6 +754,7 @@ body.scrolled .scroll-indicator {
   color: var(--red-light);
   text-shadow: none; /
   transition: text-shadow 1.2s ease, color 1.2s ease;
+  text-align: center;
 }
 
 .section.visible .section-inner > * {
