@@ -194,7 +194,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const videoId = card.dataset.video;
         iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
         lightbox.classList.add("active");
-        document.body.style.overflow = "hidden"; // Prevent background scroll
+        document.body.style.overflow = "hidden"; 
       });
     });
 
@@ -217,7 +217,7 @@ document.addEventListener("DOMContentLoaded", () => {
     scrollContainer.addEventListener("wheel", (e) => {
       if (e.deltaY === 0) return;
       e.preventDefault();
-      scrollContainer.scrollLeft += e.deltaY * 0.6; // allows vertical wheel to scroll horizontally
+      scrollContainer.scrollLeft += e.deltaY * 0.6; 
     });
   });
 });
@@ -230,6 +230,27 @@ document.querySelectorAll(".video-scroll-wrapper").forEach(wrapper => {
   left.addEventListener("click", () => (scroll.scrollLeft -= 350));
   right.addEventListener("click", () => (scroll.scrollLeft += 350));
 });
+
+let lastScrollY = window.scrollY;
+const navbar = document.querySelector('.navbar');
+
+window.addEventListener('scroll', () => {
+  const currentScrollY = window.scrollY;
+
+  // Only trigger after some scrolling
+  if (Math.abs(currentScrollY - lastScrollY) > 5) {
+    if (currentScrollY > lastScrollY && currentScrollY > 100) {
+      // Scrolling down
+      navbar.classList.add('hide');
+    } else {
+      // Scrolling up
+      navbar.classList.remove('hide');
+    }
+  }
+
+  lastScrollY = currentScrollY;
+});
+
 
 
 

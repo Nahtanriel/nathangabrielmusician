@@ -126,7 +126,28 @@ button:focus, .btn:focus {
   justify-content: center;
   background: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(10px);
-  transition: background var(--transition);
+  transition:
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.3s ease;
+}
+
+.navbar.hide {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+
+@media (min-width: 1025px) {
+  .navbar {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+
+  .navbar.hide {
+    transform: none !important;
+    opacity: 1 !important;
+  }
 }
 
 .navbar.scrolled {
@@ -155,6 +176,7 @@ button:focus, .btn:focus {
   list-style: none;
   display: flex;
   gap: 2rem;
+
 }
 
 .nav-links a {
@@ -222,10 +244,10 @@ button:focus, .btn:focus {
 @media (max-width: 768px) {
   .nav-links {
     position: fixed;
-    top: 0; /* align with navbar */
+    top: 0;
     left: 0;
     width: 100%;
-    height: 100vh; /* full screen overlay */
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -233,19 +255,18 @@ button:focus, .btn:focus {
     gap: 2rem;
     background: rgba(0, 0, 0, 0.95);
     backdrop-filter: blur(12px);
-    transform: translateY(-100%);
     opacity: 0;
+    transform: translateY(-10px); /* small offset instead of -100% */
     pointer-events: none;
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    transition: opacity 0.4s ease, transform 0.4s ease;
     z-index: 999;
   }
 
   .nav-links.active {
-    transform: translateY(0);
     opacity: 1;
+    transform: translateY(0);
     pointer-events: auto;
   }
-
   .nav-links a {
     font-size: 1.6rem;
     opacity: 0;
@@ -952,4 +973,6 @@ body.scrolled .scroll-indicator {
   0% { opacity: 0; transform: translateY(30px); }
   100% { opacity: 1; transform: translateY(0); }
 }
+
+
 
