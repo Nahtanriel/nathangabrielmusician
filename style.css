@@ -446,75 +446,66 @@ button:focus, .btn:focus {
   border-radius: 0.5rem;
 }
 
-.blog-teaser-section {
-  padding: 6rem 2rem;
-  background-color: #0d0d0d;
-  color: #fff;
-  text-align: center;
+/* --- Latest Blog Teaser (Index) --- */
+.latest-blog-preview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-.blog-teaser-section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-.blog-teaser-section p.teaser-text {
-  font-size: 1.1rem;
-  color: #ccc;
-  margin-bottom: 2rem;
-}
-
-.blog-teaser-card {
+.latest-post {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
+  gap: 30px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 30px;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.latest-post:hover {
+  transform: scale(1.02);
+}
+
+.latest-post-image {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.1);
+}
+
+.latest-post-content {
+  max-width: 500px;
   text-align: left;
-  background-color: #1a1a1a;
-  padding: 2rem;
-  border-radius: 1rem;
 }
 
-.blog-teaser-image {
-  width: 300px;
-  max-width: 100%;
-  border-radius: 0.5rem;
+.latest-post-content h3 {
+  font-size: 1.8rem;
+  color: var(--accent-color, #ff4444);
+  margin-bottom: 10px;
 }
 
-.blog-teaser-text h3 {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
+.latest-post-content .blog-date {
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-bottom: 10px;
 }
 
-.blog-teaser-text p {
+.blog-preview-text {
   color: #ccc;
   line-height: 1.6;
+  margin-bottom: 15px;
 }
 
-.blog-teaser-text .blog-date {
-  font-size: 0.9rem;
-  color: #888;
-  margin-bottom: 1rem;
+.latest-post .btn {
+  display: inline-block;
+  margin-top: 10px;
 }
 
-.blog-teaser-text .btn {
-  margin-top: 1rem;
-}
-
-@media (max-width: 768px) {
-  .blog-teaser-card {
-    flex-direction: column;
-    text-align: center;
-  }
-}
-
-@media (max-width: 768px) {
-  .album-grid {
-    flex-direction: column;
-    align-items: center;
-  }
-}
 
 .blog-section {
   max-width: 900px;

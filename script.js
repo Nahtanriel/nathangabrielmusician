@@ -143,37 +143,55 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+// ==============================
+// INDEX PAGE: LATEST BLOG PREVIEW
+// ==============================
 document.addEventListener("DOMContentLoaded", async () => {
   const previewContainer = document.getElementById("latest-blog-preview");
-  if (!previewContainer) return; // Only run on homepage
+  if (!previewContainer) return; // Skip if not on index.html
 
   try {
+    // Fetch the blog page
     const response = await fetch("blog.html");
-    const text = await response.text();
+    const htmlText = await response.text();
     const parser = new DOMParser();
-    const doc = parser.parseFromString(text, "text/html");
+    const doc = parser.parseFromString(htmlText, "text/html");
 
-    const firstPost = doc.querySelector(".blog-post");
-    if (firstPost) {
-      const title = firstPost.querySelector("h2")?.textContent || "Latest Post";
-      const date = firstPost.querySelector(".blog-date")?.textContent || "";
-      const img = firstPost.querySelector("img")?.getAttribute("src") || "";
-      const excerpt = firstPost.querySelector(".about-content")?.textContent.slice(0, 180) + "...";
-      
-      previewContainer.innerHTML = `
-        <article class="blog-preview fade-section">
-          <img src="${img}" alt="${title}" class="blog-preview-image">
-          <div class="blog-preview-text">
-            <h2>${title}</h2>
-            <p class="blog-date">${date}</p>
-            <p>${excerpt}</p>
-            <a href="blog.html" class="read-more">Read More →</a>
-          </div>
-        </article>
-      `;
+    // Grab the first (latest) blog post
+    const latestPost = doc.querySelector(".blog-post details");
+    if (!latestPost) {
+      previewContainer.innerHTML = "<p>No blog posts found.</p>";
+      return;
     }
-  } catch (error) {
-    console.error("Failed to load latest blog post:", error);
+
+    // Extract data
+    const title = latestPost.querySelector("h2")?.innerText || "Untitled";
+    const date = latestPost.querySelector(".blog-date")?.innerText || "";
+    const imgSrc = latestPost.querySelector("img")?.getAttribute("src") || "images/default-blog.jpg";
+    const mdFile = latestPost.querySelector(".about-content")?.getAttribute("data-file");
+
+    let previewText = "";
+    if (mdFile) {
+      const mdResponse = await fetch(mdFile);
+      const mdContent = await mdResponse.text();
+      previewText = mdContent.replace(/[#>*_\[\]\(\)`]/g, "").slice(0, 250) + "...";
+    }
+
+    // Construct preview
+    previewContainer.innerHTML = `
+      <article class="latest-post">
+        <img src="${imgSrc}" alt="${title}" class="latest-post-image">
+        <div class="latest-post-content">
+          <h3>${title}</h3>
+          <p class="blog-date">${date}</p>
+          <p class="blog-preview-text">${previewText}</p>
+          <a href="blog.html" class="btn">Read More</a>
+        </div>
+      </article>
+    `;
+  } catch (err) {
+    console.error("Error loading latest blog post:", err);
+    previewContainer.innerHTML = "<p>Failed to load latest post.</p>";
   }
 });
 
