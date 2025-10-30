@@ -381,8 +381,9 @@ button:focus, .btn:focus {
 
 .music-section {
   padding: 6rem 2rem;
-  background-color: #0d0d0d; /* matches dark theme */
+  background-color: #0d0d0d; /* Matches dark theme */
   color: #fff;
+  text-align: center; /* Centers section titles and paragraphs nicely */
 }
 
 .music-section h2 {
@@ -394,21 +395,28 @@ button:focus, .btn:focus {
   font-size: 1.1rem;
   margin-bottom: 3rem;
   color: #ccc;
+  max-width: 700px; /* Prevents very wide text on large screens */
+  margin-inline: auto; /* Centers the paragraph */
 }
 
 .album-grid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
-  justify-content: center;
+  margin-top: 3rem;
+  justify-items: center; /* Keeps cards aligned in the center of their grid cells */
 }
 
 .album-card {
   background-color: #1a1a1a;
-  border-radius: 1rem;
   padding: 1rem;
-  width: 280px;
+  width: 100%;
+  max-width: 320px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.05); /* subtle border for depth */
 }
 
 .album-card:hover {
@@ -416,19 +424,95 @@ button:focus, .btn:focus {
   box-shadow: 0 8px 20px rgba(0,0,0,0.5);
 }
 
-.album-card img {
+.album-cover {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.album-cover img {
   width: 100%;
-  border-radius: 0.5rem;
-  margin-bottom: 1rem;
+  display: block;
+  border-radius: 10px;
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.album-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  visibility: hidden; /* hide from click/touch */
+  pointer-events: none; /* block clicks when hidden */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  color: #fff;
+  border-radius: 10px;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.album-cover:hover img {
+  transform: scale(1.08);
+  filter: brightness(0.6);
+}
+
+.album-cover:hover .album-overlay {
+  opacity: 1;
+  visibility: visible; /* now clickable */
+  pointer-events: auto;
+}
+
+.album-overlay h3 {
+  font-size: 1.3rem;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+.album-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.icon-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: transparent;
+  border: none;
+  transition: transform 0.3s ease, background 0.3s ease;
+  cursor: pointer;
+}
+
+.icon-link img {
+  width: 26px;
+  height: 26px;
+  filter: brightness(1.2);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.icon-link:hover img {
+  filter: brightness(2);
+  transform: scale(1.1);
+}
+
+.icon-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  transform: scale(1.1);
 }
 
 .album-card h3 {
   font-size: 1.25rem;
-  margin-bottom: 0.75rem;
+  margin: 1rem 0 0.5rem;
 }
 
 .album-links .btn {
-  margin: 0.25rem 0.25rem 0 0.25rem;
+  margin: 0.25rem;
   font-size: 0.9rem;
   padding: 0.5rem 1rem;
 }
@@ -854,17 +938,19 @@ body.scrolled .scroll-indicator {
   position: relative;
   padding: 6rem 2rem;
   background: var(--color-bg-alt);
-  opacity: 1;
+  opacity: 0; /* start invisible */
   transform: translateY(80px) scale(0.98);
   filter: blur(8px);
   transition:
-  opacity 1.5s cubic-bezier(0.22, 1, 0.36, 1),
-  transform 1.5s cubic-bezier(0.22, 1, 0.36, 1),
-  filter 1.2s ease;
+    opacity 1.5s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.5s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 1.2s ease;
   text-align: center;
   max-width: 900px;
   margin: 0 auto;
-
+  will-change: opacity, transform, filter; /* boosts smoothness on mobile */
+  backface-visibility: hidden;
+  -webkit-transform: translateZ(0); /* forces GPU acceleration */
 }
 
 .section.visible {
@@ -912,12 +998,12 @@ body.scrolled .scroll-indicator {
   }
 }
 
-.section.visible .section-inner > *:nth-child(1) { animation-delay: 0.1s; }
-.section.visible .section-inner > *:nth-child(2) { animation-delay: 0.25s; }
-.section.visible .section-inner > *:nth-child(3) { animation-delay: 0.4s; }
-.section.visible .section-inner > *:nth-child(4) { animation-delay: 0.55s; }
-.section.visible .section-inner > *:nth-child(5) { animation-delay: 0.7s; }
-.section.visible .section-inner > *:nth-child(6) { animation-delay: 0.85s; }
+.section.visible .section-inner > *:nth-child(1) { animation-delay: 0.05s; }
+.section.visible .section-inner > *:nth-child(2) { animation-delay: 0.15s; }
+.section.visible .section-inner > *:nth-child(3) { animation-delay: 0.3s; }
+.section.visible .section-inner > *:nth-child(4) { animation-delay: 0.45s; }
+.section.visible .section-inner > *:nth-child(5) { animation-delay: 0.6s; }
+.section.visible .section-inner > *:nth-child(6) { animation-delay: 0.75s; }
 
 
 @keyframes fadeCascade {
@@ -998,6 +1084,75 @@ body.scrolled .scroll-indicator {
   0% { opacity: 0; transform: translateY(30px); }
   100% { opacity: 1; transform: translateY(0); }
 }
+
+.contact-section {
+  background: radial-gradient(circle at top left, #0a0a0a 40%, #000);
+  color: #fff;
+  padding: 6rem 1.5rem;
+  text-align: center;
+  border-top: 1px solid #222;
+}
+
+.contact-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--red);
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+}
+
+.contact-section p {
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+  font-size: 1.1rem;
+  color: #ccc;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+  position: relative;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid #333;
+  border-radius: 6px;
+  background: #111;
+  color: #fff;
+  font-family: inherit;
+  transition: box-shadow 0.4s ease, border 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--red);
+  box-shadow: 0 0 8px var(--red);
+  outline: none;
+}
+
+.contact-form .btn {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+}
+
+
+
 
 
 

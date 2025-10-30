@@ -242,7 +242,6 @@ const navbar = document.querySelector('.navbar');
 window.addEventListener('scroll', () => {
   const currentScrollY = window.scrollY;
 
-  // Only trigger after some scrolling
   if (Math.abs(currentScrollY - lastScrollY) > 5) {
     if (currentScrollY > lastScrollY && currentScrollY > 100) {
       // Scrolling down
@@ -255,6 +254,39 @@ window.addEventListener('scroll', () => {
 
   lastScrollY = currentScrollY;
 });
+
+document.querySelectorAll("details").forEach((detail) => {
+  detail.addEventListener("toggle", function () {
+    // When a section is opened
+    if (this.open) {
+      // Close all other sections
+      document.querySelectorAll("details").forEach((other) => {
+        if (other !== this) other.open = false;
+      });
+
+      this.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const sections = document.querySelectorAll('.section');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  sections.forEach(section => observer.observe(section));
+});
+
+
 
 
 

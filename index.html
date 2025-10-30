@@ -18,8 +18,8 @@
     </div>
     <ul class="nav-links" id="nav-links">
       <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="media.html">Media</a></li>
       <li><a href="about.html">About</a></li>
+      <li><a href="media.html">Media</a></li>
       <li><a href="blog.html">Blog</a></li>
     </ul>
   </div>
@@ -41,34 +41,91 @@
 </header>
 
 <main id="main-content">
-
   <section id="music" class="section music-section fade-section">
     <div class="section-inner">
       <h2>Featured Music</h2>
+      <p>Listen to my latest releases across all major platforms.</p>
+
       <div class="album-grid">
-     
+
         <div class="album-card">
-          <img src="images/album1.jpg" alt="Album 1 Cover">
-          <h3>Perspective</h3>
-          <div class="album-links">
-        <a href="https://open.spotify.com/album/1MkqVKESUTn0N7T0Y12M5s" target="_blank" class="btn">Spotify</a>
-            <a href="https://music.apple.com/us/album/perspective/1453635946" target="_blank" class="btn">Apple Music</a>
-            <a href="https://nahtanriel.bandcamp.com/album/perspective" target="_blank" class="btn">Bandcamp</a>
+          <div class="album-cover">
+            <img src="images/album1.jpg" alt="Perspective Album Cover">
+            <div class="album-overlay">
+              <h3>Perspective</h3>
+              <div class="album-actions">
+                <a href="https://open.spotify.com/album/1MkqVKESUTn0N7T0Y12M5s" 
+                   target="_blank" 
+                   class="icon-link" 
+                   title="Listen on Spotify" 
+                   aria-label="Listen to Perspective on Spotify">
+                  <img src="images/SVG/spotify.svg" alt="Spotify icon" width="24" height="24">
+                </a>
+
+                <a href="https://music.apple.com/us/album/perspective/1453635946" 
+                   target="_blank" 
+                   class="icon-link" 
+                   title="Listen on Apple Music" 
+                   aria-label="Listen to Perspective on Apple Music">
+                  <img src="images/SVG/applemusic.svg" alt="Apple Music icon" width="24" height="24">
+                </a>
+
+                <a href="https://nahtanriel.bandcamp.com/album/perspective" 
+                   target="_blank" 
+                   class="icon-link" 
+                   title="Listen on Bandcamp" 
+                   aria-label="Listen to Perspective on Bandcamp">
+                  <img src="images/SVG/bandcamp.svg" alt="Bandcamp icon" width="24" height="24">
+                </a>
+              </div>
+            </div>
           </div>
         </div>
 
         <div class="album-card">
-          <img src="images/album2.jpg" alt="Album 2 Cover">
-          <h3>Personality</h3>
-          <div class="album-links">
-            <a href="https://open.spotify.com/album/48ZVFPkCL3cleysSyQFUuM" target="_blank" class="btn">Spotify</a>
-            <a href="https://music.apple.com/us/album/personality/1659943655" target="_blank" class="btn">Apple Music</a>
-            <a href="https://nahtanriel.bandcamp.com/album/personality" target="_blank" class="btn">Bandcamp</a>
+          <div class="album-cover">
+            <img src="images/album2.jpg" alt="Personality Album Cover">
+            <div class="album-overlay">
+              <h3>Personality</h3>
+              <div class="album-actions">
+                <a href="https://open.spotify.com/album/48ZVFPkCL3cleysSyQFUuM" 
+                   target="_blank" 
+                   class="icon-link" 
+                   title="Listen on Spotify" 
+                   aria-label="Listen to Personality on Spotify">
+                  <img src="images/SVG/spotify.svg" alt="Spotify icon" width="24" height="24">
+                </a>
+
+                <a href="https://music.apple.com/us/album/personality/1659943655" 
+                   target="_blank" 
+                   class="icon-link" 
+                   title="Listen on Apple Music" 
+                   aria-label="Listen to Personality on Apple Music">
+                  <img src="images/SVG/applemusic.svg" alt="Apple Music icon" width="24" height="24">
+                </a>
+
+                <a href="https://nahtanriel.bandcamp.com/album/personality" 
+                   target="_blank" 
+                   class="icon-link" 
+                   title="Listen on Bandcamp" 
+                   aria-label="Listen to Personality on Bandcamp">
+                  <img src="images/SVG/bandcamp.svg" alt="Bandcamp icon" width="24" height="24">
+                </a>
+              </div>
+            </div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
+</main>
+
+
+    </div>
+  </div>
+</section>
+
 
 <section id="video" class="section video-section fade-section">
   <div class="section-inner">
@@ -88,6 +145,33 @@
 </section>
 
   </main>
+
+<section id="contact" class="section contact-section fade-section">
+  <div class="section-inner">
+    <h2>Get in Touch</h2>
+    <p>If you'd like to collaborate, book me for a gig, or just say hi — drop me a message below.</p>
+
+<form id="contact-form" action="https://formspree.io/f/mvganlql" method="POST" class="contact-form" >
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="_replyto" required>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+      </div>
+
+      <button type="submit" class="btn">Send Message</button>
+      <p id="form-status" class="form-status"></p>
+    </form>
+  </div>
+</section>
 
 <footer class="site-footer">
   <div class="footer-content">
