@@ -85,18 +85,18 @@ document.addEventListener("DOMContentLoaded", () => {
   }, 4000);
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll(".about-content[data-file]").forEach(async (section) => {
-    const file = section.getAttribute("data-file");
-    try {
-      const response = await fetch(file);
-      const text = await response.text();
-      section.innerHTML = marked.parse(text);
-    } catch (err) {
-      section.innerHTML = "<p>Content failed to load.</p>";
-      console.error("Error loading content:", file, err);
-    }
-  });
+document.querySelectorAll('.about-content').forEach(container => {
+  const file = container.getAttribute('data-file');
+  fetch(file)
+    .then(response => response.text())
+    .then(text => {
+      container.innerHTML = marked.parse(text);
+
+      requestAnimationFrame(() => {
+        container.classList.add('loaded');
+      });
+    })
+    .catch(error => console.error('Error loading content:', error));
 });
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -124,7 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener("DOMContentLoaded", async () => {
   const previewContainer = document.getElementById("latest-blog-preview");
-  if (!previewContainer) return; // Skip if not on index.html
+  if (!previewContainer) return; 
 
   try {
     const response = await fetch("blog.html");
