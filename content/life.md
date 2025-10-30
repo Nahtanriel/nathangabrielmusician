@@ -4,7 +4,7 @@ I don't want to do it anymore. Well, not like what I've been doing. I am now kno
 
 But circumstances changed, I was forced to move to another town, moving away from my childhood friends, my fellow tennis group and the after-school music class that would have provided me with a Certificate III. I then developed what I later found out was Ankylosing Spondylitis (*Say that 5 times fast....and I appear* 😮)
 
-So tennis was soon put to the side, and I started to question what I wanted in life. (*Probably just wanted food, where me foodies at?*) But in all seriousness, I really started to have an internal battle of what will be my future. Tennis was all I wanted, and I started to become a 3D modeler.
+So tennis was soon put to the side, and I started to question what I wanted in life. (P*robably just wanted food, where me foodies at?*) But in all seriousness, I really started to have an internal battle of what will be my future. Tennis was all I wanted, and I started to become a 3D modeler.
 
 As all this was happening, I randomly was picking up the guitar, not mine, sorry sis, and it would bring me comfort during some incredibly traumatic and dark times. Having moved on from my childhood town/home and close circle of friends, developing a degenerative back condition and walking away from many years of Tennis progression, things needed to change.
 
