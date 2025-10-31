@@ -57,32 +57,49 @@ document.addEventListener("DOMContentLoaded", () => {
   const folder = hero.getAttribute("data-slideshow");
   const heroBg = hero.querySelector(".hero-bg");
 
-  const imageCounts = {
-    about: 18,
-    media: 13,
-    blog: 13,
-  };
-
+  const imageCounts = { index: 6, about: 18, media: 13, blog: 13 };
   const imageCount = imageCounts[folder] || 10;
   const images = [];
 
   for (let i = 1; i <= imageCount; i++) {
     const img = document.createElement("img");
-    img.src = `images/${folder}/${folder}${i}.jpg`; // <- fixed path
+    img.src = `images/${folder}/${folder}${i}.jpg`;
     img.alt = `${folder} ${i}`;
     img.classList.add("slider-image");
     heroBg.appendChild(img);
     images.push(img);
   }
 
-  let current = 0;
-  images[current].classList.add("active");
+  let current = Math.floor(Math.random() * images.length);
+  let firstLoaded = false;
 
-  setInterval(() => {
-    images[current].classList.remove("active");
-    current = (current + 1) % imageCount;
-    images[current].classList.add("active");
-  }, 4000);
+  const firstImg = images[current];
+  firstImg.onload = () => {
+    firstImg.classList.add("active");
+    firstLoaded = true;
+  };
+  firstImg.onerror = () => console.warn(`Missing: ${firstImg.src}`);
+
+  images.forEach((img, i) => {
+    if (i !== current) {
+      img.onload = () => {};
+      img.onerror = () => console.warn(`Missing: ${img.src}`);
+    }
+  });
+
+  const startSlideshow = () => {
+    if (!firstLoaded) {
+      requestAnimationFrame(startSlideshow);
+      return;
+    }
+    setInterval(() => {
+      images[current].classList.remove("active");
+      current = (current + 1) % images.length;
+      images[current].classList.add("active");
+    }, 4000);
+  };
+
+  startSlideshow();
 });
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -113,7 +130,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!scrollIndicator) return;
 
-  // Fade out indicator on scroll
   window.addEventListener("scroll", () => {
     if (window.scrollY > 100) {
       document.body.classList.add("scrolled");
@@ -122,7 +138,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Smooth scroll on click
   scrollIndicator.addEventListener("click", () => {
     if (mainContent) {
       mainContent.scrollIntoView({ behavior: "smooth" });
@@ -190,13 +205,11 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  // --- Video Lightbox Functionality ---
   const lightbox = document.getElementById("video-lightbox");
   const iframe = document.getElementById("lightbox-iframe");
   const closeBtn = document.querySelector(".close-lightbox");
 
   if (lightbox && iframe && closeBtn) {
-    // Open video
     document.querySelectorAll(".video-card").forEach(card => {
       card.addEventListener("click", () => {
         const videoId = card.dataset.video;
@@ -247,10 +260,9 @@ window.addEventListener('scroll', () => {
 
   if (Math.abs(currentScrollY - lastScrollY) > 5) {
     if (currentScrollY > lastScrollY && currentScrollY > 100) {
-      // Scrolling down
+
       navbar.classList.add('hide');
     } else {
-      // Scrolling up
       navbar.classList.remove('hide');
     }
   }
@@ -260,9 +272,7 @@ window.addEventListener('scroll', () => {
 
 document.querySelectorAll("details").forEach((detail) => {
   detail.addEventListener("toggle", function () {
-    // When a section is opened
     if (this.open) {
-      // Close all other sections
       document.querySelectorAll("details").forEach((other) => {
         if (other !== this) other.open = false;
       });
@@ -288,9 +298,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
   sections.forEach(section => observer.observe(section));
 });
-
-
-
-
-
-
