@@ -115,6 +115,11 @@ button:focus, .btn:focus {
                0 0 16px rgba(179, 18, 23, 0.3);
 }
 
+details {
+  transform: none !important;
+  transition: none !important;
+}
+
 .navbar {
   position: fixed;
   top: 0;
@@ -963,6 +968,12 @@ body.scrolled .scroll-indicator {
   backface-visibility: hidden;
   -webkit-transform: translateZ(0); /* forces GPU acceleration */
 }
+
+.section:not(.blog-section) {
+  transform: translateY(80px) scale(0.98);
+  transition: opacity 0.8s, transform 0.8s, filter 0.8s;
+}
+
 
 .section.visible {
   opacity: 1;

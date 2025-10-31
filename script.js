@@ -58,9 +58,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const heroBg = hero.querySelector(".hero-bg");
 
   const imageCounts = {
-    about: 16,
-    media: 10,
-    blog: 2,
+    about: 18,
+    media: 13,
+    blog: 13,
   };
 
   const imageCount = imageCounts[folder] || 10;
