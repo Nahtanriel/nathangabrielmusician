@@ -664,11 +664,10 @@ button:focus, .btn:focus {
 }
 
 .blog-content {
-  margin-top: 1rem;
+  text-align: left;
+  margin: 1rem auto 0;
   line-height: 1.7;
   max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
   opacity: 0;
   transform: translateY(30px);
   filter: blur(6px);
@@ -689,7 +688,7 @@ button:focus, .btn:focus {
   height: auto;
   border-radius: 12px;
   margin-bottom: 1rem;
-  opacity: 0;
+  opacity: 1
   transform: scale(0.98);
   transition: 
     opacity 0.8s ease,
