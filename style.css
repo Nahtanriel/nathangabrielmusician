@@ -660,6 +660,13 @@ button:focus, .btn:focus {
   text-align: center;
 }
 
+.blog-date {
+  font-weight: normal;
+  font-size: 0.9em;
+  color: #aaa;
+  margin: 0;
+}
+
 .video-gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
