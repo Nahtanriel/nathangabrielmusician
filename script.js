@@ -310,37 +310,55 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-const channelId = "UCNcVkpXSVFf0gGh_c3T_G-g";
-const feedUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(`https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`)}`;
+// === Load latest YouTube video using YouTube Data API ===
+
+// 🔑 Replace this with your own API key
+const API_KEY = "AIzaSyAXLHb2r3nmQt9VHA9x22dsk94BezHMla8";
+
+// 🔗 Your channel ID (keep this one)
+const CHANNEL_ID = "UCNcVkpXSVFf0gGh_c3T_G-g";
+
+// Build YouTube API request
+const API_URL = `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=1`;
 
 async function loadLatestVideo() {
   const container = document.getElementById("latest-video");
+
   try {
-    const response = await fetch(feedUrl);
-    const xmlText = await response.text();
+    const res = await fetch(API_URL);
+    const data = await res.json();
 
-    const parser = new DOMParser();
-    const xml = parser.parseFromString(xmlText, "text/xml");
-    const latestEntry = xml.querySelector("entry > id");
+    if (!data.items || data.items.length === 0) {
+      container.innerHTML = "<p>No recent videos found.</p>";
+      return;
+    }
 
-    if (latestEntry) {
-      const videoId = latestEntry.textContent.split(":").pop();
-      container.innerHTML = `
+    const video = data.items[0];
+    const videoId = video.id.videoId;
+    const title = video.snippet.title;
+    const thumbnail = video.snippet.thumbnails.high.url;
+    const published = new Date(video.snippet.publishedAt).toLocaleDateString();
+
+    container.innerHTML = `
+      <div class="video-card">
         <iframe
           src="https://www.youtube.com/embed/${videoId}"
-          title="Nahtanriel — Latest Upload"
+          title="${title}"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
         ></iframe>
-      `;
-    } else {
-      container.innerHTML = "<p>No recent videos found.</p>";
-    }
-  } catch (error) {
-    console.error("Error loading latest YouTube video:", error);
-    container.innerHTML = "<p>Unable to load video.</p>";
+        <div class="video-info">
+          <h3>${title}</h3>
+          <p>Uploaded on ${published}</p>
+        </div>
+      </div>
+    `;
+  } catch (err) {
+    console.error("Error fetching latest video:", err);
+    container.innerHTML = "<p>Failed to load video.</p>";
   }
 }
 
 document.addEventListener("DOMContentLoaded", loadLatestVideo);
+
