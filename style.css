@@ -637,9 +637,9 @@ button:focus, .btn:focus {
 }
 
 .blog-section {
-  max-width: 900px;
+  max-width: 700px;
   margin: 0 auto;
-  padding: 5rem 2rem;
+  padding: 4rem 1.5rem;
 }
 
 .blog-post summary {
@@ -665,16 +665,42 @@ button:focus, .btn:focus {
 
 .blog-content {
   margin-top: 1rem;
-  line-height: 1.8;
+  line-height: 1.7;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0;
+  transform: translateY(30px);
+  filter: blur(6px);
+  transition: 
+    opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 1.2s ease;
+}
+
+.blog-content.loaded {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
 }
 
 .blog-image {
   width: 100%;
+  height: auto;
   border-radius: 12px;
   margin-bottom: 1rem;
-  opacity: 0.9;
-  transition: opacity 0.3s ease;
+  opacity: 0;
+  transform: scale(0.98);
+  transition: 
+    opacity 0.8s ease,
+    transform 0.8s ease;
 }
+
+.blog-content.loaded .blog-image {
+  opacity: 1;
+  transform: scale(1);
+}
+
 .blog-image:hover {
   opacity: 1;
 }
@@ -950,7 +976,7 @@ body.scrolled .scroll-indicator {
   position: relative;
   padding: 6rem 2rem;
   background: var(--color-bg-alt);
-  opacity: 0; /* start invisible */
+  opacity: 0; 
   transform: translateY(80px) scale(0.98);
   filter: blur(8px);
   transition:
@@ -960,17 +986,9 @@ body.scrolled .scroll-indicator {
   text-align: center;
   max-width: 900px;
   margin: 0 auto;
-  will-change: opacity, transform, filter; /* boosts smoothness on mobile */
+  will-change: opacity, transform, filter; 
   backface-visibility: hidden;
-  -webkit-transform: translateZ(0); /* forces GPU acceleration */
-}
-
-details,
-summary,
-.section {
-  transform: none !important;
-  backface-visibility: hidden;
-  -webkit-transform: translateZ(0);
+  -webkit-transform: translateZ(0); 
 }
 
 .section.visible {
