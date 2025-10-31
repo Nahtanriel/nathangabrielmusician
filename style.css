@@ -67,6 +67,7 @@ p {
   font-size: 1.1rem;
   margin-bottom: 1.5rem;
   max-width: 700px;
+  margin-inline: auto;
 }
 
 a {
@@ -386,18 +387,6 @@ button:focus, .btn:focus {
   text-align: center; /* Centers section titles and paragraphs nicely */
 }
 
-.music-section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-.music-section p {
-  font-size: 1.1rem;
-  margin-bottom: 3rem;
-  color: #ccc;
-  max-width: 700px; /* Prevents very wide text on large screens */
-  margin-inline: auto; /* Centers the paragraph */
-}
 
 .album-grid {
   display: grid;
@@ -522,17 +511,6 @@ button:focus, .btn:focus {
   background-color: #121212;
   color: #fff;
   text-align: center;
-}
-
-.video-section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-.video-section p {
-  color: #ccc;
-  margin-bottom: 2rem;
-  font-size: 1.1rem;
 }
 
 .video-container {
