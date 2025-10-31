@@ -309,9 +309,8 @@ document.addEventListener("DOMContentLoaded", () => {
   sections.forEach(section => observer.observe(section));
 });
 
-// === Fetch latest YouTube video dynamically ===
-// Replace YOUR_CHANNEL_ID below with your actual channel ID (UUNcVkpXSVFf0gGh_c3T_G-g)
-const channelId = "UUNcVkpXSVFf0gGh_c3T_G-g";
+
+const channelId = "UCNcVkpXSVFf0gGh_c3T_G-g";
 const feedUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`;
 
 async function loadLatestVideo() {
@@ -320,7 +319,6 @@ async function loadLatestVideo() {
     const response = await fetch(feedUrl);
     const xmlText = await response.text();
 
-    // Parse XML to extract latest video ID
     const parser = new DOMParser();
     const xml = parser.parseFromString(xmlText, "text/xml");
     const latestEntry = xml.querySelector("entry > id");
