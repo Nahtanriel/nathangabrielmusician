@@ -166,22 +166,18 @@ document.addEventListener("DOMContentLoaded", async () => {
     const date = latestPost.querySelector(".blog-date")?.innerText || "";
     const mdFile = latestPost.querySelector(".blog-content")?.getAttribute("data-file");
 
+    let imgSrc = latestPost.querySelector("img")?.getAttribute("src") || "images/default-blog.jpg";
+
     let previewText = "";
-    let imgSrc = "images/default-blog.jpg"; // fallback if no image found
 
     if (mdFile) {
       const mdResponse = await fetch(mdFile);
       const mdContent = await mdResponse.text();
 
-      const imgMatch = mdContent.match(/!\[[^\]]*\]\(([^)]+)\)/);
-      if (imgMatch && imgMatch[1]) {
-        imgSrc = imgMatch[1];
-      }
-
-
+      // Clean up markdown text for preview
       const cleanText = mdContent
         .replace(/!\[[^\]]*\]\([^)]+\)/g, "") 
-        .replace(/[#>*_\[\]\(\)`]/g, "") 
+        .replace(/[#>*_\[\]\(\)`]/g, "")      
         .trim();
 
       previewText = cleanText.slice(0, 250) + "...";
