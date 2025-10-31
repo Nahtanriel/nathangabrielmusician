@@ -174,7 +174,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       const mdResponse = await fetch(mdFile);
       const mdContent = await mdResponse.text();
 
-      // Clean up markdown text for preview
       const cleanText = mdContent
         .replace(/!\[[^\]]*\]\([^)]+\)/g, "") 
         .replace(/[#>*_\[\]\(\)`]/g, "")      
