@@ -1061,11 +1061,10 @@ body.scrolled .scroll-indicator {
 }
 
 .contact-section {
-  background: radial-gradient(circle at top left, #0a0a0a 40%, #000);
+  padding: 6rem 2rem;
+  background-color: #121212;
   color: #fff;
-  padding: 6rem 1.5rem;
   text-align: center;
-  border-top: 1px solid #222;
 }
 
 .contact-section h2 {
