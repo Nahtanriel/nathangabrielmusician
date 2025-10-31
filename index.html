@@ -165,30 +165,30 @@
 
 <script>
   async function loadLatestVideo() {
-    const apiKey = 'AIzaSyAXLHb2r3nmQt9VHA9x22dsk94BezHMla8'; 
+    const apiKey = 'YOUR_NEW_RESTRICTED_KEY_HERE';
     const channelId = 'UCNcVkpXSVFf0gGh_c3T_G-g';
-    const apiUrl = `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet,id&order=date&maxResults=5`;
+    const apiUrl = `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&channelId=${channelId}&part=snippet,id&order=date&maxResults=1`;
 
     try {
       const response = await fetch(apiUrl);
       const data = await response.json();
-      console.log(data); // <-- ADD THIS LINE
+      console.log(data);
 
       const videoItem = data.items.find(item => item.id.kind === "youtube#video");
 
       if (videoItem) {
         const videoId = videoItem.id.videoId;
         const embedUrl = `https://www.youtube.com/embed/${videoId}`;
-        document.getElementById('video-container').innerHTML = `
+        document.getElementById('latest-video').innerHTML = `
           <iframe width="780" height="360" src="${embedUrl}" frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen></iframe>`;
       } else {
-        document.getElementById('video-container').innerHTML = `<p>No videos found.</p>`;
+        document.getElementById('latest-video').innerHTML = `<p>No videos found.</p>`;
       }
     } catch (error) {
       console.error('Error fetching video:', error);
-      document.getElementById('video-container').innerHTML = `<p>Failed to load video.</p>`;
+      document.getElementById('latest-video').innerHTML = `<p>Failed to load video.</p>`;
     }
   }
 
