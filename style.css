@@ -922,6 +922,7 @@ body.scrolled .scroll-indicator {
   will-change: opacity, transform, filter; 
   backface-visibility: hidden;
   -webkit-transform: translateZ(0); 
+  border-radius: 12px;
 }
 
 .section.visible {
