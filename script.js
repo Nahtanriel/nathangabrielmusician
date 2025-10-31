@@ -86,11 +86,15 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll('.about-content').forEach(container => {
+  document.querySelectorAll('.about-content, .blog-content').forEach(container => {
     const file = container.getAttribute('data-file');
-    fetch(file)
+    if (!file) return;
+
+    const fullPath = file.startsWith('/') ? file : `/${file}`;
+
+    fetch(fullPath)
       .then(response => {
-        if (!response.ok) throw new Error(`Failed to fetch ${file}`);
+        if (!response.ok) throw new Error(`Failed to fetch ${fullPath}`);
         return response.text();
       })
       .then(text => {
@@ -102,7 +106,6 @@ document.addEventListener("DOMContentLoaded", () => {
       .catch(error => console.error('Error loading content:', error));
   });
 });
-
 
 document.addEventListener("DOMContentLoaded", () => {
   const scrollIndicator = document.querySelector(".scroll-indicator");
