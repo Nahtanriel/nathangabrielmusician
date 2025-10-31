@@ -550,10 +550,6 @@ button:focus, .btn:focus {
   transition: transform 0.3s ease;
 }
 
-.latest-post:hover {
-  transform: scale(1.02);
-}
-
 .latest-post-image {
   width: 100%;
   max-width: 400px;
