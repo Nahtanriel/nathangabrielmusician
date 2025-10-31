@@ -167,21 +167,31 @@ document.addEventListener("DOMContentLoaded", async () => {
     const mdFile = latestPost.querySelector(".blog-content")?.getAttribute("data-file");
 
     let previewText = "";
-    let imgSrc = "images/default-blog.jpg"; // fallback if no image found
+    let imgSrc = "images/default-blog.jpg"; // fallback
 
     if (mdFile) {
       const mdResponse = await fetch(mdFile);
       const mdContent = await mdResponse.text();
 
-      const imgMatch = mdContent.match(/!\[[^\]]*\]\(([^)]+)\)/);
-      if (imgMatch && imgMatch[1]) {
-        imgSrc = imgMatch[1];
+      const frontmatterMatch = mdContent.match(/^---\s*([\s\S]*?)\s*---/);
+      let content = mdContent;
+
+      if (frontmatterMatch) {
+        const yamlText = frontmatterMatch[1];
+        // Parse YAML manually (lightweight)
+        yamlText.split("\n").forEach(line => {
+          const [key, ...rest] = line.split(":");
+          const value = rest.join(":").trim().replace(/^"|"$/g, "");
+          if (key.trim() === "image") imgSrc = value;
+        });
+
+        // Remove frontmatter from content for preview text
+        content = mdContent.replace(frontmatterMatch[0], "").trim();
       }
 
-
-      const cleanText = mdContent
-        .replace(/!\[[^\]]*\]\([^)]+\)/g, "") 
-        .replace(/[#>*_\[\]\(\)`]/g, "") 
+      const cleanText = content
+        .replace(/!\[[^\]]*\]\([^)]+\)/g, "")
+        .replace(/[#>*_\[\]\(\)`]/g, "")
         .trim();
 
       previewText = cleanText.slice(0, 250) + "...";
