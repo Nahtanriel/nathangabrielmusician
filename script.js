@@ -311,7 +311,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 const channelId = "UCNcVkpXSVFf0gGh_c3T_G-g";
-const feedUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`;
+const feedUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(`https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`)}`;
 
 async function loadLatestVideo() {
   const container = document.getElementById("latest-video");
