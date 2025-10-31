@@ -155,7 +155,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     const parser = new DOMParser();
     const doc = parser.parseFromString(htmlText, "text/html");
 
-    const latestPost = doc.querySelector("section.fade-section details");
+    const allPosts = doc.querySelectorAll("section.fade-section details");
+    const latestPost = allPosts[allPosts.length - 1];
     if (!latestPost) {
       previewContainer.innerHTML = "<p>No blog posts found.</p>";
       return;
@@ -163,14 +164,27 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const title = latestPost.querySelector("h2")?.innerText || "Untitled";
     const date = latestPost.querySelector(".blog-date")?.innerText || "";
-    const imgSrc = latestPost.querySelector("img")?.getAttribute("src") || "images/default-blog.jpg";
     const mdFile = latestPost.querySelector(".blog-content")?.getAttribute("data-file");
 
     let previewText = "";
+    let imgSrc = "images/default-blog.jpg"; // fallback if no image found
+
     if (mdFile) {
       const mdResponse = await fetch(mdFile);
       const mdContent = await mdResponse.text();
-      previewText = mdContent.replace(/[#>*_\[\]\(\)`]/g, "").slice(0, 250) + "...";
+
+      const imgMatch = mdContent.match(/!\[[^\]]*\]\(([^)]+)\)/);
+      if (imgMatch && imgMatch[1]) {
+        imgSrc = imgMatch[1];
+      }
+
+
+      const cleanText = mdContent
+        .replace(/!\[[^\]]*\]\([^)]+\)/g, "") 
+        .replace(/[#>*_\[\]\(\)`]/g, "") 
+        .trim();
+
+      previewText = cleanText.slice(0, 250) + "...";
     }
 
     previewContainer.innerHTML = `
