@@ -147,7 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener("DOMContentLoaded", async () => {
   const previewContainer = document.getElementById("latest-blog-preview");
-  if (!previewContainer) return; 
+  if (!previewContainer) return;
 
   try {
     const response = await fetch("blog.html");
@@ -155,7 +155,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const parser = new DOMParser();
     const doc = parser.parseFromString(htmlText, "text/html");
 
-    const latestPost = doc.querySelector(".blog-post details");
+    const latestPost = doc.querySelector("section.fade-section details");
     if (!latestPost) {
       previewContainer.innerHTML = "<p>No blog posts found.</p>";
       return;
@@ -164,7 +164,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const title = latestPost.querySelector("h2")?.innerText || "Untitled";
     const date = latestPost.querySelector(".blog-date")?.innerText || "";
     const imgSrc = latestPost.querySelector("img")?.getAttribute("src") || "images/default-blog.jpg";
-    const mdFile = latestPost.querySelector(".about-content")?.getAttribute("data-file");
+    const mdFile = latestPost.querySelector(".blog-content")?.getAttribute("data-file");
 
     let previewText = "";
     if (mdFile) {
@@ -180,7 +180,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           <h3>${title}</h3>
           <p class="blog-date">${date}</p>
           <p class="blog-preview-text">${previewText}</p>
-          <a href="blog.html" class="btn">Read More</a>
+          <a href="blog.html#${latestPost.id}" class="btn">Read More</a>
         </div>
       </article>
     `;
@@ -189,6 +189,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     previewContainer.innerHTML = "<p>Failed to load latest post.</p>";
   }
 });
+
 
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll('details').forEach((detail) => {
