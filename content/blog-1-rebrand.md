@@ -1,13 +1,3 @@
----
-
-title: "Rebrand – A New Beginning"
-
-date: "2025-10-31"
-
-image: "images/blog-1-rebrand.jpg"
-
----
-
 This marks the beginning of a new creative era — Nahtanriel. After years of performing under my own name, I wanted to reshape my identity into something that better represents who I am now, without the restriction of having it be my personal name. It's a name that formed many years ago when playing video games. It is my first name backwards, with the last four letters of my last name combined (*Absolute genius level*) I have, since March 3rd, 2016, created and performed music as Nathan Gabriel. It's been a long time coming, and through the years I've battled with an identity issue. I wanted to start my musical venture with a mysterious, non-personal persona that encapsulated everything about my creative mind.
 
 Throughout the years, the pressures of life and health had pushed me towards building a career that I could comfortably make money following the music dream. In retrospect, I’m quite surprised how far I’ve come, doing things that I inherently said to myself that I wouldn’t do. It started with me wanting to become the greatest electric guitar player to ever live. And although that is a ridiculous, ego driven and moving goal post type of idea, it was something that anchored me to my creative self.

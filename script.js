@@ -162,40 +162,30 @@ document.addEventListener("DOMContentLoaded", async () => {
       return;
     }
 
+    const title = latestPost.querySelector("h2")?.innerText || "Untitled";
+    const date = latestPost.querySelector(".blog-date")?.innerText || "";
     const mdFile = latestPost.querySelector(".blog-content")?.getAttribute("data-file");
-    if (!mdFile) return;
 
-    const mdResponse = await fetch(mdFile);
-    const mdContent = await mdResponse.text();
+    let previewText = "";
+    let imgSrc = "images/default-blog.jpg"; // fallback if no image found
 
-    // --- Parse front matter (YAML style) ---
-    const frontMatterMatch = mdContent.match(/^---\s*([\s\S]*?)\s*---/);
-    let title = "Untitled";
-    let date = "";
-    let imgSrc = "images/default-blog.jpg";
-    let bodyContent = mdContent;
+    if (mdFile) {
+      const mdResponse = await fetch(mdFile);
+      const mdContent = await mdResponse.text();
 
-    if (frontMatterMatch) {
-      const frontMatter = frontMatterMatch[1];
+      const imgMatch = mdContent.match(/!\[[^\]]*\]\(([^)]+)\)/);
+      if (imgMatch && imgMatch[1]) {
+        imgSrc = imgMatch[1];
+      }
 
-      const titleMatch = frontMatter.match(/title:\s*["']?(.+?)["']?\s*$/m);
-      const dateMatch = frontMatter.match(/date:\s*["']?(.+?)["']?\s*$/m);
-      const imageMatch = frontMatter.match(/image:\s*["']?(.+?)["']?\s*$/m);
 
-      if (titleMatch) title = titleMatch[1];
-      if (dateMatch) date = dateMatch[1];
-      if (imageMatch) imgSrc = imageMatch[1];
+      const cleanText = mdContent
+        .replace(/!\[[^\]]*\]\([^)]+\)/g, "") 
+        .replace(/[#>*_\[\]\(\)`]/g, "") 
+        .trim();
 
-      // remove the front matter from the actual content
-      bodyContent = mdContent.replace(frontMatterMatch[0], "").trim();
+      previewText = cleanText.slice(0, 250) + "...";
     }
-
-    const cleanText = bodyContent
-      .replace(/!\[[^\]]*\]\([^)]+\)/g, "") // remove markdown images
-      .replace(/[#>*_\[\]\(\)`]/g, "") // remove markdown symbols
-      .trim();
-
-    const previewText = cleanText.slice(0, 250) + "...";
 
     previewContainer.innerHTML = `
       <article class="latest-post">
