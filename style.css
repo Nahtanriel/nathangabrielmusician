@@ -58,11 +58,12 @@ h1 {
 }
 
 h2 {
+  font-family: 'Reem Kufi', sans-serif;
   font-size: 2rem;
   color: var(--red);
 }
 
-p {
+p { 
   color: var(--text-sub);
   font-size: 1.1rem;
   margin-bottom: 1.5rem;
