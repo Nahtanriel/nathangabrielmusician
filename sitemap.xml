@@ -24,11 +24,4 @@
     <priority>0.80</priority>
   </url>
 
-  <!-- Blog Page -->
-  <url>
-    <loc>https://nahtanriel.com/blog.html</loc>
-    <lastmod>2025-10-30</lastmod>
-    <priority>0.90</priority>
-  </url>
-
 </urlset>
