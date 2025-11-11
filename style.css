@@ -356,8 +356,7 @@ button:focus, .btn:focus {
 }
 
 .about-hero,
-.media-hero,
-.blog-hero {
+.media-hero {
   position: relative;
   width: 100%;
   height: 100vh;
@@ -532,61 +531,6 @@ button:focus, .btn:focus {
   border-radius: 0.5rem;
 }
 
-.latest-blog-preview {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.latest-post {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 30px;
-  background: rgba(255, 255, 255, 0.03);
-  padding: 30px;
-  border-radius: 12px;
-  transition: transform 0.3s ease;
-}
-
-.latest-post-image {
-  width: 100%;
-  max-width: 400px;
-  border-radius: 10px;
-  object-fit: cover;
-  box-shadow: 0 0 20px rgba(255, 0, 0, 0.1);
-}
-
-.latest-post-content {
-  max-width: 500px;
-  text-align: left;
-}
-
-.latest-post-content h3 {
-  font-size: 1.8rem;
-  color: var(--accent-color, #ff4444);
-  margin-bottom: 10px;
-}
-
-.latest-post-content .blog-date {
-  font-size: 0.9rem;
-  color: #aaa;
-  margin-bottom: 10px;
-}
-
-.blog-preview-text {
-  color: #ccc;
-  line-height: 1.6;
-  margin-bottom: 15px;
-}
-
-.latest-post .btn {
-  display: inline-block;
-  margin-top: 10px;
-}
-
 .about-content {
   text-align: left;
   margin: 1rem auto 0;
@@ -609,48 +553,6 @@ button:focus, .btn:focus {
 
 .about-content p {
   text-align: center;
-}
-
-.blog-content {
-  text-align: left;
-  margin: 1rem auto 0;
-  line-height: 1.7;
-  max-width: 700px;
-  opacity: 0;
-  transform: translateY(30px);
-  filter: blur(6px);
-  transition: 
-    opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 1.2s cubic-bezier(0.22, 1, 0.36, 1),
-    filter 1.2s ease;
-}
-
-.blog-image {
-  display: block;
-  width: 100%;
-  max-width: 800px;     
-  margin: 1.5rem auto;  
-  border-radius: 10px;  
-  border: 1px solid #222;
-  object-fit: cover;
-  height: auto;         
-}
-
-.blog-content.loaded {
-  opacity: 1;
-  transform: translateY(0);
-  filter: blur(0);
-}
-
-.blog-content p {
-  text-align: center;
-}
-
-.blog-date {
-  font-weight: normal;
-  font-size: 0.9em;
-  color: #aaa;
-  margin: 0;
 }
 
 .video-gallery {
