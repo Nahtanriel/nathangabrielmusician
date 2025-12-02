@@ -5,21 +5,21 @@
 
   <!-- Homepage -->
   <url>
-    <loc>https://nahtanriel.com/index.html</loc>
+    <loc>https://nahtanriel.com/</loc>
     <lastmod>2025-12-02</lastmod>
     <priority>1.00</priority>
   </url>
 
   <!-- Media Page -->
   <url>
-    <loc>https://nahtanriel.com/media.html</loc>
+    <loc>https://nahtanriel.com/media/</loc>
     <lastmod>2025-12-02</lastmod>
     <priority>0.85</priority>
   </url>
 
   <!-- About Page -->
   <url>
-    <loc>https://nahtanriel.com/about.html</loc>
+    <loc>https://nahtanriel.com/about/</loc>
     <lastmod>2025-12-02</lastmod>
     <priority>0.80</priority>
   </url>
