@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   for (let i = 1; i <= imageCount; i++) {
     const img = document.createElement("img");
-    img.src = `images/${folder}/${folder}${i}.jpg`;
+    img.src = `/images/${folder}/${folder}${i}.jpg`;
     img.alt = `${folder} ${i}`;
     img.classList.add("slider-image");
     heroBg.appendChild(img);
