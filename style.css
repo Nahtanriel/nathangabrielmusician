@@ -381,19 +381,63 @@ button:focus, .btn:focus {
 }
 
 .music-section {
-  padding: 6rem 2rem;
-  background-color: #0d0d0d; /* Matches dark theme */
+  background-color: #0d0d0d; 
   color: #fff;
-  text-align: center; /* Centers section titles and paragraphs nicely */
+  text-align: center; 
 }
 
+.testimonials-section {
+  padding: 4rem 2rem;
+  background-color: #111;
+  color: #fff;
+  text-align: center;
+  position: relative;
+}
+
+.testimonial-fade-wrapper {
+  position: relative;
+  max-width: 500px;
+  margin: 1rem auto 0;
+  height: 250px; 
+}
+
+.testimonial-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+  padding: 2rem;
+  border-radius: 8px;
+  font-style: italic;
+}
+
+.testimonial-card.active {
+  opacity: 1;
+   display: block;
+}
+
+.testimonial-card span {
+  display: block;
+  margin-top: 0.5rem;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.testimonial-card span small {
+  display: block;
+  font-size: 0.75rem;
+  color: #aaa;
+  margin-top: 0.25rem;
+}
 
 .album-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
   margin-top: 3rem;
-  justify-items: center; /* Keeps cards aligned in the center of their grid cells */
+  justify-items: center; 
 }
 
 .album-card {
@@ -405,7 +449,7 @@ button:focus, .btn:focus {
   position: relative;
   overflow: hidden;
   border-radius: 10px;
-  border: 1px solid rgba(255,255,255,0.05); /* subtle border for depth */
+  border: 1px solid rgba(255,255,255,0.05); 
 }
 
 .album-card:hover {
@@ -506,6 +550,53 @@ button:focus, .btn:focus {
   padding: 0.5rem 1rem;
 }
 
+.about-section, .style-section, .highlights-section {
+  padding: 4rem 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  color: #fff;
+  text-align: center;
+}
+
+.about-section h2, .style-section h3, .highlights-section h3 {
+  margin-bottom: 1rem;
+  color: #f2f2f2;
+}
+
+.about-section p, .style-section p, .highlights-section ul {
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  color: #ddd;
+}
+
+.highlights-section ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  text-align: left;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.photo-card {
+  width: 100%;
+  aspect-ratio: 4 / 3; 
+  overflow: hidden;
+  border-radius: 8px;
+  position: relative;
+}
+
+.photo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  object-position: center;
+  display: block;
+}
+
 .video-section {
   padding: 6rem 2rem;
   background-color: #121212;
@@ -518,7 +609,7 @@ button:focus, .btn:focus {
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
-  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  padding-bottom: 56.25%; 
   height: 0;
 }
 
@@ -529,37 +620,6 @@ button:focus, .btn:focus {
   width: 100%;
   height: 100%;
   border-radius: 0.5rem;
-}
-
-.about-content {
-  text-align: left;
-  margin: 1rem auto 0;
-  line-height: 1.7;
-  max-width: 700px;
-  opacity: 0;
-  transform: translateY(30px);
-  filter: blur(6px);
-  transition: 
-    opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 1.2s cubic-bezier(0.22, 1, 0.36, 1),
-    filter 1.2s ease;
-}
-
-.about-content.loaded {
-  opacity: 1;
-  transform: translateY(0);
-  filter: blur(0);
-}
-
-.about-content p {
-  text-align: center;
-}
-
-.video-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
-  margin-top: 4rem;
 }
 
 .video-category {
@@ -585,7 +645,7 @@ button:focus, .btn:focus {
   scroll-behavior: smooth;
   gap: 1.5rem;
   padding: 1rem 0;
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: none; 
 }
 
 .video-scroll-wrapper {
@@ -652,7 +712,7 @@ button:focus, .btn:focus {
 .video-card {
   flex: 0 0 300px;
   position: relative;
-  border-radius: 12px;
+  border-radius: 5px;
   overflow: hidden;
   background: #000;
   cursor: pointer;
@@ -661,10 +721,9 @@ button:focus, .btn:focus {
 
 .video-card img {
   width: 100%;
-  height: auto;
-  display: block;
-  transition: transform 0.3s ease, filter 0.3s ease;
-  border-radius: 8px;
+  height: 170px; 
+  object-fit: cover; 
+  display: block; 
 }
 
 .video-card:hover img {
@@ -804,13 +863,12 @@ body.scrolled .scroll-indicator {
 #main-content {
   position: relative;
   z-index: 2;
-  margin-top: 5rem;
   background: var(--color-bg);
 }
 
 .section {
   position: relative;
-  padding: 6rem 2rem;
+  padding: 3rem 2rem;
   background: var(--color-bg-alt);
   opacity: 0; 
   transform: translateY(80px) scale(0.98);
@@ -961,7 +1019,6 @@ body.scrolled .scroll-indicator {
 }
 
 .contact-section {
-  padding: 6rem 2rem;
   background-color: #121212;
   color: #fff;
   text-align: center;

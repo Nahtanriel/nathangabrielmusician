@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const folder = hero.getAttribute("data-slideshow");
   const heroBg = hero.querySelector(".hero-bg");
 
-  const imageCounts = { index: 6, about: 18, media: 13, blog: 13 };
+  const imageCounts = { index: 5, about: 5, media: 5, contact: 5, };
   const imageCount = imageCounts[folder] || 10;
   const images = [];
 
@@ -145,61 +145,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-document.addEventListener("DOMContentLoaded", async () => {
-  const previewContainer = document.getElementById("latest-blog-preview");
-  if (!previewContainer) return;
-
-  try {
-    const response = await fetch("blog.html");
-    const htmlText = await response.text();
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(htmlText, "text/html");
-
-    const allPosts = doc.querySelectorAll("section.fade-section details");
-    const latestPost = allPosts[allPosts.length - 1];
-    if (!latestPost) {
-      previewContainer.innerHTML = "<p>No blog posts found.</p>";
-      return;
-    }
-
-    const title = latestPost.querySelector("h2")?.innerText || "Untitled";
-    const date = latestPost.querySelector(".blog-date")?.innerText || "";
-    const mdFile = latestPost.querySelector(".blog-content")?.getAttribute("data-file");
-
-    let imgSrc = latestPost.querySelector("img")?.getAttribute("src") || "images/default-blog.jpg";
-
-    let previewText = "";
-
-    if (mdFile) {
-      const mdResponse = await fetch(mdFile);
-      const mdContent = await mdResponse.text();
-
-      const cleanText = mdContent
-        .replace(/!\[[^\]]*\]\([^)]+\)/g, "") 
-        .replace(/[#>*_\[\]\(\)`]/g, "")      
-        .trim();
-
-      previewText = cleanText.slice(0, 250) + "...";
-    }
-
-    previewContainer.innerHTML = `
-      <article class="latest-post">
-        <img src="${imgSrc}" alt="${title}" class="latest-post-image">
-        <div class="latest-post-content">
-          <h3>${title}</h3>
-          <p class="blog-date">${date}</p>
-          <p class="blog-preview-text">${previewText}</p>
-          <a href="blog.html#${latestPost.id}" class="btn">Read More</a>
-        </div>
-      </article>
-    `;
-  } catch (err) {
-    console.error("Error loading latest blog post:", err);
-    previewContainer.innerHTML = "<p>Failed to load latest post.</p>";
-  }
-});
-
-
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll('details').forEach((detail) => {
     detail.addEventListener('toggle', function () {
@@ -278,6 +223,26 @@ window.addEventListener('scroll', () => {
   }
 
   lastScrollY = currentScrollY;
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const testimonials = document.querySelectorAll(".testimonial-card");
+  let current = 0;
+
+  const showTestimonial = (index) => {
+    testimonials.forEach((t, i) => {
+      t.classList.toggle("active", i === index);
+    });
+  };
+
+  // Auto-rotate every 5 seconds
+  setInterval(() => {
+    current = (current + 1) % testimonials.length;
+    showTestimonial(current);
+  }, 5000);
+
+  // Show first testimonial on load
+  showTestimonial(current);
 });
 
 document.querySelectorAll("details").forEach((detail) => {
