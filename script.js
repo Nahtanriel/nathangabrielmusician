@@ -160,6 +160,65 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
+  const wrapper = document.querySelector(".testimonial-fade-wrapper");
+  const cards = Array.from(wrapper.querySelectorAll(".testimonial-card"));
+  let currentIndex = 0;
+
+  const prevBtn = document.createElement("button");
+  prevBtn.className = "scroll-btn left testimonial-prev";
+  prevBtn.innerHTML = "&#8249;";
+  const nextBtn = document.createElement("button");
+  nextBtn.className = "scroll-btn right testimonial-next";
+  nextBtn.innerHTML = "&#8250;";
+
+  wrapper.appendChild(prevBtn);
+  wrapper.appendChild(nextBtn);
+
+  function showCard(index) {
+    cards.forEach((card, i) => {
+      card.classList.toggle("active", i === index);
+    });
+  }
+
+  function nextCard() {
+    currentIndex = (currentIndex + 1) % cards.length;
+    showCard(currentIndex);
+  }
+
+  function prevCard() {
+    currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+    showCard(currentIndex);
+  }
+
+  prevBtn.addEventListener("click", prevCard);
+  nextBtn.addEventListener("click", nextCard);
+
+  let startX = 0;
+  wrapper.addEventListener("touchstart", e => {
+    startX = e.touches[0].clientX;
+  });
+
+  wrapper.addEventListener("touchend", e => {
+    const endX = e.changedTouches[0].clientX;
+    if (endX - startX > 50) prevCard();
+    else if (startX - endX > 50) nextCard();
+  });
+
+  function updateArrowVisibility() {
+    const isDesktop = window.matchMedia("(min-width: 601px)").matches;
+    prevBtn.style.opacity = isDesktop ? "1" : "0";
+    nextBtn.style.opacity = isDesktop ? "1" : "0";
+    prevBtn.style.pointerEvents = isDesktop ? "auto" : "none";
+    nextBtn.style.pointerEvents = isDesktop ? "auto" : "none";
+  }
+
+  window.addEventListener("resize", updateArrowVisibility);
+  updateArrowVisibility();
+
+  showCard(currentIndex);
+});
+
+document.addEventListener("DOMContentLoaded", () => {
   const lightbox = document.getElementById("video-lightbox");
   const iframe = document.getElementById("lightbox-iframe");
   const closeBtn = document.querySelector(".close-lightbox");
@@ -223,41 +282,6 @@ window.addEventListener('scroll', () => {
   }
 
   lastScrollY = currentScrollY;
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  const testimonials = document.querySelectorAll(".testimonial-card");
-  let current = 0;
-
-  const showTestimonial = (index) => {
-    testimonials.forEach((t, i) => {
-      t.classList.toggle("active", i === index);
-    });
-  };
-
-  // Auto-rotate every 5 seconds
-  setInterval(() => {
-    current = (current + 1) % testimonials.length;
-    showTestimonial(current);
-  }, 5000);
-
-  // Show first testimonial on load
-  showTestimonial(current);
-});
-
-document.querySelectorAll("details").forEach((detail) => {
-  detail.addEventListener("toggle", function () {
-    if (this.open) {
-      document.querySelectorAll("details").forEach((other) => {
-        if (other !== this) other.open = false;
-      });
-
-      this.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
-    }
-  });
 });
 
 document.addEventListener("DOMContentLoaded", () => {

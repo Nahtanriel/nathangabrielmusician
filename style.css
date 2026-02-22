@@ -392,30 +392,44 @@ button:focus, .btn:focus {
   color: #fff;
   text-align: center;
   position: relative;
+  overflow: hidden;
 }
 
 .testimonial-fade-wrapper {
   position: relative;
-  max-width: 500px;
+  max-width: 600px;
   margin: 1rem auto 0;
-  height: 250px; 
+  min-height: 150px;
 }
 
 .testimonial-card {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
   opacity: 0;
-  transition: opacity 0.8s ease-in-out;
+  visibility: hidden;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  transition: opacity 0.6s ease;
   padding: 2rem;
   border-radius: 8px;
-  font-style: italic;
+  font-style: normal;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.testimonial-card::before {
+  content: "“";
+  font-size: 3rem;
+  color: #444;
+  position: absolute;
+  top: 10px;
+  left: 20px;
 }
 
 .testimonial-card.active {
   opacity: 1;
-   display: block;
+  visibility: visible;
+  position: relative;
 }
 
 .testimonial-card span {
@@ -430,6 +444,14 @@ button:focus, .btn:focus {
   font-size: 0.75rem;
   color: #aaa;
   margin-top: 0.25rem;
+}
+
+@media (max-width: 600px) {
+  .testimonial-card {
+    padding: 1.5rem 1.2rem;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
 }
 
 .album-grid {
@@ -670,7 +692,7 @@ button:focus, .btn:focus {
   transform: translateY(-50%);
   background: none;
   border: none;
-  color: #e63946; /* red accent */
+  color: #e63946; 
   font-size: 1.8rem;
   cursor: pointer;
   z-index: 5;
