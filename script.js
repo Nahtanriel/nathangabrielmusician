@@ -203,19 +203,35 @@ document.addEventListener("DOMContentLoaded", () => {
     if (endX - startX > 50) prevCard();
     else if (startX - endX > 50) nextCard();
   });
+});
 
-  function updateArrowVisibility() {
-    const isDesktop = window.matchMedia("(min-width: 601px)").matches;
-    prevBtn.style.opacity = isDesktop ? "1" : "0";
-    nextBtn.style.opacity = isDesktop ? "1" : "0";
-    prevBtn.style.pointerEvents = isDesktop ? "auto" : "none";
-    nextBtn.style.pointerEvents = isDesktop ? "auto" : "none";
-  }
+document.addEventListener("DOMContentLoaded", () => {
+  const photoGrid = document.querySelector(".photo-grid");
+  const lightbox = document.getElementById("image-lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  const closeBtn = document.querySelector(".close-lightbox");
 
-  window.addEventListener("resize", updateArrowVisibility);
-  updateArrowVisibility();
+  document.querySelectorAll(".photo-card img").forEach(img => {
+    img.addEventListener("click", () => {
+      lightboxImg.src = img.src;
+      lightbox.classList.add("active");
+      document.body.style.overflow = "hidden";
+    });
+  });
 
-  showCard(currentIndex);
+  closeBtn.addEventListener("click", () => {
+    lightbox.classList.remove("active");
+    lightboxImg.src = "";
+    document.body.style.overflow = "";
+  });
+
+  lightbox.addEventListener("click", e => {
+    if (e.target === lightbox) {
+      lightbox.classList.remove("active");
+      lightboxImg.src = "";
+      document.body.style.overflow = "";
+    }
+  });
 });
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -255,33 +271,6 @@ document.addEventListener("DOMContentLoaded", () => {
       scrollContainer.scrollLeft += e.deltaY * 0.6; 
     });
   });
-});
-
-document.querySelectorAll(".video-scroll-wrapper").forEach(wrapper => {
-  const scroll = wrapper.querySelector(".video-scroll");
-  const left = wrapper.querySelector(".scroll-btn.left");
-  const right = wrapper.querySelector(".scroll-btn.right");
-
-  left.addEventListener("click", () => (scroll.scrollLeft -= 350));
-  right.addEventListener("click", () => (scroll.scrollLeft += 350));
-});
-
-let lastScrollY = window.scrollY;
-const navbar = document.querySelector('.navbar');
-
-window.addEventListener('scroll', () => {
-  const currentScrollY = window.scrollY;
-
-  if (Math.abs(currentScrollY - lastScrollY) > 5) {
-    if (currentScrollY > lastScrollY && currentScrollY > 100) {
-
-      navbar.classList.add('hide');
-    } else {
-      navbar.classList.remove('hide');
-    }
-  }
-
-  lastScrollY = currentScrollY;
 });
 
 document.addEventListener("DOMContentLoaded", () => {

@@ -407,8 +407,6 @@ button:focus, .btn:focus {
   visibility: hidden;
   position: absolute;
   width: 100%;
-  left: 0;
-  top: 0;
   transition: opacity 0.6s ease;
   padding: 2rem;
   border-radius: 8px;
@@ -444,6 +442,15 @@ button:focus, .btn:focus {
   font-size: 0.75rem;
   color: #aaa;
   margin-top: 0.25rem;
+}
+
+.testimonial-fade-wrapper .scroll-btn {
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.2s ease;
+}
+
+.testimonial-fade-wrapper:hover .scroll-btn {
+  pointer-events: auto;
 }
 
 @media (max-width: 600px) {
@@ -516,7 +523,7 @@ button:focus, .btn:focus {
 
 .album-cover:hover .album-overlay {
   opacity: 1;
-  visibility: visible; /* now clickable */
+  visibility: visible;
   pointer-events: auto;
 }
 
@@ -572,7 +579,7 @@ button:focus, .btn:focus {
   padding: 0.5rem 1rem;
 }
 
-.about-section, .style-section, .highlights-section {
+.about-section, .highlights-section {
   padding: 4rem 2rem;
   max-width: 900px;
   margin: 0 auto;
@@ -580,12 +587,12 @@ button:focus, .btn:focus {
   text-align: center;
 }
 
-.about-section h2, .style-section h3, .highlights-section h3 {
+.about-section h2, .highlights-section h3 {
   margin-bottom: 1rem;
   color: #f2f2f2;
 }
 
-.about-section p, .style-section p, .highlights-section ul {
+.about-section p, .highlights-section ul {
   margin-bottom: 1.5rem;
   line-height: 1.6;
   color: #ddd;
@@ -605,7 +612,7 @@ button:focus, .btn:focus {
 
 .photo-card {
   width: 100%;
-  aspect-ratio: 4 / 3; 
+  aspect-ratio: 4 / 3;
   overflow: hidden;
   border-radius: 8px;
   position: relative;
@@ -614,34 +621,51 @@ button:focus, .btn:focus {
 .photo-card img {
   width: 100%;
   height: 100%;
-  object-fit: cover; 
+  object-fit: cover;
   object-position: center;
   display: block;
 }
 
+.lightbox {
+  display: none;
+  position: fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.lightbox.active { display: flex; }
+.lightbox img { max-width: 90%; max-height: 90%; border-radius: 12px; 
+
+}
+
+@media (max-width: 600px) {
+  .photo-grid {
+    display: flex;
+    overflow-x: auto;
+    gap: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .photo-card {
+    flex: 0 0 80%;
+    margin: 0 0.5rem;
+    cursor: pointer;
+  }
+
+  .scroll-btn.left { left: 0.5rem; }
+  .scroll-btn.right { right: 0.5rem; }
+}
+
 .video-section {
-  padding: 6rem 2rem;
-  background-color: #121212;
+  padding: 4rem 2rem;
+  background-color: #111;
   color: #fff;
   text-align: center;
-}
-
-.video-container {
   position: relative;
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-  padding-bottom: 56.25%; 
-  height: 0;
-}
-
-.video-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 0.5rem;
+  overflow: hidden;
 }
 
 .video-category {
@@ -667,7 +691,6 @@ button:focus, .btn:focus {
   scroll-behavior: smooth;
   gap: 1.5rem;
   padding: 1rem 0;
-  scrollbar-width: none; 
 }
 
 .video-scroll-wrapper {
@@ -675,11 +698,6 @@ button:focus, .btn:focus {
   display: flex;
   align-items: center;
 }
-
-.video-scroll::-webkit-scrollbar {
-  display: none;
-}
-
 
 .video-scroll::-webkit-scrollbar-thumb {
   background: #333;
@@ -696,16 +714,12 @@ button:focus, .btn:focus {
   font-size: 1.8rem;
   cursor: pointer;
   z-index: 5;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease, transform 0.2s ease;
+  opacity: 1;
 }
 
 .scroll-btn:hover {
-  opacity: 1;
   transform: translateY(-50%) scale(1.1);
 }
-
 
 .scroll-btn.left {
   left: -1rem;
@@ -717,11 +731,9 @@ button:focus, .btn:focus {
 
 @media (hover: none) and (pointer: coarse) {
   .scroll-btn {
-    opacity: 0.9;
     pointer-events: auto;
   }
 }
-
 
 .scroll-btn:focus {
   outline: none;
@@ -758,7 +770,6 @@ button:focus, .btn:focus {
 }
 
 .video-scroll-wrapper:hover .scroll-btn {
-  opacity: 0.9;
   pointer-events: auto;
 }
 
@@ -767,7 +778,6 @@ display: none;
 }
 
 .video-card:hover .play-button {
-  opacity: 1;
   text-shadow: 0 0 15px #b31217;
 }
 
@@ -893,12 +903,12 @@ body.scrolled .scroll-indicator {
   padding: 3rem 2rem;
   background: var(--color-bg-alt);
   opacity: 0; 
-  transform: translateY(80px) scale(0.98);
+ transform: translateY(100px) scale(0.97);
   filter: blur(8px);
-  transition:
-    opacity 1.5s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 1.5s cubic-bezier(0.22, 1, 0.36, 1),
-    filter 1.2s ease;
+transition:
+  opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+  transform 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+  filter 1s ease;
   text-align: center;
   max-width: 900px;
   margin: 0 auto;
