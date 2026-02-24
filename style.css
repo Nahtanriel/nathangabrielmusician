@@ -631,6 +631,8 @@ button:focus, .btn:focus {
   overflow: hidden;
   border-radius: 8px;
   position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
 .photo-card img {
@@ -639,6 +641,16 @@ button:focus, .btn:focus {
   object-fit: cover;
   object-position: center;
   display: block;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.photo-card:hover {
+  transform: scale(1.05);
+}
+
+.photo-card:hover img {
+  transform: scale(1.03);
+  filter: brightness(1.05);
 }
 
 .lightbox {
