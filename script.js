@@ -315,5 +315,12 @@
     initImageLightbox();
     initVideoLightbox();
     initSectionObserver();
+
+    // register service worker to give assets long-lived cache on repeat visits
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js')
+        .then(reg => console.log('service worker registered', reg.scope))
+        .catch(err => console.warn('SW registration failed', err));
+    }
   });
 })();
