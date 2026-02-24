@@ -42,7 +42,6 @@
     sections.forEach(section => observer.observe(section));
   };
 
-  // utilities for locking/unlocking page scroll when lightbox is open
   let storedScrollY = 0;
   const lockScroll = () => {
     storedScrollY = window.scrollY;
@@ -55,7 +54,6 @@
     window.scrollTo(0, storedScrollY);
   };
 
-  // common behaviour applied to each video card (either open lightbox or load into inline player)
   const addVideoCardBehavior = (card, lightboxIframe, lightbox) => {
     card.setAttribute('tabindex', '0');
     card.setAttribute('role', 'button');
@@ -192,19 +190,21 @@
 
     document.querySelectorAll('.photo-card img').forEach(img => {
       img.addEventListener('click', () => {
-        lightboxImg.src = img.src;
+       
+        const full = img.dataset.full || img.src;
+        lightboxImg.src = full;
         lightbox.classList.add('active');
-        lockScroll();                    // match video behaviour
+        lockScroll();                   
       });
     });
 
-    // prevent wheel from scrolling the page while lightbox open
+
     lightbox.addEventListener('wheel', e => e.preventDefault(), { passive: false });
 
     const close = () => {
       lightbox.classList.remove('active');
       lightboxImg.src = '';
-      unlockScroll();                  // restore original scroll position
+      unlockScroll();              
     };
 
     closeBtn.setAttribute('role', 'button');
@@ -212,8 +212,6 @@
     closeBtn.addEventListener('click', close);
 
     lightbox.addEventListener('click', e => { if (e.target === lightbox) close(); });
-
-    // allow Esc key to dismiss
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape' && lightbox.classList.contains('active')) {
         close();
@@ -221,7 +219,6 @@
     });
   };
 
-  // when clicked the card will open a lightbox or update the inline player if available
   const initVideoLightbox = () => {
     const lightbox = document.getElementById('video-lightbox');
     const iframe = document.getElementById('lightbox-iframe');
@@ -232,7 +229,6 @@
     const cards = document.querySelectorAll('.video-card');
     cards.forEach(card => addVideoCardBehavior(card, iframe, lightbox));
 
-    // prevent background scroll when wheel inside lightbox
     lightbox.addEventListener('wheel', e => e.preventDefault(), { passive: false });
 
     const close = () => {
@@ -272,7 +268,6 @@
 
   const initNavLinks = () => {
     document.querySelectorAll('.nav-links a').forEach(link => {
-      // ensure accessibility for current page
       if (link.classList.contains('active')) {
         link.setAttribute('aria-current', 'page');
       }
@@ -296,7 +291,6 @@
     ['index', 'about', 'media', 'contact'].forEach(f => initSlide(f));
     loadMarkdown();
     initScrollIndicator();
-    // smooth scroll for fixed book button (useful when on contact page)
     document.querySelectorAll('a.fixed-book-btn').forEach(btn => {
       btn.addEventListener('click', e => {
         const href = btn.getAttribute('href');
@@ -316,7 +310,6 @@
     initVideoLightbox();
     initSectionObserver();
 
-    // register service worker to give assets long-lived cache on repeat visits
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/sw.js')
         .then(reg => console.log('service worker registered', reg.scope))
