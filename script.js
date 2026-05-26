@@ -120,7 +120,14 @@
   };
 
   const loadMarkdown = () => {
-    document.querySelectorAll('.about-content, .blog-content').forEach(container => {
+    const containers = document.querySelectorAll('.about-content, .blog-content');
+    if (!containers.length) return;
+    if (typeof marked === 'undefined') {
+      console.warn('Marked library not loaded; markdown sections skipped.');
+      return;
+    }
+
+    containers.forEach(container => {
       const file = container.dataset.file;
       if (!file) return;
       const fullPath = file.startsWith('/') ? file : `/${file}`;
@@ -134,6 +141,14 @@
           requestAnimationFrame(() => container.classList.add('loaded'));
         })
         .catch(e => console.error('Error loading content:', e));
+    });
+  };
+
+  const enforceSecureExternalLinks = () => {
+    document.querySelectorAll('a[target="_blank"]').forEach(link => {
+      if (!link.hasAttribute('rel')) {
+        link.setAttribute('rel', 'noopener noreferrer');
+      }
     });
   };
 
@@ -289,6 +304,7 @@
     }
 
     ['index', 'about', 'media', 'contact'].forEach(f => initSlide(f));
+    enforceSecureExternalLinks();
     loadMarkdown();
     initScrollIndicator();
     document.querySelectorAll('a.fixed-book-btn').forEach(btn => {
