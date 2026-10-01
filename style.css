@@ -1194,6 +1194,16 @@ transition:
   color: #ccc;
 }
 
+.contact-section .booking-status {
+  max-width: 720px;
+  margin: 1.5rem auto 2.5rem;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--blue);
+  border-radius: 6px;
+  background: rgba(59, 130, 246, 0.08);
+  color: #fff;
+}
+
 .contact-form {
   max-width: 600px;
   margin: 0 auto;
